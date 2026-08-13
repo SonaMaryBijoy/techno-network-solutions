@@ -167,7 +167,7 @@ export default function LocationsSection({ onOpenQuote }) {
               <div className="font-sans">
                 <h2 className="text-3xl sm:text-5xl lg:text-6xl font-display font-black text-slate-950 uppercase tracking-tight leading-[1.05] mb-5 font-sans">
                   <div>WE SPREAD ACROSS</div>
-                  <div className="text-[#12ACE0]">INDIA & PAN-ASIA.</div>
+                  <div className="text-[#12ACE0]">INDIA & PAN-ASIA</div>
                 </h2>
                 
                 <p className="text-slate-600 text-base sm:text-lg leading-relaxed font-medium mb-6 max-w-xl font-sans">

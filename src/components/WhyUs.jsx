@@ -93,7 +93,7 @@ export default function WhyUs() {
             {/* Section Header wrapped in AnimatedContent */}
             <AnimatedContent distance={60} direction="vertical" duration={0.8} ease="power3.out">
               <div className="font-sans">
-                {/* Executive Super Massive 3D DepthText Heading with White & Logo Sky Blue Text Colors */}
+                {/* Executive Super Massive 3D DepthText Heading without full stops */}
                 <div className="mb-4 flex flex-wrap items-center gap-x-3 gap-y-1 font-sans">
                   <DepthText
                     text="WHAT ACTUALLY HAPPENS ON"
@@ -113,7 +113,7 @@ export default function WhyUs() {
                     shadow
                   />
                   <DepthText
-                    text="YOUR SITE."
+                    text="YOUR SITE"
                     layers={36}
                     depth={2.6}
                     faceColor="#12ACE0"
