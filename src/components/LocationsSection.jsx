@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import TiltedCard from './TiltedCard';
 import AnimatedContent from './AnimatedContent';
-import { MapPin, Activity, Star } from 'lucide-react';
+import { MapPin, Activity } from 'lucide-react';
 
 export default function LocationsSection({ onOpenQuote }) {
   const hubs = [
@@ -110,10 +110,10 @@ export default function LocationsSection({ onOpenQuote }) {
                         <line x1="410" y1="680" x2="475" y2="550" stroke="#12ACE0" strokeWidth="2" strokeDasharray="4 2" className="animate-pulse" />
                         <line x1="410" y1="680" x2="560" y2="690" stroke="#12ACE0" strokeWidth="2" strokeDasharray="4 2" className="animate-pulse" />
 
-                        {/* Precise Bengaluru HQ Golden Core Pin */}
+                        {/* Precise Bengaluru HQ Core Pin */}
                         <circle cx="410" cy="680" r="18" className="stroke-[#12ACE0] fill-none stroke-[2.5] animate-ping" />
                         <circle cx="410" cy="680" r="9" className="fill-[#12ACE0]" />
-                        <circle cx="410" cy="680" r="4" className="fill-amber-300" />
+                        <circle cx="410" cy="680" r="4" className="fill-white" />
                       </svg>
                     </div>
 
@@ -133,21 +133,17 @@ export default function LocationsSection({ onOpenQuote }) {
                             <span className={`absolute -inset-2 rounded-full ${isSelected ? 'bg-cyan-500/40 animate-ping' : 'bg-[#12ACE0]/20 group-hover/pin:animate-ping'}`} />
                             
                             {/* Marker Icon Pin */}
-                            <span className={`relative flex items-center justify-center ${h.isHQ ? 'w-8 h-8 sm:w-10 sm:h-10' : 'w-6 h-6 sm:w-8 sm:h-8'} rounded-full border-2 shadow-md transition-all ${
-                              h.isHQ
-                                ? 'bg-slate-950 border-[#12ACE0] text-[#12ACE0] scale-110 shadow-cyan-500/60'
-                                : isSelected
+                            <span className={`relative flex items-center justify-center w-6 h-6 sm:w-8 sm:h-8 rounded-full border-2 shadow-md transition-all ${
+                              isSelected
                                 ? 'bg-[#12ACE0] border-white text-white scale-110 shadow-cyan-500/50'
                                 : 'bg-white border-cyan-400 text-[#12ACE0] hover:bg-cyan-50'
                             }`}>
-                              {h.isHQ ? <Star className="w-4 h-4 sm:w-5 sm:h-5 text-amber-400 fill-amber-400" /> : <MapPin className="w-3 h-3 sm:w-4 sm:h-4" />}
+                              <MapPin className="w-3 h-3 sm:w-4 sm:h-4" />
                             </span>
 
                             {/* City Name Badge */}
                             <span className={`absolute top-full left-1/2 -translate-x-1/2 mt-1.5 whitespace-nowrap px-2.5 py-1 rounded-lg text-[10px] sm:text-xs font-mono font-extrabold shadow-md transition-all ${
-                              h.isHQ
-                                ? 'bg-slate-950 text-amber-300 border border-[#12ACE0]'
-                                : isSelected
+                              isSelected
                                 ? 'bg-slate-900 text-white border border-slate-800'
                                 : 'bg-white text-slate-800 border border-slate-200 opacity-95 group-hover/pin:opacity-100'
                             }`}>
