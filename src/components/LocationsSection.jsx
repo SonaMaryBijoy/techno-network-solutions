@@ -1,17 +1,18 @@
 import React, { useState } from 'react';
 import TiltedCard from './TiltedCard';
 import AnimatedContent from './AnimatedContent';
-import { MapPin, Activity } from 'lucide-react';
+import { MapPin, Activity, Star } from 'lucide-react';
 
 export default function LocationsSection({ onOpenQuote }) {
   const hubs = [
     {
       id: 'bengaluru',
       city: 'Bengaluru HQ',
-      region: 'KARNATAKA & SOUTHERN HUB',
+      region: 'KARNATAKA & SOUTHERN COMMAND',
       desc: 'Central Engineering Command, Cable Assembly Testing Facility & Master Warehouse.',
       specs: 'Central Support Command · 24/7 Deployment Unit',
-      coords: { x: '46%', y: '80%' }
+      coords: { x: '42.5%', y: '73.5%' },
+      isHQ: true
     },
     {
       id: 'hyderabad',
@@ -19,7 +20,7 @@ export default function LocationsSection({ onOpenQuote }) {
       region: 'TELANGANA & AP HUB',
       desc: 'Data Center & Tech Park Cabling Execution Unit.',
       specs: 'Dedicated Tech Park Cabling & CCTV Support Crew',
-      coords: { x: '48%', y: '68%' }
+      coords: { x: '49%', y: '61%' }
     },
     {
       id: 'pune',
@@ -27,7 +28,7 @@ export default function LocationsSection({ onOpenQuote }) {
       region: 'MAHARASHTRA & WESTERN HUB',
       desc: 'Industrial Fiber & High-Density Rack Execution Team.',
       specs: 'Industrial Fiber & Server Rack Specialists',
-      coords: { x: '35%', y: '64%' }
+      coords: { x: '35%', y: '58%' }
     },
     {
       id: 'ncr',
@@ -35,7 +36,7 @@ export default function LocationsSection({ onOpenQuote }) {
       region: 'NORTHERN HUB',
       desc: 'Enterprise Access Control & AV Command Center.',
       specs: 'Northern Corporate Office & Government Site Unit',
-      coords: { x: '44%', y: '32%' }
+      coords: { x: '44%', y: '30%' }
     },
     {
       id: 'panasia',
@@ -43,7 +44,7 @@ export default function LocationsSection({ onOpenQuote }) {
       region: 'INTERNATIONAL LOGISTICS',
       desc: 'Cross-border structured cabling material dispatch & OEM deployment partner network.',
       specs: 'Cross-Border Supply Chain & Partner SLA',
-      coords: { x: '54%', y: '84%' }
+      coords: { x: '58%', y: '76%' }
     }
   ];
 
@@ -56,7 +57,7 @@ export default function LocationsSection({ onOpenQuote }) {
         
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center font-sans">
           
-          {/* Left Column: Interactive India SVG Map Unboxed */}
+          {/* Left Column: Precise Professional Interactive India SVG Map */}
           <div className="lg:col-span-6 font-sans">
             <div className="w-full h-[460px] sm:h-[540px]">
               <TiltedCard
@@ -72,15 +73,7 @@ export default function LocationsSection({ onOpenQuote }) {
                 overlayContent={
                   <div className="w-full h-full relative p-4 flex flex-col justify-between font-sans bg-transparent">
                     
-                    {/* Top Accent Pill */}
-                    <div className="relative z-10 flex items-center justify-between font-sans">
-                      <span className="px-3.5 py-1.5 rounded-full bg-cyan-50 border border-cyan-200 text-[#12ACE0] font-mono text-xs font-bold uppercase tracking-wider shadow-xs">
-                        NATIONWIDE NETWORK COVERAGE
-                      </span>
-                      <span className="w-2.5 h-2.5 rounded-full bg-[#12ACE0] animate-ping" />
-                    </div>
-
-                    {/* Vector SVG Geometric Map of India */}
+                    {/* Vector SVG Precise Geometric Map of India */}
                     <div className="absolute inset-0 flex items-center justify-center p-2">
                       <svg viewBox="0 0 1000 1000" className="w-full h-full max-h-[480px] object-contain opacity-95">
                         <defs>
@@ -111,15 +104,16 @@ export default function LocationsSection({ onOpenQuote }) {
                         {/* State Border Grid Accent Lines */}
                         <path d="M 330 180 L 440 220 M 310 260 L 480 260 M 300 320 L 590 280 M 270 450 L 550 450 M 310 540 L 520 510 M 370 660 L 460 630" stroke="#0284c7" strokeWidth="1" strokeDasharray="4 4" opacity="0.35" />
 
-                        {/* HQ Pulse Connection Lines across India Nodes */}
-                        <line x1="368" y1="630" x2="280" y2="504" stroke="#12ACE0" strokeWidth="2.5" strokeDasharray="4 2" className="animate-pulse" />
-                        <line x1="368" y1="630" x2="352" y2="252" stroke="#12ACE0" strokeWidth="2.5" strokeDasharray="4 2" className="animate-pulse" />
-                        <line x1="368" y1="630" x2="384" y2="540" stroke="#12ACE0" strokeWidth="2.5" strokeDasharray="4 2" className="animate-pulse" />
-                        <line x1="368" y1="630" x2="432" y2="666" stroke="#12ACE0" strokeWidth="2.5" strokeDasharray="4 2" className="animate-pulse" />
+                        {/* Precise Network Vector Connectors from Bengaluru HQ */}
+                        <line x1="410" y1="680" x2="330" y2="520" stroke="#12ACE0" strokeWidth="2" strokeDasharray="4 2" className="animate-pulse" />
+                        <line x1="410" y1="680" x2="430" y2="280" stroke="#12ACE0" strokeWidth="2" strokeDasharray="4 2" className="animate-pulse" />
+                        <line x1="410" y1="680" x2="475" y2="550" stroke="#12ACE0" strokeWidth="2" strokeDasharray="4 2" className="animate-pulse" />
+                        <line x1="410" y1="680" x2="560" y2="690" stroke="#12ACE0" strokeWidth="2" strokeDasharray="4 2" className="animate-pulse" />
 
-                        {/* Bengaluru HQ Glowing Core Pin */}
-                        <circle cx="368" cy="630" r="16" className="stroke-[#12ACE0] fill-none stroke-[2.5] animate-ping" />
-                        <circle cx="368" cy="630" r="8" className="fill-[#12ACE0]" />
+                        {/* Precise Bengaluru HQ Golden Core Pin */}
+                        <circle cx="410" cy="680" r="18" className="stroke-[#12ACE0] fill-none stroke-[2.5] animate-ping" />
+                        <circle cx="410" cy="680" r="9" className="fill-[#12ACE0]" />
+                        <circle cx="410" cy="680" r="4" className="fill-amber-300" />
                       </svg>
                     </div>
 
@@ -139,21 +133,25 @@ export default function LocationsSection({ onOpenQuote }) {
                             <span className={`absolute -inset-2 rounded-full ${isSelected ? 'bg-cyan-500/40 animate-ping' : 'bg-[#12ACE0]/20 group-hover/pin:animate-ping'}`} />
                             
                             {/* Marker Icon Pin */}
-                            <span className={`relative flex items-center justify-center w-6 h-6 sm:w-8 sm:h-8 rounded-full border-2 shadow-md transition-all ${
-                              isSelected
+                            <span className={`relative flex items-center justify-center ${h.isHQ ? 'w-8 h-8 sm:w-10 sm:h-10' : 'w-6 h-6 sm:w-8 sm:h-8'} rounded-full border-2 shadow-md transition-all ${
+                              h.isHQ
+                                ? 'bg-slate-950 border-[#12ACE0] text-[#12ACE0] scale-110 shadow-cyan-500/60'
+                                : isSelected
                                 ? 'bg-[#12ACE0] border-white text-white scale-110 shadow-cyan-500/50'
                                 : 'bg-white border-cyan-400 text-[#12ACE0] hover:bg-cyan-50'
                             }`}>
-                              <MapPin className="w-3 h-3 sm:w-4 sm:h-4" />
+                              {h.isHQ ? <Star className="w-4 h-4 sm:w-5 sm:h-5 text-amber-400 fill-amber-400" /> : <MapPin className="w-3 h-3 sm:w-4 sm:h-4" />}
                             </span>
 
                             {/* City Name Badge */}
-                            <span className={`absolute top-full left-1/2 -translate-x-1/2 mt-1 whitespace-nowrap px-2 py-0.5 rounded-md text-[10px] sm:text-xs font-mono font-extrabold shadow-sm transition-all ${
-                              isSelected
+                            <span className={`absolute top-full left-1/2 -translate-x-1/2 mt-1.5 whitespace-nowrap px-2.5 py-1 rounded-lg text-[10px] sm:text-xs font-mono font-extrabold shadow-md transition-all ${
+                              h.isHQ
+                                ? 'bg-slate-950 text-amber-300 border border-[#12ACE0]'
+                                : isSelected
                                 ? 'bg-slate-900 text-white border border-slate-800'
                                 : 'bg-white text-slate-800 border border-slate-200 opacity-95 group-hover/pin:opacity-100'
                             }`}>
-                              {h.city.split(' ')[0]}
+                              {h.city}
                             </span>
                           </button>
                         );
@@ -166,7 +164,7 @@ export default function LocationsSection({ onOpenQuote }) {
             </div>
           </div>
 
-          {/* Right Column: Clean Display Typography */}
+          {/* Right Column: Clean Professional Display Typography */}
           <div className="lg:col-span-6 space-y-6 font-sans">
             
             <AnimatedContent distance={60} direction="vertical" duration={0.8} ease="power3.out">
