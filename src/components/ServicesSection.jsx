@@ -88,16 +88,16 @@ export default function ServicesSection({ onSelectService }) {
     <section id="services" className="py-16 sm:py-24 relative bg-transparent border-t border-slate-200 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
-        {/* Executive Header Box */}
+        {/* Full-width Executive Header Box */}
         <AnimatedContent distance={60} direction="vertical" duration={0.8} ease="power3.out">
           <div ref={containerRef} className="w-full mb-10 sm:mb-14 p-6 sm:p-10 rounded-2xl sm:rounded-3xl bg-white/90 backdrop-blur-md border border-slate-200/90 shadow-md overflow-hidden">
             <div className="w-full max-w-full">
-              {/* Responsive Layout with Original UnitedColony Font & Text Sizes */}
-              <h2 className="text-lg sm:text-2xl md:text-3xl lg:text-[38px] 2xl:text-[42px] tracking-tight leading-tight mb-3 sm:mb-4 flex flex-wrap items-center gap-x-2 sm:gap-x-4 gap-y-1">
-                <span className="font-united-colony font-black text-slate-950 uppercase">
+              {/* Restored Initial Single-line Display Title (Zero vertical letter splitting!) */}
+              <h2 className="text-sm sm:text-xl md:text-2xl lg:text-3xl xl:text-[38px] 2xl:text-[42px] tracking-tight leading-none mb-3 sm:mb-4 flex items-center flex-nowrap whitespace-nowrap overflow-x-auto scrollbar-none gap-x-2 sm:gap-x-4 pb-1">
+                <span className="flex-shrink-0 font-united-colony font-black text-slate-950 uppercase">
                   FIVE CORE DISCIPLINES,
                 </span>
-                <span className="font-united-colony font-black text-[#2563eb] inline-flex items-center">
+                <span className="flex-shrink-0 font-united-colony font-black text-[#2563eb] inline-flex items-center">
                   <RotatingText
                     texts={['INFINITE POSSIBILITIES.', 'ONE TURNKEY PARTNER.', 'ZERO PACKET DROP.']}
                     mainClassName="px-2 bg-blue-50 text-[#2563eb] rounded-lg border border-blue-200"
