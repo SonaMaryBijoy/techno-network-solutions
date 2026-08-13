@@ -93,15 +93,15 @@ export default function ServicesSection({ onSelectService }) {
           <div ref={containerRef} className="w-full mb-10 sm:mb-14 p-5 sm:p-10 rounded-2xl sm:rounded-3xl bg-white/90 backdrop-blur-md border border-slate-200/90 shadow-md overflow-hidden">
             <div className="w-full max-w-full">
               
-              {/* Header applying exact font from image & zero full stops */}
+              {/* Responsive Header Retaining Initial UnitedColony Font */}
               <h2 className="text-sm sm:text-xl md:text-2xl lg:text-3xl xl:text-[38px] 2xl:text-[42px] tracking-tight leading-snug mb-3 sm:mb-4 flex flex-wrap sm:flex-nowrap items-start sm:items-center gap-y-2.5 sm:gap-y-0 gap-x-2 sm:gap-x-4 pb-1">
-                <span className="flex-shrink-0 font-gtype font-black text-slate-950 uppercase tracking-tight">
+                <span className="flex-shrink-0 font-united-colony font-black text-slate-950 uppercase tracking-tight">
                   FIVE CORE DISCIPLINES,
                 </span>
-                <span className="flex-shrink-0 font-gtype font-black text-[#12ACE0] inline-flex items-center max-w-full overflow-visible">
+                <span className="flex-shrink-0 font-united-colony font-black text-[#12ACE0] inline-flex items-center max-w-full overflow-visible">
                   <RotatingText
                     texts={['INFINITE POSSIBILITIES', 'ONE TURNKEY PARTNER', 'ZERO PACKET DROP']}
-                    mainClassName="px-4 sm:px-5 py-1 bg-[#12ACE0] text-white rounded-lg border border-[#12ACE0] font-gtype font-black shadow-sm flex-shrink-0 whitespace-nowrap overflow-visible min-w-fit pr-5 sm:pr-6"
+                    mainClassName="px-4 sm:px-5 py-1 bg-[#12ACE0] text-white rounded-lg border border-[#12ACE0] font-united-colony font-black shadow-sm flex-shrink-0 whitespace-nowrap overflow-visible min-w-fit pr-5 sm:pr-6"
                     splitLevelClassName="overflow-visible inline-flex pr-3"
                     staggerFrom="last"
                     initial={{ y: "100%" }}

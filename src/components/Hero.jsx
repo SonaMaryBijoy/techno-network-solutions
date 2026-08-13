@@ -7,11 +7,11 @@ import { ArrowRight } from 'lucide-react';
 
 export default function Hero({ onOpenQuote }) {
   const taglines = [
-    "Every cable lands exactly where it should.",
-    "Precision in every single step.",
-    "Zero-compromise enterprise network backbone.",
-    "Fluke-certified 100G fiber & Cat6A infrastructure.",
-    "Built to power mission-critical operations."
+    "Every cable lands exactly where it should",
+    "Precision in every single step",
+    "Zero-compromise enterprise network backbone",
+    "Fluke-certified 100G fiber & Cat6A infrastructure",
+    "Built to power mission-critical operations"
   ];
 
   const [taglineIndex, setTaglineIndex] = useState(0);
