@@ -1,12 +1,33 @@
 import React from 'react';
 import FoldText from './FoldText';
+import { Building2, Server, Landmark, Factory } from 'lucide-react';
 
 export default function ClientsPage() {
   const verticals = [
-    { name: "IT & Software Parks", drops: "4,50,000+ Drops", desc: "High-density Cat6A & MPO fiber backbones across multi-tenant tech campuses in Bangalore, Hyderabad, & Pune." },
-    { name: "Enterprise Data Centers", drops: "1,20,000+ Racks", desc: "Precision hot/cold aisle containment, raised floor wire mesh, and intelligent PDU deployment for Tier 3 & 4 data centers." },
-    { name: "Financial & Banking Hubs", drops: "2,00,000+ Drops", desc: "Encrypted CCTV surveillance, biometric dual-factor access control, and redundant fiber links for national banks." },
-    { name: "Manufacturing & Industrial", drops: "1,80,000+ Drops", desc: "Armored optical fiber backbones and industrial IP cameras engineered for high EMI factory floors." },
+    {
+      name: "IT & Software Parks",
+      drops: "4,50,000+ Drops",
+      desc: "High-density Cat6A & MPO fiber backbones across multi-tenant tech campuses in Bangalore, Hyderabad, & Pune.",
+      icon: Building2
+    },
+    {
+      name: "Enterprise Data Centers",
+      drops: "1,20,000+ Racks",
+      desc: "Precision hot/cold aisle containment, raised floor wire mesh, and intelligent PDU deployment for Tier 3 & 4 data centers.",
+      icon: Server
+    },
+    {
+      name: "Financial & Banking Hubs",
+      drops: "2,00,000+ Drops",
+      desc: "Encrypted CCTV surveillance, biometric dual-factor access control, and redundant fiber links for national banks.",
+      icon: Landmark
+    },
+    {
+      name: "Manufacturing & Industrial",
+      drops: "1,80,000+ Drops",
+      desc: "Armored optical fiber backbones and industrial IP cameras engineered for high EMI factory floors.",
+      icon: Factory
+    },
   ];
 
   const testimonials = [
@@ -27,7 +48,7 @@ export default function ClientsPage() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 font-sans">
         
         {/* Clean Header with Mobile-Responsive FoldText Animated Title */}
-        <div className="mb-10 sm:mb-12 font-sans pt-4 space-y-4 sm:space-y-6">
+        <div className="mb-10 sm:mb-14 font-sans pt-4 space-y-4 sm:space-y-6">
           <div className="w-full overflow-visible">
             <FoldText
               text="Trusted by Industry Leaders Across India"
@@ -49,26 +70,36 @@ export default function ClientsPage() {
           </p>
         </div>
 
-        {/* Clean Unboxed Verticals Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 mb-14 sm:mb-16 font-sans">
-          {verticals.map((vert, idx) => (
-            <div key={idx} className="w-full p-2 font-sans">
-              <h3 className="font-sans font-black text-lg sm:text-xl text-slate-950 mb-2">
-                {vert.name}
-              </h3>
-              <span className="text-xs font-sans font-mono font-bold text-[#12ACE0] block mb-3 uppercase tracking-wider">
-                {vert.drops}
-              </span>
-              <p className="text-slate-600 text-xs sm:text-sm leading-relaxed font-medium font-sans">
-                {vert.desc}
-              </p>
-            </div>
-          ))}
+        {/* Verticals Grid with Solid Black Icons Centered Above Headings (Matching Reference Image) */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-10 mb-16 sm:mb-20 font-sans">
+          {verticals.map((vert, idx) => {
+            const IconComponent = vert.icon;
+            return (
+              <div key={idx} className="w-full p-2 flex flex-col items-center sm:items-start text-center sm:text-left font-sans">
+                {/* Related Solid Black Icon Centered Above Title */}
+                <div className="mb-4 text-slate-950 flex items-center justify-center">
+                  <IconComponent className="w-12 h-12 sm:w-14 sm:h-14 stroke-[2.2] text-slate-950" />
+                </div>
+
+                <h3 className="font-sans font-black text-lg sm:text-xl text-slate-950 mb-1.5">
+                  {vert.name}
+                </h3>
+
+                <span className="text-xs font-sans font-mono font-extrabold text-[#12ACE0] block mb-3 uppercase tracking-wider">
+                  {vert.drops}
+                </span>
+
+                <p className="text-slate-600 text-xs sm:text-sm leading-relaxed font-medium font-sans">
+                  {vert.desc}
+                </p>
+              </div>
+            );
+          })}
         </div>
 
         {/* Clean Unboxed Testimonials Grid */}
         <div className="mb-12 font-sans">
-          <h2 className="text-2xl sm:text-3xl font-sans font-black text-slate-950 mb-6 sm:mb-8 tracking-tight">
+          <h2 className="text-2xl sm:text-3xl font-sans font-black text-slate-950 mb-6 sm:mb-8 tracking-tight text-center sm:text-left">
             What Facility Leaders Say
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-12 font-sans">
