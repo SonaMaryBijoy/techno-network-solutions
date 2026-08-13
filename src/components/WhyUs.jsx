@@ -48,15 +48,15 @@ export default function WhyUs() {
   ];
 
   return (
-    <section id="why-us" className="py-16 sm:py-24 bg-transparent border-t border-slate-200 relative overflow-hidden text-slate-900">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <section id="why-us" className="py-16 sm:py-24 bg-transparent border-t border-slate-200 relative overflow-hidden text-slate-900 font-sans">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 font-sans">
         
-        <div ref={containerRef} className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+        <div ref={containerRef} className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center font-sans">
           
           {/* Left Column: TiltedCard Image Container Wrapped in Subtle ElectricBorder */}
-          <div className="lg:col-span-5 lg:sticky lg:top-28">
-            <ElectricBorder color="#2563eb" speed={0.6} chaos={0.04} borderRadius={24} className="w-full">
-              <div className="relative w-full h-[480px] sm:h-[540px] rounded-3xl overflow-hidden">
+          <div className="lg:col-span-5 lg:sticky lg:top-28 font-sans">
+            <ElectricBorder color="#12ACE0" speed={0.6} chaos={0.04} borderRadius={24} className="w-full">
+              <div className="relative w-full h-[480px] sm:h-[540px] rounded-3xl overflow-hidden font-sans">
                 <TiltedCard
                   imageSrc="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1000&q=80"
                   altText="On-Site Infrastructure Execution & Server Rack Cable Dressing"
@@ -70,9 +70,9 @@ export default function WhyUs() {
                   showTooltip={false}
                   displayOverlayContent
                   overlayContent={
-                    <div className="absolute bottom-6 left-6 right-6 p-4 rounded-2xl bg-white/95 backdrop-blur-md border border-slate-200/90 shadow-xl pointer-events-auto">
+                    <div className="absolute bottom-6 left-6 right-6 p-4 rounded-2xl bg-white/95 backdrop-blur-md border border-slate-200/90 shadow-xl pointer-events-auto font-sans">
                       <div className="flex items-center gap-3">
-                        <div className="w-10 h-10 rounded-xl bg-blue-50 border border-blue-100 flex items-center justify-center flex-shrink-0 text-[#2563eb]">
+                        <div className="w-10 h-10 rounded-xl bg-cyan-50 border border-cyan-100 flex items-center justify-center flex-shrink-0 text-[#12ACE0]">
                           <ShieldCheck className="w-5 h-5" />
                         </div>
                         <div>
@@ -88,19 +88,19 @@ export default function WhyUs() {
           </div>
 
           {/* Right Column: Header & Vertical Stack of Protocol Cards */}
-          <div className="lg:col-span-7 space-y-6">
+          <div className="lg:col-span-7 space-y-6 font-sans">
             
             {/* Section Header wrapped in AnimatedContent */}
             <AnimatedContent distance={60} direction="vertical" duration={0.8} ease="power3.out">
-              <div>
-                {/* Executive Super Massive 3D DepthText Heading with White & Blue Text Colors */}
-                <div className="mb-4 flex flex-wrap items-center gap-x-3 gap-y-1">
+              <div className="font-sans">
+                {/* Executive Super Massive 3D DepthText Heading with White & Logo Sky Blue Text Colors */}
+                <div className="mb-4 flex flex-wrap items-center gap-x-3 gap-y-1 font-sans">
                   <DepthText
                     text="WHAT ACTUALLY HAPPENS ON"
                     layers={36}
                     depth={2.6}
                     faceColor="#ffffff"
-                    depthColor="#2563eb"
+                    depthColor="#12ACE0"
                     tilt={8}
                     pointerTracking
                     smoothing={0.14}
@@ -116,8 +116,8 @@ export default function WhyUs() {
                     text="YOUR SITE."
                     layers={36}
                     depth={2.6}
-                    faceColor="#2563eb"
-                    depthColor="#1d4ed8"
+                    faceColor="#12ACE0"
+                    depthColor="#0f96c4"
                     tilt={8}
                     pointerTracking
                     smoothing={0.14}
@@ -131,14 +131,14 @@ export default function WhyUs() {
                   />
                 </div>
                 
-                <p className="text-slate-600 text-sm sm:text-base font-medium leading-relaxed">
+                <p className="text-slate-600 text-sm sm:text-base font-medium leading-relaxed font-sans">
                   Not marketing language — this is our strict, step-by-step execution protocol on every single job.
                 </p>
               </div>
             </AnimatedContent>
 
             {/* 6 Step Vertical Feature Cards Stack wrapped in TiltedCard 3D Spring Tilt Filters */}
-            <div className="space-y-4 pt-2">
+            <div className="space-y-4 pt-2 font-sans">
               {steps.map((step) => {
                 const Icon = step.icon;
                 return (
@@ -154,24 +154,24 @@ export default function WhyUs() {
                     showTooltip={false}
                     displayOverlayContent
                     overlayContent={
-                      <div className="bg-white rounded-2xl border border-slate-200/90 p-5 shadow-xs hover:shadow-md transition-all flex items-start gap-4 sm:gap-5 relative group h-full">
+                      <div className="bg-white rounded-2xl border border-slate-200/90 p-5 shadow-xs hover:shadow-md transition-all flex items-start gap-4 sm:gap-5 relative group h-full font-sans">
                         {/* Left Icon Container */}
-                        <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-blue-50/80 text-[#2563eb] border border-blue-100/80 flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform mt-0.5">
+                        <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-cyan-50 text-[#12ACE0] border border-cyan-100 flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform mt-0.5 font-sans">
                           <Icon className="w-5 h-5 sm:w-6 sm:h-6" />
                         </div>
 
                         {/* Title & Description */}
-                        <div className="pr-8">
-                          <h3 className="text-base sm:text-lg font-heading font-black text-slate-900 mb-1.5 group-hover:text-[#2563eb] transition-colors leading-snug">
+                        <div className="pr-8 font-sans">
+                          <h3 className="text-base sm:text-lg font-heading font-black text-slate-900 mb-1.5 group-hover:text-[#12ACE0] transition-colors leading-snug font-sans">
                             {step.title}
                           </h3>
-                          <p className="text-slate-600 text-xs sm:text-sm leading-relaxed font-medium">
+                          <p className="text-slate-600 text-xs sm:text-sm leading-relaxed font-medium font-sans">
                             {step.desc}
                           </p>
                         </div>
 
                         {/* Top Right Index Number */}
-                        <span className="font-mono text-xs sm:text-sm text-slate-300 font-extrabold absolute top-5 right-5 group-hover:text-[#2563eb]/60 transition-colors">
+                        <span className="font-mono text-xs sm:text-sm text-slate-300 font-extrabold absolute top-5 right-5 group-hover:text-[#12ACE0]/70 transition-colors font-sans">
                           {step.num}
                         </span>
                       </div>

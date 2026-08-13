@@ -55,7 +55,7 @@ export default function ServicesSection({ onSelectService }) {
       showTooltip={false}
       displayOverlayContent
       overlayContent={
-        <div className="p-6 sm:p-8 h-full min-h-[320px] sm:min-h-[350px] flex flex-col justify-between bg-[#2563eb] text-white rounded-[24px] border border-blue-400/40 shadow-xl hover:shadow-2xl hover:bg-[#1d4ed8] transition-all group relative overflow-hidden box-border">
+        <div className="p-6 sm:p-8 h-full min-h-[320px] sm:min-h-[350px] flex flex-col justify-between bg-[#12ACE0] text-white rounded-[24px] border border-cyan-400/40 shadow-xl hover:shadow-2xl hover:bg-[#0f96c4] transition-all group relative overflow-hidden box-border">
           
           {/* Giant Faded White Number Centered in Card */}
           <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none z-0">
@@ -66,11 +66,11 @@ export default function ServicesSection({ onSelectService }) {
 
           {/* Profile Title & Description */}
           <div className="relative z-10 pt-2">
-            <h3 className="text-xl sm:text-2xl font-heading font-black text-white mb-3 group-hover:text-cyan-100 transition-colors leading-tight break-words">
+            <h3 className="text-xl sm:text-2xl font-heading font-black text-white mb-3 group-hover:text-slate-950 transition-colors leading-tight break-words">
               {svc.title}
             </h3>
 
-            <p className="text-blue-50/95 text-xs sm:text-sm leading-relaxed font-medium break-words">
+            <p className="text-white/95 text-xs sm:text-sm leading-relaxed font-medium break-words">
               {svc.shortDesc}
             </p>
           </div>
@@ -92,15 +92,15 @@ export default function ServicesSection({ onSelectService }) {
         <AnimatedContent distance={60} direction="vertical" duration={0.8} ease="power3.out">
           <div ref={containerRef} className="w-full mb-10 sm:mb-14 p-6 sm:p-10 rounded-2xl sm:rounded-3xl bg-white/90 backdrop-blur-md border border-slate-200/90 shadow-md overflow-hidden">
             <div className="w-full max-w-full">
-              <h2 className="text-sm sm:text-xl md:text-2xl lg:text-3xl xl:text-[38px] 2xl:text-[42px] tracking-tight leading-none mb-3 sm:mb-4 flex items-center flex-nowrap whitespace-nowrap overflow-x-auto scrollbar-none gap-x-2 sm:gap-x-4 pb-1">
+              <h2 className="text-sm sm:text-xl md:text-2xl lg:text-3xl xl:text-[38px] 2xl:text-[42px] tracking-tight leading-none mb-3 sm:mb-4 flex items-center flex-nowrap whitespace-nowrap overflow-x-auto scrollbar-none gap-x-2 sm:gap-x-4 pb-1 pr-2">
                 <span className="flex-shrink-0 font-united-colony font-black text-slate-950 uppercase">
                   FIVE CORE DISCIPLINES,
                 </span>
-                <span className="flex-shrink-0 font-united-colony font-black text-white inline-flex items-center">
+                <span className="flex-shrink-0 font-united-colony font-black text-[#12ACE0] inline-flex items-center pr-3">
                   <RotatingText
                     texts={['INFINITE POSSIBILITIES.', 'ONE TURNKEY PARTNER.', 'ZERO PACKET DROP.']}
-                    mainClassName="px-3.5 sm:px-4 py-1 bg-[#2563eb] text-white rounded-lg border border-blue-400 font-black shadow-sm flex-shrink-0 whitespace-nowrap"
-                    splitLevelClassName="overflow-visible inline-flex"
+                    mainClassName="px-4 sm:px-5 py-1 bg-[#12ACE0] text-white rounded-lg border border-[#12ACE0] font-black shadow-sm flex-shrink-0 whitespace-nowrap overflow-visible min-w-fit pr-5 sm:pr-6"
+                    splitLevelClassName="overflow-visible inline-flex pr-3"
                     staggerFrom="last"
                     initial={{ y: "100%" }}
                     animate={{ y: 0 }}
