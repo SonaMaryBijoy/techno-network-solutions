@@ -1,0 +1,186 @@
+@import url('https://fonts.googleapis.com/css2?family=Unbounded:wght@700;800;900&family=Syne:wght@700;800&family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800;12..96,900&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800;900&family=Roboto+Flex:opsz,wght@8..144,100..1000&display=swap');
+@import "tailwindcss";
+
+@font-face {
+  font-family: 'GType';
+  src: url('/gomarice_g_type.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'SuperGType';
+  src: url('/gomarice_super_g_type_2.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Tesla';
+  src: url('/TESLA.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'UnitedColony';
+  src: url('/unitedcolony.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'UnitedColonyExpand';
+  src: url('/unitedcolonyexpand.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --bg-light: #ffffff;
+  --bg-panel: #f8fafc;
+  --bg-card: #ffffff;
+  --color-teal: #12ACE0;
+  --color-blue: #3E91D5;
+  --color-purple: #985AC0;
+  --color-magenta: #C43FB5;
+  --text-primary: #0f172a;
+  --text-muted: #475569;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg-light);
+  color: var(--text-primary);
+  font-family: 'Inter', sans-serif;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, .font-heading {
+  font-family: 'Plus Jakarta Sans', 'Outfit', sans-serif;
+}
+
+.font-display {
+  font-family: 'Unbounded', 'Syne', 'Bricolage Grotesque', 'Outfit', sans-serif;
+  font-weight: 900;
+}
+
+.font-gtype {
+  font-family: 'SuperGType', 'GType', 'Unbounded', sans-serif;
+  letter-spacing: 0.05em;
+}
+
+.font-tesla {
+  font-family: 'Tesla', 'Unbounded', sans-serif;
+  letter-spacing: 0.05em;
+}
+
+.font-united-colony {
+  font-family: 'UnitedColonyExpand', 'UnitedColony', 'Unbounded', sans-serif;
+  letter-spacing: 0.05em;
+}
+
+.font-mono {
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* Star Border Animations */
+@keyframes star-movement-bottom {
+  0% { transform: translate(0%, 0%); opacity: 1; }
+  100% { transform: translate(-100%, 0%); opacity: 0; }
+}
+
+@keyframes star-movement-top {
+  0% { transform: translate(0%, 0%); opacity: 1; }
+  100% { transform: translate(100%, 0%); opacity: 0; }
+}
+
+.animate-star-movement-bottom {
+  animation: star-movement-bottom 5s linear infinite alternate;
+}
+
+.animate-star-movement-top {
+  animation: star-movement-top 5s linear infinite alternate;
+}
+
+/* Crisp Light Grid Pattern */
+.bg-grid-pattern {
+  background-image: 
+    linear-gradient(to right, rgba(18, 172, 224, 0.06) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(18, 172, 224, 0.06) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+.bg-radial-glow {
+  background: radial-gradient(circle at 50% 0%, rgba(18, 172, 224, 0.12) 0%, rgba(62, 145, 213, 0.05) 50%, transparent 80%);
+}
+
+/* Light Glassmorphism */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(226, 232, 240, 0.9);
+  box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.05);
+}
+
+.glass-panel-hover {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.glass-panel-hover:hover {
+  background: #ffffff;
+  border-color: rgba(18, 172, 224, 0.4);
+  box-shadow: 0 12px 30px -5px rgba(18, 172, 224, 0.15);
+  transform: translateY(-2px);
+}
+
+/* Continuous Marquee Animation with GPU Hardware Acceleration */
+@keyframes marquee {
+  0% { transform: translate3d(0, 0, 0); }
+  100% { transform: translate3d(-50%, 0, 0); }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation-name: marquee;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: transform;
+}
+
+/* Cable Pulse Animation */
+@keyframes fiberPulse {
+  0% { stroke-dashoffset: 100; opacity: 0.3; }
+  50% { opacity: 1; }
+  100% { stroke-dashoffset: 0; opacity: 0.3; }
+}
+
+.animate-fiber {
+  stroke-dasharray: 10 5;
+  animation: fiberPulse 2s linear infinite;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #f8fafc;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #12ACE0;
+}
