@@ -70,15 +70,15 @@ export default function ClientsPage() {
           </p>
         </div>
 
-        {/* Verticals Grid with Solid Black Icons Centered Above Headings (Matching Reference Image) */}
+        {/* Verticals Grid with Small & Sleek Solid Black Icons Above Headings */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-10 mb-16 sm:mb-20 font-sans">
           {verticals.map((vert, idx) => {
             const IconComponent = vert.icon;
             return (
               <div key={idx} className="w-full p-2 flex flex-col items-center sm:items-start text-center sm:text-left font-sans">
-                {/* Related Solid Black Icon Centered Above Title */}
-                <div className="mb-4 text-slate-950 flex items-center justify-center">
-                  <IconComponent className="w-12 h-12 sm:w-14 sm:h-14 stroke-[2.2] text-slate-950" />
+                {/* Small and Sleek Solid Black Icon */}
+                <div className="mb-3 text-slate-950 flex items-center justify-center p-2 rounded-xl bg-slate-100/80 border border-slate-200/60 shadow-2xs">
+                  <IconComponent className="w-6 h-6 sm:w-7 sm:h-7 stroke-[1.8] text-slate-950" />
                 </div>
 
                 <h3 className="font-sans font-black text-lg sm:text-xl text-slate-950 mb-1.5">

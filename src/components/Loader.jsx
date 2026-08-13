@@ -62,7 +62,7 @@ export default function Loader({ onFinish, onComplete }) {
       initial={{ opacity: 1 }}
       exit={{ opacity: 0, scale: 1.02 }}
       transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-      className="fixed inset-0 z-[100] flex flex-col items-center justify-center bg-[#000000] text-slate-100 overflow-hidden select-none will-change-transform [transform:translateZ(0)]"
+      className="fixed inset-0 z-[100] flex flex-col items-center justify-center bg-[#000000] text-slate-100 overflow-hidden select-none will-change-transform [transform:translateZ(0)] font-sans"
     >
       {/* Optimized Hyperspeed WebGL Backdrop */}
       <div className="absolute inset-0 z-0 pointer-events-auto opacity-75">
@@ -109,7 +109,7 @@ export default function Loader({ onFinish, onComplete }) {
       <div className="absolute inset-0 bg-gradient-to-b from-[#000000]/80 via-[#985AC0]/15 to-[#000000]/90 z-[1] pointer-events-none" />
 
       {/* Preloader Main Content Box */}
-      <div className="relative z-10 flex flex-col items-center max-w-2xl w-full px-5 text-center">
+      <div className="relative z-10 flex flex-col items-center max-w-2xl w-full px-5 text-center font-sans">
         
         {/* Glass Card for Logo */}
         <div className="mb-5 sm:mb-6">
@@ -118,19 +118,19 @@ export default function Loader({ onFinish, onComplete }) {
           </div>
         </div>
 
-        {/* Executive Title with Mobile-Optimized Fast DecryptedText */}
-        <h1 className="text-base sm:text-2xl lg:text-3xl font-black tracking-tight text-white mb-2 sm:mb-3 font-gtype uppercase drop-shadow-[0_4px_30px_rgba(152,90,192,0.8)] inline-flex items-center justify-center gap-2 whitespace-nowrap overflow-hidden">
+        {/* Standard Professional Font Heading (Matching Reference Picture Styling) */}
+        <h1 className="text-xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-white mb-2 sm:mb-3 font-sans drop-shadow-[0_4px_25px_rgba(0,0,0,0.9)] inline-flex items-center justify-center gap-2 whitespace-nowrap overflow-hidden">
           <DecryptedText
-            text="TECHNO NETWORK SOLUTIONS"
+            text="Techno Network Solutions"
             speed={isMobile ? 35 : 20}
             maxIterations={isMobile ? 4 : 8}
             sequential
             revealDirection="start"
             animateOn="view"
-            className="text-white font-gtype font-black tracking-tight whitespace-nowrap"
-            encryptedClassName="text-purple-400 font-gtype whitespace-nowrap"
+            className="text-white font-sans font-bold tracking-tight whitespace-nowrap"
+            encryptedClassName="text-purple-300 font-sans whitespace-nowrap"
           />
-          <span className="w-1.5 sm:w-2 h-5 sm:h-8 bg-[#3b82f6] rounded-full animate-pulse inline-block flex-shrink-0" />
+          <span className="w-1.5 sm:w-2 h-5 sm:h-7 bg-[#12ACE0] rounded-full animate-pulse inline-block flex-shrink-0" />
         </h1>
 
         <p className="text-[10px] sm:text-xs font-mono text-purple-300 font-bold tracking-widest uppercase mb-6 sm:mb-8 drop-shadow-md whitespace-nowrap">
