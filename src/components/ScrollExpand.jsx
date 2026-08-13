@@ -39,7 +39,6 @@ const ScrollExpand = ({
   const frameRef = useRef(null);
   const mediaRef = useRef(null);
   const titleRef = useRef(null);
-  const overlayRef = useRef(null);
   const scrimRef = useRef(null);
   const hintRef = useRef(null);
 
@@ -61,7 +60,7 @@ const ScrollExpand = ({
       const r = startRadius + (endRadius - startRadius) * e;
 
       frame.style.clipPath = `inset(${iy.toFixed(2)}% ${ix.toFixed(2)}% ${iy.toFixed(2)}% ${ix.toFixed(2)}% round ${r.toFixed(1)}px)`;
-      media.style.transform = `scale(${(mediaZoom + (1 - mediaZoom) * e).toFixed(3)})`;
+      media.style.transform = `scale3d(${(mediaZoom + (1 - mediaZoom) * e).toFixed(3)}, ${(mediaZoom + (1 - mediaZoom) * e).toFixed(3)}, 1)`;
 
       if (scrimRef.current) scrimRef.current.style.opacity = `${(overlayScrim * e).toFixed(2)}`;
 
@@ -78,17 +77,16 @@ const ScrollExpand = ({
       }
     };
 
-    // Apply initial state
     applyProgress(0);
 
     const st = ScrollTrigger.create({
       trigger: track,
-      start: 'top top+=70',
+      start: 'top top+=80',
       end: '+=100%',
       pin: stage,
       pinSpacing: true,
       anticipatePin: 1,
-      scrub: 0.2,
+      scrub: 0.5,
       onUpdate: self => {
         applyProgress(self.progress);
       }
@@ -99,74 +97,39 @@ const ScrollExpand = ({
     };
   }, [startWidth, startHeight, startRadius, endRadius, mediaZoom, overlayScrim]);
 
-  const media =
-    mediaType === 'video' ? (
-      <video
-        ref={mediaRef}
-        className="absolute inset-0 w-full h-full object-cover origin-center select-none [will-change:transform,clip-path] [image-rendering:crisp-edges]"
-        src={src}
-        poster={poster}
-        autoPlay
-        muted
-        loop
-        playsInline
-      />
-    ) : (
-      <img
-        ref={mediaRef}
-        className="absolute inset-0 w-full h-full object-cover origin-center select-none [will-change:transform,clip-path] [image-rendering:crisp-edges] brightness-[1.03] contrast-[1.05]"
-        src={src}
-        alt={alt}
-        draggable={false}
-      />
-    );
-
   return (
-    <div
-      ref={rootRef}
-      className={`relative w-full ${className}`.trim()}
-      style={style}
-      {...rest}
-    >
-      <div ref={trackRef} className="relative w-full">
-        <div ref={stageRef} className="w-full overflow-hidden h-[540px] sm:h-[620px]">
+    <div ref={rootRef} className={`relative w-full ${className}`.trim()} style={style} {...rest}>
+      <div ref={trackRef} className="relative w-full h-[180vh]">
+        <div ref={stageRef} className="sticky top-0 w-full h-screen overflow-hidden flex items-center justify-center">
           <div
             ref={frameRef}
-            className="absolute inset-0 [clip-path:inset(12%_14%_12%_14%_round_24px)] [will-change:clip-path] shadow-2xl overflow-hidden"
+            className="relative w-full h-full overflow-hidden shadow-2xl bg-slate-950 will-change-[clip-path,transform] [transform:translateZ(0)]"
           >
-            {media}
-            {/* Dark contrast gradient overlay */}
-            <div
-              ref={scrimRef}
-              className="absolute inset-0 opacity-35 pointer-events-none bg-[linear-gradient(to_top,rgba(0,0,0,0.7),rgba(0,0,0,0.25)_50%,rgba(0,0,0,0.5))]"
-            />
-            {children ? (
-              <div
-                ref={overlayRef}
-                className="absolute inset-0 flex flex-col items-center justify-center text-center px-4 py-6 z-10 max-w-full overflow-hidden"
-              >
+            <div className="absolute inset-0 w-full h-full overflow-hidden">
+              <img
+                ref={mediaRef}
+                src={src}
+                alt={alt}
+                className="w-full h-full object-cover object-center will-change-transform [transform:translateZ(0)]"
+              />
+              <div ref={scrimRef} className="absolute inset-0 bg-slate-950 pointer-events-none transition-opacity duration-150" />
+            </div>
+
+            <div className="absolute inset-0 z-10 flex flex-col items-center justify-center p-4 sm:p-8 pointer-events-auto">
+              <div ref={titleRef} className="w-full max-w-5xl mx-auto text-center will-change-transform [transform:translateZ(0)]">
                 {children}
               </div>
-            ) : null}
+            </div>
+
+            {scrollHint && (
+              <div
+                ref={hintRef}
+                className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 pointer-events-none text-white text-xs font-mono font-bold tracking-widest uppercase bg-slate-950/70 px-4 py-2 rounded-full border border-white/20 backdrop-blur-md shadow-lg will-change-transform"
+              >
+                {scrollHint}
+              </div>
+            )}
           </div>
-
-          {title ? (
-            <div
-              ref={titleRef}
-              className="absolute inset-0 flex items-center justify-center m-0 px-4 text-center font-bold text-white z-10 pointer-events-none"
-            >
-              {title}
-            </div>
-          ) : null}
-
-          {scrollHint ? (
-            <div
-              ref={hintRef}
-              className="absolute inset-x-0 bottom-4 text-center text-xs font-mono tracking-widest text-white/90 pointer-events-none drop-shadow z-10 uppercase font-bold"
-            >
-              {scrollHint}
-            </div>
-          ) : null}
         </div>
       </div>
     </div>

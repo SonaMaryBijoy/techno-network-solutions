@@ -99,13 +99,13 @@ export default function ServicesSection({ onSelectService }) {
                 <span className="flex-shrink-0 font-united-colony font-black text-white inline-flex items-center">
                   <RotatingText
                     texts={['INFINITE POSSIBILITIES.', 'ONE TURNKEY PARTNER.', 'ZERO PACKET DROP.']}
-                    mainClassName="px-2.5 py-0.5 bg-[#2563eb] text-white rounded-lg border border-blue-400 font-black shadow-sm"
+                    mainClassName="px-3.5 sm:px-4 py-1 bg-[#2563eb] text-white rounded-lg border border-blue-400 font-black shadow-sm flex-shrink-0 whitespace-nowrap"
+                    splitLevelClassName="overflow-visible inline-flex"
                     staggerFrom="last"
                     initial={{ y: "100%" }}
                     animate={{ y: 0 }}
                     exit={{ y: "-120%" }}
                     staggerDuration={0.025}
-                    splitLevelClassName="overflow-hidden"
                     transition={{ type: "spring", stiffness: 300, damping: 30 }}
                     rotationInterval={2500}
                   />
