@@ -88,19 +88,23 @@ export default function ServicesSection({ onSelectService }) {
     <section id="services" className="py-16 sm:py-24 relative bg-transparent border-t border-slate-200 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
-        {/* Full-width Executive Header Box */}
+        {/* Full-width Blue Executive Header Box */}
         <AnimatedContent distance={60} direction="vertical" duration={0.8} ease="power3.out">
-          <div ref={containerRef} className="w-full mb-10 sm:mb-14 p-6 sm:p-10 rounded-2xl sm:rounded-3xl bg-white/90 backdrop-blur-md border border-slate-200/90 shadow-md overflow-hidden">
-            <div className="w-full max-w-full">
+          <div ref={containerRef} className="w-full mb-10 sm:mb-14 p-6 sm:p-10 rounded-2xl sm:rounded-3xl bg-[#2563eb] text-white border border-blue-400/40 shadow-xl overflow-hidden relative">
+            
+            {/* Ambient Background Glow */}
+            <div className="absolute -right-20 -bottom-20 w-80 h-80 rounded-full bg-white/10 blur-3xl pointer-events-none" />
+
+            <div className="w-full max-w-full relative z-10">
               {/* Single-line Display Title */}
               <h2 className="text-sm sm:text-xl md:text-2xl lg:text-3xl xl:text-[38px] 2xl:text-[42px] tracking-tight leading-none mb-3 sm:mb-4 flex items-center flex-nowrap whitespace-nowrap overflow-x-auto scrollbar-none gap-x-2 sm:gap-x-4 pb-1">
-                <span className="flex-shrink-0 font-united-colony font-black text-slate-950 uppercase">
+                <span className="flex-shrink-0 font-united-colony font-black text-white uppercase">
                   FIVE CORE DISCIPLINES,
                 </span>
-                <span className="flex-shrink-0 font-united-colony font-black text-[#2563eb] inline-flex items-center">
+                <span className="flex-shrink-0 font-united-colony font-black text-white inline-flex items-center">
                   <RotatingText
                     texts={['INFINITE POSSIBILITIES.', 'ONE TURNKEY PARTNER.', 'ZERO PACKET DROP.']}
-                    mainClassName="px-2 bg-blue-50 text-[#2563eb] rounded-lg border border-blue-200"
+                    mainClassName="px-2.5 py-0.5 bg-white text-[#2563eb] rounded-lg border border-white/80 font-black shadow-sm"
                     staggerFrom="last"
                     initial={{ y: "100%" }}
                     animate={{ y: 0 }}
@@ -113,7 +117,7 @@ export default function ServicesSection({ onSelectService }) {
                 </span>
               </h2>
 
-              <p className="text-slate-600 text-sm sm:text-base lg:text-lg max-w-4xl font-medium leading-relaxed font-sans">
+              <p className="text-blue-100/95 text-sm sm:text-base lg:text-lg max-w-4xl font-medium leading-relaxed font-sans">
                 From high-density data center optical fiber backbones to AI video surveillance and smart boardroom AV, Techno Network Solutions delivers turnkey infrastructure engineering across 5 core verticals.
               </p>
             </div>
