@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import TiltedCard from './TiltedCard';
 import AnimatedContent from './AnimatedContent';
-import { Activity } from 'lucide-react';
+import { MapPin, Activity } from 'lucide-react';
 
 export default function LocationsSection({ onOpenQuote }) {
   const hubs = [
@@ -10,35 +10,40 @@ export default function LocationsSection({ onOpenQuote }) {
       city: 'Bengaluru HQ',
       region: 'KARNATAKA & SOUTHERN HUB',
       desc: 'Central Engineering Command, Cable Assembly Testing Facility & Master Warehouse.',
-      specs: 'Central Support Command · 24/7 Deployment Unit'
+      specs: 'Central Support Command · 24/7 Deployment Unit',
+      coords: { x: '46%', y: '80%' }
     },
     {
       id: 'hyderabad',
       city: 'Hyderabad',
       region: 'TELANGANA & AP HUB',
       desc: 'Data Center & Tech Park Cabling Execution Unit.',
-      specs: 'Dedicated Tech Park Cabling & CCTV Support Crew'
+      specs: 'Dedicated Tech Park Cabling & CCTV Support Crew',
+      coords: { x: '48%', y: '68%' }
     },
     {
       id: 'pune',
       city: 'Pune / Mumbai',
       region: 'MAHARASHTRA & WESTERN HUB',
       desc: 'Industrial Fiber & High-Density Rack Execution Team.',
-      specs: 'Industrial Fiber & Server Rack Specialists'
+      specs: 'Industrial Fiber & Server Rack Specialists',
+      coords: { x: '35%', y: '64%' }
     },
     {
       id: 'ncr',
       city: 'Delhi NCR',
       region: 'NORTHERN HUB',
       desc: 'Enterprise Access Control & AV Command Center.',
-      specs: 'Northern Corporate Office & Government Site Unit'
+      specs: 'Northern Corporate Office & Government Site Unit',
+      coords: { x: '44%', y: '32%' }
     },
     {
       id: 'panasia',
       city: 'Pan-Asia Support',
       region: 'INTERNATIONAL LOGISTICS',
       desc: 'Cross-border structured cabling material dispatch & OEM deployment partner network.',
-      specs: 'Cross-Border Supply Chain & Partner SLA'
+      specs: 'Cross-Border Supply Chain & Partner SLA',
+      coords: { x: '54%', y: '84%' }
     }
   ];
 
@@ -51,32 +56,96 @@ export default function LocationsSection({ onOpenQuote }) {
         
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center font-sans">
           
-          {/* Left Column: Interactive Map Box */}
+          {/* Left Column: Restored Interactive India SVG Map Box */}
           <div className="lg:col-span-6 font-sans">
-            <div className="w-full h-[400px] sm:h-[460px] rounded-3xl overflow-hidden bg-slate-950 border border-slate-800 shadow-2xl relative p-6 flex flex-col justify-between font-sans">
+            <div className="w-full h-[460px] sm:h-[540px] rounded-3xl overflow-hidden bg-slate-950 border border-slate-800 shadow-2xl relative p-6 flex flex-col justify-between font-sans">
               
               {/* Top Accent Pill */}
               <div className="relative z-10 flex items-center justify-between font-sans">
-                <span className="px-3 py-1 rounded-full bg-cyan-950/80 border border-cyan-500/40 text-[#12ACE0] font-mono text-xs font-bold uppercase tracking-wider">
+                <span className="px-3.5 py-1.5 rounded-full bg-cyan-950/80 border border-cyan-500/40 text-[#12ACE0] font-mono text-xs font-bold uppercase tracking-wider">
                   NATIONWIDE NETWORK COVERAGE
                 </span>
                 <span className="w-2.5 h-2.5 rounded-full bg-[#12ACE0] animate-ping" />
               </div>
 
-              {/* Central Map Graphics */}
-              <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-40">
-                <div className="w-80 h-80 rounded-full border border-cyan-500/20 animate-pulse" />
-                <div className="absolute w-60 h-60 rounded-full border border-blue-500/30" />
-                <div className="absolute w-40 h-40 rounded-full border border-purple-500/20" />
+              {/* Vector SVG Geometric Map of India */}
+              <div className="absolute inset-0 flex items-center justify-center p-4">
+                <svg viewBox="0 0 1000 1000" className="w-full h-full max-h-[460px] object-contain opacity-85">
+                  <defs>
+                    <linearGradient id="india-map-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stopColor="#12ACE0" stopOpacity="0.25" />
+                      <stop offset="50%" stopColor="#3E91D5" stopOpacity="0.15" />
+                      <stop offset="100%" stopColor="#985AC0" stopOpacity="0.05" />
+                    </linearGradient>
+                  </defs>
+
+                  {/* Detailed Geometric Contour Map Path of India */}
+                  <path
+                    d="
+                      M 360 80 
+                      L 390 90 L 410 70 L 440 90 L 460 120 L 440 150 L 480 170 L 520 160 L 560 180 L 590 170 
+                      L 630 190 L 680 180 L 720 210 L 760 200 L 770 230 L 730 250 L 750 280 L 710 300 L 670 270 
+                      L 640 290 L 590 280 L 560 300 L 580 340 L 620 370 L 590 420 L 550 450 L 520 510 L 490 560 
+                      L 460 630 L 440 700 L 420 740 L 410 770 L 390 730 L 370 660 L 340 600 L 310 540 L 280 500 
+                      L 270 450 L 290 420 L 260 390 L 280 340 L 300 320 L 270 290 L 310 260 L 300 220 L 330 180 
+                      L 310 140 Z
+                    "
+                    fill="url(#india-map-grad)"
+                    opacity="0.85"
+                    stroke="#12ACE0"
+                    strokeWidth="2.5"
+                  />
+
+                  {/* State Border Grid Accent Lines */}
+                  <path d="M 330 180 L 440 220 M 310 260 L 480 260 M 300 320 L 590 280 M 270 450 L 550 450 M 310 540 L 520 510 M 370 660 L 460 630" stroke="#ffffff" strokeWidth="1" strokeDasharray="4 4" opacity="0.4" />
+
+                  {/* HQ Pulse Connection Lines across India Nodes */}
+                  <line x1="368" y1="630" x2="280" y2="504" stroke="#12ACE0" strokeWidth="2" strokeDasharray="4 2" className="animate-pulse" />
+                  <line x1="368" y1="630" x2="352" y2="252" stroke="#12ACE0" strokeWidth="2" strokeDasharray="4 2" className="animate-pulse" />
+                  <line x1="368" y1="630" x2="384" y2="540" stroke="#12ACE0" strokeWidth="2" strokeDasharray="4 2" className="animate-pulse" />
+                  <line x1="368" y1="630" x2="432" y2="666" stroke="#12ACE0" strokeWidth="2" strokeDasharray="4 2" className="animate-pulse" />
+
+                  {/* Bengaluru HQ Glowing Core Pin */}
+                  <circle cx="368" cy="630" r="16" className="stroke-[#12ACE0] fill-none stroke-[2] animate-ping" />
+                  <circle cx="368" cy="630" r="8" className="fill-[#12ACE0]" />
+                </svg>
               </div>
 
-              {/* Bengaluru HQ Marker Card inside Map Box */}
-              <div className="relative z-10 bg-slate-900/90 backdrop-blur-md p-4 rounded-2xl border border-cyan-500/40 max-w-xs font-sans">
-                <div className="flex items-center gap-2 mb-1">
-                  <span className="w-2 h-2 rounded-full bg-[#12ACE0]" />
-                  <h4 className="text-xs font-mono font-bold text-white uppercase">BENGALURU CENTRAL HQ</h4>
-                </div>
-                <p className="text-[11px] font-sans text-slate-300 font-medium">Techno Network Solutions Central Office & Logistics Warehouse</p>
+              {/* Interactive Location Pins on India Map */}
+              <div className="absolute inset-0 pointer-events-auto font-sans">
+                {hubs.map((h) => {
+                  const isSelected = h.id === activeHub;
+                  return (
+                    <button
+                      key={h.id}
+                      type="button"
+                      onClick={() => setActiveHub(h.id)}
+                      style={{ left: h.coords.x, top: h.coords.y }}
+                      className="absolute -translate-x-1/2 -translate-y-1/2 group/pin cursor-pointer transition-transform hover:scale-125 focus:outline-none z-10"
+                    >
+                      {/* Outer Ring Animation */}
+                      <span className={`absolute -inset-2 rounded-full ${isSelected ? 'bg-cyan-500/40 animate-ping' : 'bg-[#12ACE0]/20 group-hover/pin:animate-ping'}`} />
+                      
+                      {/* Marker Icon Pin */}
+                      <span className={`relative flex items-center justify-center w-6 h-6 sm:w-8 sm:h-8 rounded-full border-2 shadow-md transition-all ${
+                        isSelected
+                          ? 'bg-[#12ACE0] border-white text-white scale-110 shadow-cyan-500/50'
+                          : 'bg-white border-cyan-400 text-[#12ACE0] hover:bg-cyan-50'
+                      }`}>
+                        <MapPin className="w-3 h-3 sm:w-4 sm:h-4" />
+                      </span>
+
+                      {/* City Name Badge */}
+                      <span className={`absolute top-full left-1/2 -translate-x-1/2 mt-1 whitespace-nowrap px-2 py-0.5 rounded-md text-[10px] sm:text-xs font-mono font-extrabold shadow-sm transition-all ${
+                        isSelected
+                          ? 'bg-slate-900 text-white border border-slate-800'
+                          : 'bg-white text-slate-800 border border-slate-200 opacity-90 group-hover/pin:opacity-100'
+                      }`}>
+                        {h.city.split(' ')[0]}
+                      </span>
+                    </button>
+                  );
+                })}
               </div>
 
             </div>
