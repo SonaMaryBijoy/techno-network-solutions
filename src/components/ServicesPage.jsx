@@ -1,6 +1,7 @@
 import React, { useRef } from 'react';
 import StrokeText from './StrokeText';
 import TiltedCard from './TiltedCard';
+import ScrollExpand from './ScrollExpand';
 
 export default function ServicesPage() {
   const containerRef = useRef(null);
@@ -95,18 +96,26 @@ export default function ServicesPage() {
   return (
     <div ref={containerRef} className="pt-16 pb-20 bg-transparent min-h-screen text-slate-900 font-sans overflow-x-hidden">
       
-      {/* Ultra-Smooth Premium Header Banner Container (Zero Scroll Locking) */}
-      <div className="mb-14 font-sans px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-        <div className="w-full relative rounded-3xl overflow-hidden bg-slate-950 p-6 sm:p-12 lg:p-16 border border-slate-800 shadow-2xl flex flex-col items-center justify-center text-center">
-          
-          {/* Background Image Layer */}
-          <div className="absolute inset-0 z-0 pointer-events-none opacity-40">
-            <img src="/service-header-bg.png" alt="Engineering Services Header" className="w-full h-full object-cover object-center" />
-            <div className="absolute inset-0 bg-gradient-to-b from-slate-950/80 via-slate-950/60 to-slate-950/90" />
-          </div>
-
+      {/* Restored ScrollExpand Header Background Section */}
+      <div className="mb-14 font-sans">
+        <ScrollExpand
+          src="/service-header-bg.png"
+          alt="High-Density Fiber Optic Data Center Infrastructure"
+          title=""
+          scrollHint="Scroll down to expand view"
+          startWidth={65}
+          startHeight={70}
+          startRadius={24}
+          endRadius={0}
+          mediaZoom={1.25}
+          scrollDistance={1.0}
+          holdDistance={0.35}
+          smoothing={0.08}
+          overlayScrim={0.35}
+          useWindowScroll
+        >
           {/* Main Display Heading */}
-          <div className="relative z-10 w-full flex flex-col items-center justify-center text-center my-2 drop-shadow-[0_15px_35px_rgba(0,0,0,0.85)] max-w-full overflow-visible">
+          <div className="w-full flex flex-col items-center justify-center text-center my-2 drop-shadow-[0_15px_35px_rgba(0,0,0,0.85)] max-w-[98vw] sm:max-w-6xl mx-auto px-2 overflow-visible">
             
             {/* Line 1: ENGINEERING & */}
             <div className="w-full flex justify-center">
@@ -167,10 +176,10 @@ export default function ServicesPage() {
 
           </div>
 
-          <p className="relative z-10 text-white text-xs sm:text-base lg:text-lg font-bold text-center leading-relaxed max-w-3xl mx-auto mt-6 px-4 drop-shadow-[0_2px_18px_rgba(0,0,0,0.95)]">
+          <p className="text-white text-xs sm:text-base lg:text-lg font-bold text-center leading-relaxed max-w-3xl mx-auto mt-4 px-4 drop-shadow-[0_2px_18px_rgba(0,0,0,0.95)]">
             Delivering high-performance cabling, CCTV, access control, and boardroom AV infrastructure backed by Fluke certification and 25-year manufacturer warranties.
           </p>
-        </div>
+        </ScrollExpand>
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 font-sans">
