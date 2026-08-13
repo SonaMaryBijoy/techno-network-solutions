@@ -182,7 +182,8 @@ export default function ServicesPage() {
         </ScrollExpand>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 font-sans">
+      {/* Main Service List Container with Extra Spacing so Structured Cabling sits further down */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 font-sans pt-12 sm:pt-20 lg:pt-24">
 
         {/* Detailed Service Content List */}
         <div className="space-y-16 sm:space-y-20 mb-20 font-sans">
