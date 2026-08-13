@@ -15,40 +15,40 @@ export default function PartnersPage() {
   ];
 
   return (
-    <div className="pt-20 pb-20 bg-transparent min-h-screen text-slate-900 font-sans">
+    <div className="pt-20 pb-20 bg-transparent min-h-screen text-slate-900 font-sans overflow-x-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 font-sans">
         
-        {/* Clean Header with Large ParticleText Interactive Canvas Animation */}
-        <div className="mb-12 font-sans pt-4 space-y-6">
-          <div className="w-full h-[280px] sm:h-[340px] relative rounded-3xl overflow-hidden bg-slate-950 p-6 border-2 border-blue-500/50 shadow-2xl">
+        {/* Clean Header with Mobile-Responsive ParticleText Canvas Animation */}
+        <div className="mb-10 sm:mb-12 font-sans pt-4 space-y-4 sm:space-y-6">
+          <div className="w-full h-[180px] sm:h-[280px] lg:h-[340px] relative rounded-2xl sm:rounded-3xl overflow-hidden bg-slate-950 p-3 sm:p-6 border-2 border-blue-500/50 shadow-2xl">
             <ParticleText
               text="Certified Global OEM Partners"
-              fontSize="clamp(3.5rem, 8.5vw, 7.2rem)"
+              fontSize="clamp(1.8rem, 6.5vw, 7.2rem)"
               fontWeight={900}
               color="#ffffff"
               highlightColor="#3b82f6"
-              scatter={200}
-              gatherDuration={1500}
-              stagger={400}
-              pointerRepel={55}
-              repelRadius={150}
+              scatter={160}
+              gatherDuration={1400}
+              stagger={360}
+              pointerRepel={45}
+              repelRadius={120}
               idleDrift={0.8}
               trigger="mount"
               glow={true}
             />
           </div>
-          <p className="text-slate-600 text-base sm:text-lg lg:text-xl font-medium leading-relaxed font-sans max-w-4xl pt-2">
+          <p className="text-slate-600 text-sm sm:text-lg lg:text-xl font-medium leading-relaxed font-sans max-w-4xl pt-1">
             Our engineers undergo continuous OEM certification to deliver up to 25-year manufacturer system performance warranties on every installation.
           </p>
         </div>
 
-        {/* Clean Solid Partner Cards Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16 font-sans">
+        {/* Clean Solid Partner Cards Grid with Mobile Grid Spacing */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 mb-16 font-sans">
           {oemPartners.map((partner, idx) => (
-            <div key={idx} className="p-6 rounded-[24px] bg-white border border-slate-200 shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between font-sans">
+            <div key={idx} className="p-5 sm:p-6 rounded-[24px] bg-white border border-slate-200 shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between font-sans">
               <div>
                 {/* Big Clean Logo */}
-                <div className="h-24 sm:h-28 w-full flex items-center justify-center mb-4 px-2">
+                <div className="h-20 sm:h-24 lg:h-28 w-full flex items-center justify-center mb-4 px-2">
                   <img 
                     src={partner.logo} 
                     alt={partner.name} 
@@ -60,7 +60,7 @@ export default function PartnersPage() {
                   {partner.category}
                 </span>
 
-                <h3 className="text-xl font-sans font-black text-slate-950 mb-1">
+                <h3 className="text-lg sm:text-xl font-sans font-black text-slate-950 mb-1">
                   {partner.name}
                 </h3>
 
@@ -68,7 +68,7 @@ export default function PartnersPage() {
                   {partner.tier}
                 </span>
 
-                <p className="text-slate-600 text-sm sm:text-base leading-relaxed font-medium font-sans">
+                <p className="text-slate-600 text-xs sm:text-sm leading-relaxed font-medium font-sans">
                   {partner.desc}
                 </p>
               </div>

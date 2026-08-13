@@ -34,6 +34,8 @@ const FOLD_TEXT_STYLES = `.fold-text {
   letter-spacing: -0.04em;
   white-space: pre-wrap;
   user-select: text;
+  max-width: 100%;
+  word-break: break-word;
 }
 
 .fold-text-sr-only {
@@ -272,7 +274,7 @@ const FoldText = ({
   ]);
 
   const rootStyle = {
-    '--fold-text-font-size': typeof fontSize === 'number' ? `${fontSize}px` : fontSize,
+    '--fold-text-font-size': typeof fontSize === 'number' ? `clamp(1.75rem, 6.5vw, ${fontSize}px)` : fontSize,
     '--fold-text-font-weight': fontWeight,
     '--fold-text-color': color,
     ...style
