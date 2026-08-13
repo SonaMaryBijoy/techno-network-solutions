@@ -182,8 +182,8 @@ export default function ServicesPage() {
         </ScrollExpand>
       </div>
 
-      {/* Main Service List Container with Extra Spacing so Structured Cabling sits further down */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 font-sans pt-12 sm:pt-20 lg:pt-24">
+      {/* Main Service List Container with Generous Top Padding so First Heading is 100% Fully Visible on Mobile */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 font-sans pt-24 sm:pt-28 lg:pt-32">
 
         {/* Detailed Service Content List */}
         <div className="space-y-16 sm:space-y-20 mb-20 font-sans">
@@ -196,7 +196,7 @@ export default function ServicesPage() {
                   
                   {/* Content Column */}
                   <div className={`lg:col-span-7 space-y-6 ${isEven ? 'lg:order-1' : 'lg:order-2'}`}>
-                    <h2 className="text-2xl sm:text-3xl lg:text-4xl font-heading font-black text-slate-950 tracking-tight">
+                    <h2 className="text-2xl sm:text-3xl lg:text-4xl font-heading font-black text-slate-950 tracking-tight leading-tight">
                       {svc.title}
                     </h2>
 

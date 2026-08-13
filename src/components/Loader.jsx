@@ -7,9 +7,11 @@ import Hyperspeed from './Hyperspeed';
 export default function Loader({ onFinish, onComplete }) {
   const [progress, setProgress] = useState(0);
   const [statusText, setStatusText] = useState('INITIALIZING NETWORK BACKBONE...');
+  const [isMobile, setIsMobile] = useState(false);
   const handleDoneRef = useRef(onFinish || onComplete || (() => {}));
 
   useEffect(() => {
+    setIsMobile(window.innerWidth < 640);
     handleDoneRef.current = onFinish || onComplete || (() => {});
   }, [onFinish, onComplete]);
 
@@ -116,12 +118,12 @@ export default function Loader({ onFinish, onComplete }) {
           </div>
         </div>
 
-        {/* Executive Title */}
+        {/* Executive Title with Mobile-Optimized Fast DecryptedText */}
         <h1 className="text-base sm:text-2xl lg:text-3xl font-black tracking-tight text-white mb-2 sm:mb-3 font-gtype uppercase drop-shadow-[0_4px_30px_rgba(152,90,192,0.8)] inline-flex items-center justify-center gap-2 whitespace-nowrap overflow-hidden">
           <DecryptedText
             text="TECHNO NETWORK SOLUTIONS"
-            speed={20}
-            maxIterations={8}
+            speed={isMobile ? 35 : 20}
+            maxIterations={isMobile ? 4 : 8}
             sequential
             revealDirection="start"
             animateOn="view"

@@ -1,7 +1,18 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import AccordionGallery from './AccordionGallery';
 
 export default function GalleryPage() {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 640);
+    };
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
   const rackExecutions = [
     { image: '/gallery-rack-multicolor.png', label: 'Color-Coded Server Rack Dressing', link: '#' },
     { image: '/gallery-server-aisle.png', label: 'Data Center Server Lineup', link: '#' },
@@ -30,7 +41,7 @@ export default function GalleryPage() {
     <div className="pt-20 pb-20 bg-transparent min-h-screen">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12 py-6">
         
-        {/* Accordion Row 1: Compact Portrait Display */}
+        {/* Accordion Row 1: Optimized for Ultra-Smooth Mobile Scroll */}
         <div className="w-full">
           <AccordionGallery
             items={rackExecutions}
@@ -44,17 +55,17 @@ export default function GalleryPage() {
             showLabels={true}
             duration={0.6}
             ease="power3.out"
-            parallax={0.5}
-            tilt={10}
+            parallax={isMobile ? 0 : 0.5}
+            tilt={isMobile ? 0 : 10}
             stagger={0.06}
-            height={380}
-            gap={12}
-            radius={20}
+            height={isMobile ? 280 : 380}
+            gap={isMobile ? 8 : 12}
+            radius={isMobile ? 14 : 20}
             orientation="horizontal"
           />
         </div>
 
-        {/* Accordion Row 2: Compact Portrait Display */}
+        {/* Accordion Row 2: Optimized for Ultra-Smooth Mobile Scroll */}
         <div className="w-full">
           <AccordionGallery
             items={securityExecutions}
@@ -68,17 +79,17 @@ export default function GalleryPage() {
             showLabels={true}
             duration={0.6}
             ease="power3.out"
-            parallax={0.5}
-            tilt={10}
+            parallax={isMobile ? 0 : 0.5}
+            tilt={isMobile ? 0 : 10}
             stagger={0.06}
-            height={380}
-            gap={12}
-            radius={20}
+            height={isMobile ? 280 : 380}
+            gap={isMobile ? 8 : 12}
+            radius={isMobile ? 14 : 20}
             orientation="horizontal"
           />
         </div>
 
-        {/* Accordion Row 3: Compact Portrait Display */}
+        {/* Accordion Row 3: Optimized for Ultra-Smooth Mobile Scroll */}
         <div className="w-full">
           <AccordionGallery
             items={avInfrastructure}
@@ -92,12 +103,12 @@ export default function GalleryPage() {
             showLabels={true}
             duration={0.6}
             ease="power3.out"
-            parallax={0.5}
-            tilt={10}
+            parallax={isMobile ? 0 : 0.5}
+            tilt={isMobile ? 0 : 10}
             stagger={0.06}
-            height={380}
-            gap={12}
-            radius={20}
+            height={isMobile ? 280 : 380}
+            gap={isMobile ? 8 : 12}
+            radius={isMobile ? 14 : 20}
             orientation="horizontal"
           />
         </div>
