@@ -1,7 +1,6 @@
 import React, { useRef } from 'react';
 import StrokeText from './StrokeText';
 import TiltedCard from './TiltedCard';
-import ScrollExpand from './ScrollExpand';
 
 export default function ServicesPage() {
   const containerRef = useRef(null);
@@ -94,28 +93,20 @@ export default function ServicesPage() {
   ];
 
   return (
-    <div ref={containerRef} className="pt-16 pb-20 bg-transparent min-h-screen text-slate-900 font-sans">
+    <div ref={containerRef} className="pt-16 pb-20 bg-transparent min-h-screen text-slate-900 font-sans overflow-x-hidden">
       
-      {/* ScrollExpand Header Background Section */}
-      <div className="mb-14 font-sans">
-        <ScrollExpand
-          src="/service-header-bg.png"
-          alt="High-Density Fiber Optic Data Center Infrastructure"
-          title=""
-          scrollHint="Scroll down to expand view"
-          startWidth={65}
-          startHeight={70}
-          startRadius={24}
-          endRadius={0}
-          mediaZoom={1.25}
-          scrollDistance={1.0}
-          holdDistance={0.35}
-          smoothing={0.08}
-          overlayScrim={0.35}
-          useWindowScroll
-        >
+      {/* Ultra-Smooth Premium Header Banner Container (Zero Scroll Locking) */}
+      <div className="mb-14 font-sans px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <div className="w-full relative rounded-3xl overflow-hidden bg-slate-950 p-6 sm:p-12 lg:p-16 border border-slate-800 shadow-2xl flex flex-col items-center justify-center text-center">
+          
+          {/* Background Image Layer */}
+          <div className="absolute inset-0 z-0 pointer-events-none opacity-40">
+            <img src="/service-header-bg.png" alt="Engineering Services Header" className="w-full h-full object-cover object-center" />
+            <div className="absolute inset-0 bg-gradient-to-b from-slate-950/80 via-slate-950/60 to-slate-950/90" />
+          </div>
+
           {/* Main Display Heading */}
-          <div className="w-full flex flex-col items-center justify-center text-center my-2 drop-shadow-[0_15px_35px_rgba(0,0,0,0.85)] max-w-[98vw] sm:max-w-6xl mx-auto px-2 overflow-visible">
+          <div className="relative z-10 w-full flex flex-col items-center justify-center text-center my-2 drop-shadow-[0_15px_35px_rgba(0,0,0,0.85)] max-w-full overflow-visible">
             
             {/* Line 1: ENGINEERING & */}
             <div className="w-full flex justify-center">
@@ -176,69 +167,21 @@ export default function ServicesPage() {
 
           </div>
 
-          <p className="text-white text-xs sm:text-base lg:text-lg font-bold text-center leading-relaxed max-w-3xl mx-auto mt-4 px-4 drop-shadow-[0_2px_18px_rgba(0,0,0,0.95)]">
+          <p className="relative z-10 text-white text-xs sm:text-base lg:text-lg font-bold text-center leading-relaxed max-w-3xl mx-auto mt-6 px-4 drop-shadow-[0_2px_18px_rgba(0,0,0,0.95)]">
             Delivering high-performance cabling, CCTV, access control, and boardroom AV infrastructure backed by Fluke certification and 25-year manufacturer warranties.
           </p>
-        </ScrollExpand>
+        </div>
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 font-sans">
 
-        {/* Technical Spotlight Section with Ultra-Highlighted 3D TiltedCard Image */}
-        <div className="mb-20 py-8 font-sans border-b border-slate-200/90">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center max-w-6xl mx-auto font-sans">
-            
-            {/* Text Column */}
-            <div className="lg:col-span-7 space-y-6">
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-sans font-black text-slate-950 tracking-tight leading-tight">
-                Precision Server Rack &amp; Fiber Optic Cable Dressing
-              </h2>
-
-              <p className="text-slate-600 text-base sm:text-lg lg:text-xl font-medium leading-relaxed">
-                Every server rack execution by Techno Network Solutions follows strict ISO/IEC 14763-1 pathways and BICSI installation guidelines. We utilize custom color-coded copper Cat6A trunks and high-density fiber patch bays engineered for optimal thermal airflow and zero network downtime.
-              </p>
-
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-3">
-                <div className="bg-slate-50 p-4 rounded-2xl border border-slate-200 font-sans shadow-xs">
-                  <h4 className="text-xs font-mono text-[#2563eb] font-bold uppercase tracking-wider mb-1">FLUKE CERTIFIED LINK TESTING</h4>
-                  <p className="text-slate-700 text-sm font-medium leading-relaxed">100% permanent link OTDR Tier 1 &amp; Tier 2 reports supplied with OEM warranty documentation.</p>
-                </div>
-
-                <div className="bg-slate-50 p-4 rounded-2xl border border-slate-200 font-sans shadow-xs">
-                  <h4 className="text-xs font-mono text-[#2563eb] font-bold uppercase tracking-wider mb-1">25-YEAR OEM SYSTEM WARRANTY</h4>
-                  <p className="text-slate-700 text-sm font-medium leading-relaxed">Backed directly by CommScope Systimax, Panduit NetKey, Molex Premise &amp; R&amp;M Swiss.</p>
-                </div>
-              </div>
-            </div>
-
-            {/* Ultra-Highlighted 3D TiltedCard Image */}
-            <div className="lg:col-span-5 flex justify-center">
-              <div className="w-full max-w-md h-[340px] sm:h-[400px] relative z-10">
-                <TiltedCard
-                  imageSrc="/about-server-racks.png"
-                  altText="Precision Server Rack & Cable Dressing"
-                  captionText=""
-                  containerHeight="100%"
-                  containerWidth="100%"
-                  imageHeight="100%"
-                  imageWidth="100%"
-                  scaleOnHover={1.12}
-                  rotateAmplitude={26}
-                  showTooltip={false}
-                />
-              </div>
-            </div>
-
-          </div>
-        </div>
-
-        {/* Detailed Service Content List with Ultra-Highlighted 3D TiltedCard Images */}
-        <div className="space-y-20 mb-20 font-sans">
+        {/* Detailed Service Content List */}
+        <div className="space-y-16 sm:space-y-20 mb-20 font-sans">
           {fullServices.map((svc, idx) => {
             const isEven = idx % 2 === 0;
 
             return (
-              <div key={svc.id} className="py-10 border-b border-slate-200/90 font-sans">
+              <div key={svc.id} className="py-8 sm:py-10 border-b border-slate-200/90 font-sans">
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
                   
                   {/* Content Column */}
@@ -276,7 +219,7 @@ export default function ServicesPage() {
                     </div>
                   </div>
 
-                  {/* Ultra-Highlighted 3D TiltedCard Image Card */}
+                  {/* 3D TiltedCard Image Card */}
                   <div className={`lg:col-span-5 flex justify-center ${isEven ? 'lg:order-2' : 'lg:order-1'}`}>
                     <div className="w-full max-w-md h-[340px] sm:h-[400px] relative z-10">
                       <TiltedCard
