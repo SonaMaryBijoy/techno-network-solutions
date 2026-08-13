@@ -1,6 +1,5 @@
 import React from 'react';
 import FoldText from './FoldText';
-import TiltedCard from './TiltedCard';
 
 export default function ClientsPage() {
   const verticals = [
@@ -50,70 +49,42 @@ export default function ClientsPage() {
           </p>
         </div>
 
-        {/* Verticals Grid Wrapped in 3D TiltedCard with Mobile Grid Spacing */}
+        {/* Clean Unboxed Verticals Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 mb-14 sm:mb-16 font-sans">
           {verticals.map((vert, idx) => (
-            <div key={idx} className="w-full h-auto sm:h-[290px] min-h-[250px]">
-              <TiltedCard
-                captionText=""
-                containerHeight="100%"
-                containerWidth="100%"
-                imageHeight="100%"
-                imageWidth="100%"
-                scaleOnHover={1.05}
-                rotateAmplitude={14}
-                showTooltip={false}
-                displayOverlayContent={true}
-                overlayContent={
-                  <div className="w-full h-full p-5 sm:p-6 rounded-[24px] sm:rounded-[32px] bg-white border-2 border-blue-500/40 shadow-[0_15px_40px_rgba(37,99,235,0.2)] hover:border-blue-500 hover:shadow-[0_25px_50px_rgba(37,99,235,0.35)] transition-all duration-300 flex flex-col justify-between font-sans">
-                    <div>
-                      <h3 className="font-sans font-black text-lg sm:text-xl text-slate-950 mb-2">
-                        {vert.name}
-                      </h3>
-                      <span className="text-xs font-sans font-medium text-[#2563eb] block mb-3 px-3 py-1 bg-blue-50 rounded-lg border border-blue-200/80 w-fit">
-                        {vert.drops}
-                      </span>
-                      <p className="text-slate-600 text-xs sm:text-sm leading-relaxed font-medium font-sans">
-                        {vert.desc}
-                      </p>
-                    </div>
-                  </div>
-                }
-              />
+            <div key={idx} className="w-full p-2 font-sans">
+              <h3 className="font-sans font-black text-lg sm:text-xl text-slate-950 mb-2">
+                {vert.name}
+              </h3>
+              <span className="text-xs font-sans font-mono font-bold text-[#12ACE0] block mb-3 uppercase tracking-wider">
+                {vert.drops}
+              </span>
+              <p className="text-slate-600 text-xs sm:text-sm leading-relaxed font-medium font-sans">
+                {vert.desc}
+              </p>
             </div>
           ))}
         </div>
 
-        {/* Testimonials Wrapped in 3D TiltedCard with Mobile Spacing */}
+        {/* Clean Unboxed Testimonials Grid */}
         <div className="mb-12 font-sans">
-          <h2 className="text-2xl sm:text-3xl font-sans font-black text-slate-950 mb-6 sm:mb-8 text-center tracking-tight">
+          <h2 className="text-2xl sm:text-3xl font-sans font-black text-slate-950 mb-6 sm:mb-8 tracking-tight">
             What Facility Leaders Say
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-12 font-sans">
             {testimonials.map((t, idx) => (
-              <div key={idx} className="w-full h-auto sm:h-[260px] min-h-[240px]">
-                <TiltedCard
-                  captionText=""
-                  containerHeight="100%"
-                  containerWidth="100%"
-                  imageHeight="100%"
-                  imageWidth="100%"
-                  scaleOnHover={1.04}
-                  rotateAmplitude={12}
-                  showTooltip={false}
-                  displayOverlayContent={true}
-                  overlayContent={
-                    <div className="w-full h-full p-6 sm:p-8 rounded-[24px] sm:rounded-[32px] bg-white border-2 border-slate-200/80 shadow-[0_15px_35px_rgba(0,0,0,0.1)] hover:border-blue-500/60 hover:shadow-[0_20px_45px_rgba(37,99,235,0.25)] transition-all duration-300 flex flex-col justify-between font-sans">
-                      <p className="text-slate-600 text-xs sm:text-base italic leading-relaxed font-medium font-sans">
-                        "{t.quote}"
-                      </p>
-                      <div className="pt-4 border-t border-slate-100 font-sans text-xs sm:text-sm mt-3">
-                        <strong className="text-slate-950 font-bold text-xs sm:text-sm block font-sans">{t.client}</strong>
-                        <span className="text-slate-600 font-medium font-sans">{t.company}</span>
-                      </div>
-                    </div>
-                  }
-                />
+              <div key={idx} className="w-full p-2 font-sans border-l-4 border-[#12ACE0] pl-5 sm:pl-6">
+                <p className="text-slate-700 text-sm sm:text-base leading-relaxed font-medium mb-4 italic font-sans">
+                  "{t.quote}"
+                </p>
+                <div>
+                  <h4 className="font-sans font-black text-sm sm:text-base text-slate-950">
+                    {t.client}
+                  </h4>
+                  <span className="text-xs font-sans font-semibold text-[#12ACE0]">
+                    {t.company}
+                  </span>
+                </div>
               </div>
             ))}
           </div>

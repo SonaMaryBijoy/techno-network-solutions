@@ -18,7 +18,7 @@ export default function PartnersPage() {
     <div className="pt-20 pb-20 bg-transparent min-h-screen text-slate-900 font-sans overflow-x-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 font-sans">
         
-        {/* Clean Header with 100% Mobile Visible Heading Container */}
+        {/* Main Heading Box (KEPT AS REQUESTED) */}
         <div className="mb-10 sm:mb-12 font-sans pt-4 space-y-4 sm:space-y-6">
           <div className="w-full h-[160px] sm:h-[260px] lg:h-[320px] relative rounded-2xl sm:rounded-3xl overflow-hidden bg-slate-950 p-4 sm:p-8 border border-slate-800 shadow-xl flex flex-col justify-center items-center text-center">
             
@@ -29,7 +29,7 @@ export default function PartnersPage() {
                 fontSize="clamp(1.3rem, 5.2vw, 6.8rem)"
                 fontWeight={900}
                 color="#ffffff"
-                highlightColor="#3b82f6"
+                highlightColor="#12ACE0"
                 scatter={140}
                 gatherDuration={1400}
                 stagger={360}
@@ -54,21 +54,21 @@ export default function PartnersPage() {
           </p>
         </div>
 
-        {/* Clean Solid OEM Partner Cards Grid (Zero Glassmorphism) */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 mb-16 font-sans">
+        {/* Clean Unboxed OEM Partner Grid (Cards Removed, Only Main Heading Box Kept) */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-10 mb-16 font-sans">
           {oemPartners.map((partner, idx) => (
-            <div key={idx} className="p-5 sm:p-6 rounded-[24px] bg-white border border-slate-200 shadow-sm hover:shadow-md transition-all flex flex-col justify-between font-sans">
+            <div key={idx} className="p-2 flex flex-col justify-between font-sans">
               <div>
                 {/* Big Clean Logo */}
-                <div className="h-20 sm:h-24 lg:h-28 w-full flex items-center justify-center mb-4 px-2">
+                <div className="h-20 sm:h-24 lg:h-28 w-full flex items-center justify-start mb-4">
                   <img 
                     src={partner.logo} 
                     alt={partner.name} 
-                    className="max-h-full max-w-full object-contain filter drop-shadow-sm transition-transform duration-300 hover:scale-105" 
+                    className="max-h-full max-w-full object-contain filter drop-shadow-xs transition-transform duration-300 hover:scale-105" 
                   />
                 </div>
 
-                <span className="px-3 py-1 rounded-lg bg-blue-50 text-[#2563eb] border border-blue-200/80 font-sans text-xs font-medium block w-fit mb-2">
+                <span className="text-xs font-mono font-bold text-[#12ACE0] block mb-1 uppercase tracking-wider">
                   {partner.category}
                 </span>
 
@@ -76,7 +76,7 @@ export default function PartnersPage() {
                   {partner.name}
                 </h3>
 
-                <span className="text-xs font-sans text-emerald-600 font-medium block mb-2">
+                <span className="text-xs font-sans text-emerald-600 font-semibold block mb-2">
                   {partner.tier}
                 </span>
 
