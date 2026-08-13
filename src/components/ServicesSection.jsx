@@ -88,7 +88,7 @@ export default function ServicesSection({ onSelectService }) {
     <section id="services" className="py-16 sm:py-24 relative bg-transparent border-t border-slate-200 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
-        {/* Exact Initial Executive Header Box Condition Before Deployment */}
+        {/* Executive Header Box */}
         <AnimatedContent distance={60} direction="vertical" duration={0.8} ease="power3.out">
           <div ref={containerRef} className="w-full mb-10 sm:mb-14 p-6 sm:p-10 rounded-2xl sm:rounded-3xl bg-white/90 backdrop-blur-md border border-slate-200/90 shadow-md overflow-hidden">
             <div className="w-full max-w-full">
@@ -96,10 +96,10 @@ export default function ServicesSection({ onSelectService }) {
                 <span className="flex-shrink-0 font-united-colony font-black text-slate-950 uppercase">
                   FIVE CORE DISCIPLINES,
                 </span>
-                <span className="flex-shrink-0 font-united-colony font-black text-[#2563eb] inline-flex items-center">
+                <span className="flex-shrink-0 font-united-colony font-black text-white inline-flex items-center">
                   <RotatingText
                     texts={['INFINITE POSSIBILITIES.', 'ONE TURNKEY PARTNER.', 'ZERO PACKET DROP.']}
-                    mainClassName="px-2 bg-blue-50 text-[#2563eb] rounded-lg border border-blue-200"
+                    mainClassName="px-2.5 py-0.5 bg-[#2563eb] text-white rounded-lg border border-blue-400 font-black shadow-sm"
                     staggerFrom="last"
                     initial={{ y: "100%" }}
                     animate={{ y: 0 }}
