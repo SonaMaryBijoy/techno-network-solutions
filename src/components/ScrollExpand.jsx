@@ -79,14 +79,16 @@ const ScrollExpand = ({
 
     applyProgress(0);
 
+    const isMobile = window.innerWidth < 640;
+
     const st = ScrollTrigger.create({
       trigger: track,
-      start: 'top top+=80',
-      end: '+=100%',
-      pin: stage,
-      pinSpacing: true,
+      start: isMobile ? 'top top+=20' : 'top top+=80',
+      end: isMobile ? '+=50%' : '+=100%',
+      pin: !isMobile ? stage : false,
+      pinSpacing: !isMobile,
       anticipatePin: 1,
-      scrub: 0.5,
+      scrub: isMobile ? 0.2 : 0.5,
       onUpdate: self => {
         applyProgress(self.progress);
       }
@@ -99,8 +101,8 @@ const ScrollExpand = ({
 
   return (
     <div ref={rootRef} className={`relative w-full ${className}`.trim()} style={style} {...rest}>
-      <div ref={trackRef} className="relative w-full h-[180vh]">
-        <div ref={stageRef} className="sticky top-0 w-full h-screen overflow-hidden flex items-center justify-center">
+      <div ref={trackRef} className="relative w-full h-[120vh] sm:h-[180vh]">
+        <div ref={stageRef} className="sticky top-0 w-full h-[60vh] sm:h-screen overflow-hidden flex items-center justify-center">
           <div
             ref={frameRef}
             className="relative w-full h-full overflow-hidden shadow-2xl bg-slate-950 will-change-[clip-path,transform] [transform:translateZ(0)]"
