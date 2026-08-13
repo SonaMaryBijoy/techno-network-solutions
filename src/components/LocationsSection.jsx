@@ -56,7 +56,7 @@ export default function LocationsSection({ onOpenQuote }) {
         
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center font-sans">
           
-          {/* Left Column: Interactive India SVG Map Wrapped in 3D TiltedCard with Light Blue Faded Backdrop */}
+          {/* Left Column: Interactive India SVG Map Unboxed */}
           <div className="lg:col-span-6 font-sans">
             <div className="w-full h-[460px] sm:h-[540px]">
               <TiltedCard
@@ -70,24 +70,24 @@ export default function LocationsSection({ onOpenQuote }) {
                 showTooltip={false}
                 displayOverlayContent={true}
                 overlayContent={
-                  <div className="w-full h-full rounded-3xl overflow-hidden bg-[#e0f2fe]/80 border border-sky-200/90 shadow-xl relative p-6 flex flex-col justify-between font-sans">
+                  <div className="w-full h-full relative p-4 flex flex-col justify-between font-sans bg-transparent">
                     
                     {/* Top Accent Pill */}
                     <div className="relative z-10 flex items-center justify-between font-sans">
-                      <span className="px-3.5 py-1.5 rounded-full bg-sky-100/90 border border-sky-300/80 text-[#12ACE0] font-mono text-xs font-bold uppercase tracking-wider shadow-xs">
+                      <span className="px-3.5 py-1.5 rounded-full bg-cyan-50 border border-cyan-200 text-[#12ACE0] font-mono text-xs font-bold uppercase tracking-wider shadow-xs">
                         NATIONWIDE NETWORK COVERAGE
                       </span>
                       <span className="w-2.5 h-2.5 rounded-full bg-[#12ACE0] animate-ping" />
                     </div>
 
                     {/* Vector SVG Geometric Map of India */}
-                    <div className="absolute inset-0 flex items-center justify-center p-4">
-                      <svg viewBox="0 0 1000 1000" className="w-full h-full max-h-[460px] object-contain opacity-90">
+                    <div className="absolute inset-0 flex items-center justify-center p-2">
+                      <svg viewBox="0 0 1000 1000" className="w-full h-full max-h-[480px] object-contain opacity-95">
                         <defs>
-                          <linearGradient id="india-map-grad-light" x1="0%" y1="0%" x2="100%" y2="100%">
-                            <stop offset="0%" stopColor="#12ACE0" stopOpacity="0.35" />
-                            <stop offset="50%" stopColor="#38bdf8" stopOpacity="0.2" />
-                            <stop offset="100%" stopColor="#0284c7" stopOpacity="0.1" />
+                          <linearGradient id="india-map-grad-clean" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stopColor="#12ACE0" stopOpacity="0.2" />
+                            <stop offset="50%" stopColor="#38bdf8" stopOpacity="0.1" />
+                            <stop offset="100%" stopColor="#0284c7" stopOpacity="0.05" />
                           </linearGradient>
                         </defs>
 
@@ -102,7 +102,7 @@ export default function LocationsSection({ onOpenQuote }) {
                             L 270 450 L 290 420 L 260 390 L 280 340 L 300 320 L 270 290 L 310 260 L 300 220 L 330 180 
                             L 310 140 Z
                           "
-                          fill="url(#india-map-grad-light)"
+                          fill="url(#india-map-grad-clean)"
                           opacity="0.95"
                           stroke="#12ACE0"
                           strokeWidth="2.5"
@@ -136,13 +136,13 @@ export default function LocationsSection({ onOpenQuote }) {
                             className="absolute -translate-x-1/2 -translate-y-1/2 group/pin cursor-pointer transition-transform hover:scale-125 focus:outline-none z-10"
                           >
                             {/* Outer Ring Animation */}
-                            <span className={`absolute -inset-2 rounded-full ${isSelected ? 'bg-sky-500/40 animate-ping' : 'bg-[#12ACE0]/20 group-hover/pin:animate-ping'}`} />
+                            <span className={`absolute -inset-2 rounded-full ${isSelected ? 'bg-cyan-500/40 animate-ping' : 'bg-[#12ACE0]/20 group-hover/pin:animate-ping'}`} />
                             
                             {/* Marker Icon Pin */}
                             <span className={`relative flex items-center justify-center w-6 h-6 sm:w-8 sm:h-8 rounded-full border-2 shadow-md transition-all ${
                               isSelected
                                 ? 'bg-[#12ACE0] border-white text-white scale-110 shadow-cyan-500/50'
-                                : 'bg-white border-sky-400 text-[#12ACE0] hover:bg-sky-50'
+                                : 'bg-white border-cyan-400 text-[#12ACE0] hover:bg-cyan-50'
                             }`}>
                               <MapPin className="w-3 h-3 sm:w-4 sm:h-4" />
                             </span>
