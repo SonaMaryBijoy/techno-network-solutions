@@ -39,8 +39,8 @@ export default function App() {
   const pagesWithoutLiquidEther = ['services', 'gallery', 'clients', 'partners'];
 
   return (
-    <div className="min-h-screen bg-white text-slate-900 font-sans selection:bg-[#12ACE0]/20 selection:text-[#12ACE0]">
-      <AnimatePresence>
+    <div className="min-h-screen bg-white text-slate-900 font-sans selection:bg-[#12ACE0]/20 selection:text-[#12ACE0] overflow-x-hidden">
+      <AnimatePresence mode="wait">
         {loading && (
           <Loader onFinish={() => setLoading(false)} onComplete={() => setLoading(false)} />
         )}
@@ -50,7 +50,7 @@ export default function App() {
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.45, ease: 'easeOut' }}
           className="min-h-screen flex flex-col justify-between"
         >
           {/* Main Executive Header Navigation */}
@@ -61,36 +61,109 @@ export default function App() {
           />
 
           <main className="flex-grow relative overflow-hidden">
-            {/* Direct Instant Page Navigation Without Transition Delay */}
-            {currentPage === 'home' ? (
-              <div key="home-page">
-                {/* Hero Section */}
-                <Hero onOpenQuote={() => setQuoteOpen(true)} />
+            <AnimatePresence mode="wait">
+              {currentPage === 'home' ? (
+                <motion.div
+                  key="home-page"
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -10 }}
+                  transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
+                >
+                  {/* Hero Section */}
+                  <Hero onOpenQuote={() => setQuoteOpen(true)} />
 
-                {/* Post-Hero Home Page Container with Refined LiquidEther Background */}
-                <div className="relative z-0 bg-white">
-                  {/* Layer 1: Subtle Refined LiquidEther Background Animation */}
-                  <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden opacity-38 will-change-transform">
-                    <LiquidEther
-                      colors={['#5227FF', '#FF9FFC', '#B497CF']}
-                      mouseForce={15}
-                      cursorSize={80}
-                      isViscous
-                      viscous={20}
-                      iterationsViscous={12}
-                      iterationsPoisson={12}
-                      resolution={0.25}
-                      isBounce={false}
-                      autoDemo
-                      autoSpeed={0.4}
-                      autoIntensity={1.8}
-                      takeoverDuration={0.2}
-                      autoResumeDelay={3000}
-                      autoRampDuration={0.5}
-                    />
+                  {/* Post-Hero Home Page Container */}
+                  <div className="relative z-0 bg-white">
+                    <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden opacity-38 will-change-transform">
+                      <LiquidEther
+                        colors={['#5227FF', '#FF9FFC', '#B497CF']}
+                        mouseForce={15}
+                        cursorSize={80}
+                        isViscous
+                        viscous={20}
+                        iterationsViscous={12}
+                        iterationsPoisson={12}
+                        resolution={0.25}
+                        isBounce={false}
+                        autoDemo
+                        autoSpeed={0.4}
+                        autoIntensity={1.8}
+                        takeoverDuration={0.2}
+                        autoResumeDelay={3000}
+                        autoRampDuration={0.5}
+                      />
+                    </div>
+
+                    <div className="absolute inset-0 pointer-events-auto z-[1] overflow-hidden opacity-85">
+                      <CursorGrid
+                        cellSize={68}
+                        color="#12ACE0"
+                        radius={145}
+                        falloff="smooth"
+                        holdTime={400}
+                        fadeDuration={800}
+                        lineWidth={1.25}
+                        maxOpacity={1}
+                        fillOpacity={0.05}
+                        gridOpacity={0.08}
+                        cellRadius={0}
+                        clickPulse
+                        pulseSpeed={600}
+                      />
+                    </div>
+
+                    <div className="absolute inset-0 pointer-events-none z-[2] overflow-hidden opacity-14">
+                      <ShapeGrid
+                        speed={0.5}
+                        squareSize={65}
+                        direction="diagonal"
+                        borderColor="#cbd5e1"
+                        hoverFillColor="#12ACE0"
+                        shape="square"
+                        hoverTrailAmount={4}
+                      />
+                    </div>
+
+                    <div className="relative z-10">
+                      <ServicesSection onSelectService={handleSelectServiceQuote} />
+                      <WhyUs />
+                      <LocationsSection onOpenQuote={() => setQuoteOpen(true)} />
+                      <Clients />
+                    </div>
                   </div>
+                </motion.div>
+              ) : (
+                <motion.div
+                  key={`page-${currentPage}`}
+                  initial={{ opacity: 0, y: 12 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -12 }}
+                  transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
+                  className="relative z-0 pt-20 sm:pt-24 min-h-screen bg-white"
+                >
+                  {!pagesWithoutLiquidEther.includes(currentPage) && (
+                    <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden opacity-38 will-change-transform">
+                      <LiquidEther
+                        colors={['#5227FF', '#FF9FFC', '#B497CF']}
+                        mouseForce={15}
+                        cursorSize={80}
+                        isViscous
+                        viscous={20}
+                        iterationsViscous={12}
+                        iterationsPoisson={12}
+                        resolution={0.25}
+                        isBounce={false}
+                        autoDemo
+                        autoSpeed={0.4}
+                        autoIntensity={1.8}
+                        takeoverDuration={0.2}
+                        autoResumeDelay={3000}
+                        autoRampDuration={0.5}
+                      />
+                    </div>
+                  )}
 
-                  {/* Layer 2: Subtle Touch-Highlighted CursorGrid Backdrop */}
                   <div className="absolute inset-0 pointer-events-auto z-[1] overflow-hidden opacity-85">
                     <CursorGrid
                       cellSize={68}
@@ -109,7 +182,6 @@ export default function App() {
                     />
                   </div>
 
-                  {/* Layer 3: Soft Light ShapeGrid Page Background */}
                   <div className="absolute inset-0 pointer-events-none z-[2] overflow-hidden opacity-14">
                     <ShapeGrid
                       speed={0.5}
@@ -123,102 +195,37 @@ export default function App() {
                   </div>
 
                   <div className="relative z-10">
-                    <ServicesSection onSelectService={handleSelectServiceQuote} />
-                    <WhyUs />
-                    <LocationsSection onOpenQuote={() => setQuoteOpen(true)} />
-                    {/* Certified OEM Leaders section & Logo Loop positioned cleanly at the bottom of the home page */}
-                    <Clients />
+                    {currentPage === 'services' && (
+                      <ServicesPage onOpenQuote={() => setQuoteOpen(true)} />
+                    )}
+
+                    {currentPage === 'about' && (
+                      <AboutPage onOpenQuote={() => setQuoteOpen(true)} />
+                    )}
+
+                    {currentPage === 'clients' && (
+                      <ClientsPage onOpenQuote={() => setQuoteOpen(true)} />
+                    )}
+
+                    {currentPage === 'partners' && (
+                      <PartnersPage onOpenQuote={() => setQuoteOpen(true)} />
+                    )}
+
+                    {currentPage === 'gallery' && (
+                      <GalleryPage onOpenQuote={() => setQuoteOpen(true)} />
+                    )}
+
+                    {currentPage === 'careers' && (
+                      <CareersPage />
+                    )}
+
+                    {currentPage === 'contact' && (
+                      <ContactPage />
+                    )}
                   </div>
-                </div>
-              </div>
-            ) : (
-              <div key={`page-${currentPage}`} className="relative z-0 pt-24 min-h-screen bg-white">
-                {/* Render LiquidEther only on inner pages that are NOT in pagesWithoutLiquidEther */}
-                {!pagesWithoutLiquidEther.includes(currentPage) && (
-                  <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden opacity-38 will-change-transform">
-                    <LiquidEther
-                      colors={['#5227FF', '#FF9FFC', '#B497CF']}
-                      mouseForce={15}
-                      cursorSize={80}
-                      isViscous
-                      viscous={20}
-                      iterationsViscous={12}
-                      iterationsPoisson={12}
-                      resolution={0.25}
-                      isBounce={false}
-                      autoDemo
-                      autoSpeed={0.4}
-                      autoIntensity={1.8}
-                      takeoverDuration={0.2}
-                      autoResumeDelay={3000}
-                      autoRampDuration={0.5}
-                    />
-                  </div>
-                )}
-
-                {/* Subtle Touch-Highlighted CursorGrid Backdrop */}
-                <div className="absolute inset-0 pointer-events-auto z-[1] overflow-hidden opacity-85">
-                  <CursorGrid
-                    cellSize={68}
-                    color="#12ACE0"
-                    radius={145}
-                    falloff="smooth"
-                    holdTime={400}
-                    fadeDuration={800}
-                    lineWidth={1.25}
-                    maxOpacity={1}
-                    fillOpacity={0.05}
-                    gridOpacity={0.08}
-                    cellRadius={0}
-                    clickPulse
-                    pulseSpeed={600}
-                  />
-                </div>
-
-                {/* Soft Light ShapeGrid Page Background */}
-                <div className="absolute inset-0 pointer-events-none z-[2] overflow-hidden opacity-14">
-                  <ShapeGrid
-                    speed={0.5}
-                    squareSize={65}
-                    direction="diagonal"
-                    borderColor="#cbd5e1"
-                    hoverFillColor="#12ACE0"
-                    shape="square"
-                    hoverTrailAmount={4}
-                  />
-                </div>
-
-                <div className="relative z-10">
-                  {currentPage === 'services' && (
-                    <ServicesPage onOpenQuote={() => setQuoteOpen(true)} />
-                  )}
-
-                  {currentPage === 'about' && (
-                    <AboutPage onOpenQuote={() => setQuoteOpen(true)} />
-                  )}
-
-                  {currentPage === 'clients' && (
-                    <ClientsPage onOpenQuote={() => setQuoteOpen(true)} />
-                  )}
-
-                  {currentPage === 'partners' && (
-                    <PartnersPage onOpenQuote={() => setQuoteOpen(true)} />
-                  )}
-
-                  {currentPage === 'gallery' && (
-                    <GalleryPage onOpenQuote={() => setQuoteOpen(true)} />
-                  )}
-
-                  {currentPage === 'careers' && (
-                    <CareersPage />
-                  )}
-
-                  {currentPage === 'contact' && (
-                    <ContactPage />
-                  )}
-                </div>
-              </div>
-            )}
+                </motion.div>
+              )}
+            </AnimatePresence>
           </main>
 
           {/* Site Footer */}

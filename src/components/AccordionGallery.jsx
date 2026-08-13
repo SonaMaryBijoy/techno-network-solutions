@@ -48,13 +48,14 @@ const AccordionGallery = ({
       ? window.matchMedia('(prefers-reduced-motion: reduce)').matches
       : false;
 
-  const overlayBg = `linear-gradient(180deg, transparent 50%, color-mix(in srgb, ${overlayColor} 85%, transparent) 100%), color-mix(in srgb, ${overlayColor} calc(var(--ag-dim, 0.15) * 100%), transparent)`;
+  const overlayBg = `linear-gradient(180deg, transparent 40%, color-mix(in srgb, ${overlayColor} 85%, transparent) 100%), color-mix(in srgb, ${overlayColor} calc(var(--ag-dim, 0.15) * 100%), transparent)`;
 
   const applyLayout = useCallback(
     animate => {
       const panels = panelRefs.current;
       if (!panels.length) return;
 
+      const isMobileScreen = typeof window !== 'undefined' && window.innerWidth < 640;
       const r = Math.min(Math.max(expandRatio, 0.2), 0.9);
       const grow = count > 1 ? (r * (count - 1)) / (1 - r) : 1;
       const mediaSize = mediaSizeRef.current;
@@ -71,7 +72,7 @@ const AccordionGallery = ({
         const text = textRefs.current[i];
 
         const rot = isActive ? 0 : i < active ? tilt : -tilt;
-        const rotProp = vertical ? { rotateX: -rot } : { rotateY: rot };
+        const rotProp = isMobileScreen ? {} : vertical ? { rotateX: -rot } : { rotateY: rot };
 
         tl.to(panel, { flexGrow: isActive ? grow : 1, ...rotProp, duration: dur, ease }, 0);
 
@@ -84,8 +85,8 @@ const AccordionGallery = ({
             {
               xPercent: -50,
               yPercent: -50,
-              x: vertical ? 0 : isActive ? 0 : shift,
-              y: vertical ? (isActive ? 0 : shift) : 0,
+              x: vertical || isMobileScreen ? 0 : isActive ? 0 : shift,
+              y: vertical || isMobileScreen ? (isActive ? 0 : shift) : 0,
               '--ag-gray': gray,
               '--ag-dim': isActive ? 0 : 0.2,
               duration: dur,
@@ -96,7 +97,7 @@ const AccordionGallery = ({
         }
 
         if (showLabels && bar && text) {
-          if (isActive) {
+          if (isActive || isMobileScreen) {
             tl.to([bar, text], { opacity: 1, x: 0, duration: dur, ease, stagger: prefersReduced ? 0 : stagger }, 0);
           } else {
             tl.to([bar, text], { opacity: 0, x: -14, duration: dur * 0.6, ease }, 0);
@@ -178,7 +179,7 @@ const AccordionGallery = ({
   return (
     <div
       ref={rootRef}
-      className={`flex ${vertical ? 'flex-col' : 'flex-row'} w-full max-w-full [perspective:1400px] max-[520px]:!flex-col max-[520px]:[perspective:none] ${className}`}
+      className={`flex ${vertical ? 'flex-col' : 'flex-row'} w-full max-w-full [perspective:1400px] max-[640px]:!flex-col max-[640px]:[perspective:none] max-[640px]:!h-auto max-[640px]:min-h-[580px] ${className}`}
       style={{ gap: `${gap}px`, height: vertical ? `${Math.round(height * 1.6)}px` : `${height}px` }}
       role="list"
       aria-label="Image accordion gallery"
@@ -190,7 +191,7 @@ const AccordionGallery = ({
           <Tag
             key={i}
             ref={el => (panelRefs.current[i] = el)}
-            className="group relative block min-w-0 min-h-0 flex-[1_1_0] cursor-pointer overflow-hidden bg-slate-950 no-underline outline-none [transform-style:preserve-3d] [transform-origin:center] shadow-[0_15px_40px_rgba(0,0,0,0.5)] border-2 border-white/10 hover:border-blue-500/80 transition-colors duration-300 focus-visible:[box-shadow:0_0_0_2px_var(--ag-accent),0_10px_30px_-18px_rgba(0,0,0,0.8)] max-[520px]:min-h-[110px] max-[520px]:!transform-none"
+            className="group relative block min-w-0 min-h-0 flex-[1_1_0] cursor-pointer overflow-hidden bg-slate-950 no-underline outline-none [transform-style:preserve-3d] [transform-origin:center] shadow-[0_15px_40px_rgba(0,0,0,0.5)] border-2 border-white/10 hover:border-blue-500/80 transition-all duration-300 focus-visible:[box-shadow:0_0_0_2px_var(--ag-accent),0_10px_30px_-18px_rgba(0,0,0,0.8)] max-[640px]:min-h-[120px] max-[640px]:aria-[current=true]:min-h-[240px] max-[640px]:!transform-none"
             style={{ borderRadius: `${radius}px`, '--ag-accent': accentColor, willChange: 'flex-grow, transform' }}
             href={item.link || undefined}
             onClick={e => handleClick(i, e)}
@@ -227,12 +228,12 @@ const AccordionGallery = ({
             </span>
             {showLabels && (
               <span
-                className="pointer-events-none absolute bottom-5 left-5 right-5 z-[2] flex items-center gap-3"
+                className="pointer-events-none absolute bottom-4 left-4 right-4 sm:bottom-5 sm:left-5 sm:right-5 z-[2] flex items-center gap-2.5 sm:gap-3"
                 aria-hidden="true"
               >
                 <span
                   ref={el => (barRefs.current[i] = el)}
-                  className="h-[24px] w-[3.5px] flex-none rounded-[3px] opacity-0"
+                  className="h-[20px] sm:h-[24px] w-[3.5px] flex-none rounded-[3px]"
                   style={{
                     background: accentColor,
                     boxShadow: `0 0 14px color-mix(in srgb, ${accentColor} 80%, transparent)`
@@ -240,7 +241,7 @@ const AccordionGallery = ({
                 />
                 <span
                   ref={el => (textRefs.current[i] = el)}
-                  className="overflow-hidden text-ellipsis whitespace-nowrap text-[clamp(0.95rem,1.3vw,1.35rem)] font-heading font-black tracking-wide opacity-0 drop-shadow-[0_4px_16px_rgba(0,0,0,0.95)]"
+                  className="overflow-hidden text-ellipsis whitespace-nowrap text-xs sm:text-base font-heading font-black tracking-wide text-white drop-shadow-[0_4px_16px_rgba(0,0,0,0.95)]"
                   style={{ color: textColor }}
                 >
                   {item.label}

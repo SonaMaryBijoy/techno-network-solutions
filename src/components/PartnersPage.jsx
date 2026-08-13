@@ -18,25 +18,35 @@ export default function PartnersPage() {
     <div className="pt-20 pb-20 bg-transparent min-h-screen text-slate-900 font-sans overflow-x-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 font-sans">
         
-        {/* Clean Header with Mobile-Responsive ParticleText Canvas Animation */}
+        {/* Crystal-Clear Premium Header Box with Ambient Particle Canvas */}
         <div className="mb-10 sm:mb-12 font-sans pt-4 space-y-4 sm:space-y-6">
-          <div className="w-full h-[180px] sm:h-[280px] lg:h-[340px] relative rounded-2xl sm:rounded-3xl overflow-hidden bg-slate-950 p-3 sm:p-6 border-2 border-blue-500/50 shadow-2xl">
-            <ParticleText
-              text="Certified Global OEM Partners"
-              fontSize="clamp(1.8rem, 6.5vw, 7.2rem)"
-              fontWeight={900}
-              color="#ffffff"
-              highlightColor="#3b82f6"
-              scatter={160}
-              gatherDuration={1400}
-              stagger={360}
-              pointerRepel={45}
-              repelRadius={120}
-              idleDrift={0.8}
-              trigger="mount"
-              glow={true}
-            />
+          <div className="w-full min-h-[160px] sm:min-h-[240px] lg:min-h-[280px] relative rounded-2xl sm:rounded-3xl overflow-hidden bg-slate-950 p-6 sm:p-10 border-2 border-blue-500/50 shadow-2xl flex flex-col justify-center items-center text-center">
+            
+            {/* Background Ambient Particles */}
+            <div className="absolute inset-0 pointer-events-none opacity-40">
+              <ParticleText
+                text="Certified Global OEM Partners"
+                fontSize="clamp(2rem, 7vw, 7.2rem)"
+                fontWeight={900}
+                color="#ffffff"
+                highlightColor="#3b82f6"
+                scatter={140}
+                gatherDuration={1400}
+                stagger={360}
+                pointerRepel={40}
+                repelRadius={120}
+                idleDrift={0.8}
+                trigger="mount"
+                glow={true}
+              />
+            </div>
+
+            {/* Crystal-Clear Sharp Overlay Text */}
+            <h1 className="relative z-10 text-2xl sm:text-5xl lg:text-6xl font-black font-sans tracking-tight text-white bg-gradient-to-r from-white via-blue-100 to-blue-400 bg-clip-text text-transparent leading-tight sm:leading-tight uppercase drop-shadow-[0_4px_25px_rgba(37,99,235,0.7)]">
+              Certified Global OEM Partners
+            </h1>
           </div>
+
           <p className="text-slate-600 text-sm sm:text-lg lg:text-xl font-medium leading-relaxed font-sans max-w-4xl pt-1">
             Our engineers undergo continuous OEM certification to deliver up to 25-year manufacturer system performance warranties on every installation.
           </p>
