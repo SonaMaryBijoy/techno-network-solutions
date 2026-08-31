@@ -104,7 +104,7 @@ export default function App() {
   };
 
   return (
-    <div className="bg-white text-slate-900 min-h-screen selection:bg-[#12ACE0] selection:text-white font-sans antialiased overflow-x-hidden relative">
+    <div className="bg-slate-950 text-slate-100 min-h-screen selection:bg-[#12ACE0] selection:text-white font-sans antialiased overflow-x-hidden relative">
       {/* Global Preloader Screen */}
       <AnimatePresence mode="wait">
         {loading && <Loader onComplete={() => setLoading(false)} />}
@@ -132,7 +132,7 @@ export default function App() {
                 <div>
                   <Hero onOpenQuote={() => handleOpenQuoteModal()} />
                   
-                  {/* Post-Hero Home Page Container */}
+                  {/* Post-Hero Home Page Container with Full Interactive Background Filters */}
                   <div className="relative z-0 bg-white">
                     <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden opacity-38 will-change-transform">
                       <LiquidEther
