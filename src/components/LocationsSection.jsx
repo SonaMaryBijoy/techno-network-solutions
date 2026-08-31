@@ -11,7 +11,7 @@ export default function LocationsSection({ onOpenQuote }) {
       region: 'KARNATAKA & HEADQUARTERS',
       desc: 'Central Engineering Command, Cable Assembly Testing Facility & Master Warehouse.',
       specs: 'Central Support Command · 24/7 Deployment Unit',
-      coords: { x: '42.5%', y: '73.5%' },
+      coords: { x: '41%', y: '68%' },
       isHQ: true
     },
     {
@@ -20,7 +20,7 @@ export default function LocationsSection({ onOpenQuote }) {
       region: 'TELANGANA & AP HUB',
       desc: 'Data Center & Tech Park Cabling Execution Unit.',
       specs: 'Dedicated Tech Park Cabling & CCTV Support Crew',
-      coords: { x: '49%', y: '61%' }
+      coords: { x: '46.5%', y: '56.5%' }
     },
     {
       id: 'chennai',
@@ -28,7 +28,7 @@ export default function LocationsSection({ onOpenQuote }) {
       region: 'TAMIL NADU HUB',
       desc: 'Enterprise Structured Cabling & Optical Fiber Execution Team.',
       specs: 'Enterprise Cabling & Fiber Optics Support',
-      coords: { x: '52%', y: '76%' }
+      coords: { x: '50.5%', y: '68.5%' }
     },
     {
       id: 'kerala',
@@ -36,7 +36,7 @@ export default function LocationsSection({ onOpenQuote }) {
       region: 'KERALA REGIONAL HUB',
       desc: 'Regional Infrastructure Engineering & Security Systems Command.',
       specs: 'Regional Engineering & Security Support Unit',
-      coords: { x: '40%', y: '82%' }
+      coords: { x: '37.5%', y: '74.5%' }
     }
   ];
 
@@ -49,7 +49,7 @@ export default function LocationsSection({ onOpenQuote }) {
         
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center font-sans">
           
-          {/* Left Column: Precise Professional Interactive India SVG Map */}
+          {/* Left Column: Geographically Precise Interactive India SVG Map */}
           <div className="lg:col-span-6 font-sans">
             <div className="w-full h-[460px] sm:h-[540px]">
               <TiltedCard
@@ -65,7 +65,7 @@ export default function LocationsSection({ onOpenQuote }) {
                 overlayContent={
                   <div className="w-full h-full relative p-4 flex flex-col justify-between font-sans bg-transparent">
                     
-                    {/* Vector SVG Precise Geometric Map of India */}
+                    {/* Vector SVG Geographically Precise Contour Map of India */}
                     <div className="absolute inset-0 flex items-center justify-center p-2">
                       <svg viewBox="0 0 1000 1000" className="w-full h-full max-h-[480px] object-contain opacity-95">
                         <defs>
@@ -76,7 +76,7 @@ export default function LocationsSection({ onOpenQuote }) {
                           </linearGradient>
                         </defs>
 
-                        {/* Detailed Geometric Contour Map Path of India */}
+                        {/* Detailed Contour Map Path of India */}
                         <path
                           d="
                             M 360 80 
@@ -96,10 +96,18 @@ export default function LocationsSection({ onOpenQuote }) {
                         {/* State Border Grid Accent Lines */}
                         <path d="M 330 180 L 440 220 M 310 260 L 480 260 M 300 320 L 590 280 M 270 450 L 550 450 M 310 540 L 520 510 M 370 660 L 460 630" stroke="#0284c7" strokeWidth="1" strokeDasharray="4 4" opacity="0.35" />
 
-                        {/* Precise Network Vector Connectors from Bangalore HQ */}
-                        <line x1="410" y1="680" x2="475" y2="550" stroke="#12ACE0" strokeWidth="2" strokeDasharray="4 2" className="animate-pulse" />
-                        <line x1="410" y1="680" x2="505" y2="710" stroke="#12ACE0" strokeWidth="2" strokeDasharray="4 2" className="animate-pulse" />
-                        <line x1="410" y1="680" x2="390" y2="770" stroke="#12ACE0" strokeWidth="2" strokeDasharray="4 2" className="animate-pulse" />
+                        {/* Geographically Precise Network Connectors from Bangalore HQ (410, 680) */}
+                        {/* Line to Hyderabad (465, 565) */}
+                        <line x1="410" y1="680" x2="465" y2="565" stroke="#12ACE0" strokeWidth="2" strokeDasharray="4 2" className="animate-pulse" />
+                        {/* Line to Chennai (505, 685) */}
+                        <line x1="410" y1="680" x2="505" y2="685" stroke="#12ACE0" strokeWidth="2" strokeDasharray="4 2" className="animate-pulse" />
+                        {/* Line to Kerala (375, 745) */}
+                        <line x1="410" y1="680" x2="375" y2="745" stroke="#12ACE0" strokeWidth="2" strokeDasharray="4 2" className="animate-pulse" />
+
+                        {/* SVG Core Hub Pulse Markers */}
+                        <circle cx="465" cy="565" r="4" className="fill-[#12ACE0]" />
+                        <circle cx="505" cy="685" r="4" className="fill-[#12ACE0]" />
+                        <circle cx="375" cy="745" r="4" className="fill-[#12ACE0]" />
 
                         {/* Precise Bangalore HQ Core Pin */}
                         <circle cx="410" cy="680" r="18" className="stroke-[#12ACE0] fill-none stroke-[2.5] animate-ping" />
