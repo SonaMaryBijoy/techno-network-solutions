@@ -125,120 +125,125 @@ export default function App() {
             onOpenQuote={() => handleOpenQuoteModal()} 
           />
 
-          {/* Page Routing Views */}
-          <main className="relative font-sans bg-white">
-            {currentPage === 'home' && (
-              <PageWrapper pageKey="home" onMountScroll={scrollToTopInstant}>
-                <div>
-                  <Hero onOpenQuote={() => handleOpenQuoteModal()} />
-                  
-                  {/* Post-Hero Home Page Container with Clean White Background & Interactive Filters */}
-                  <div className="relative z-0 bg-white">
-                    <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden opacity-38 will-change-transform">
-                      <LiquidEther
-                        colors={['#5227FF', '#FF9FFC', '#B497CF']}
-                        mouseForce={15}
-                        cursorSize={80}
-                        isViscous
-                        viscous={20}
-                        iterationsViscous={12}
-                        iterationsPoisson={12}
-                        resolution={0.25}
-                        isBounce={false}
-                        autoDemo
-                        autoSpeed={0.4}
-                        autoIntensity={1.8}
-                        takeoverDuration={0.2}
-                        autoResumeDelay={3000}
-                        autoRampDuration={0.5}
-                      />
-                    </div>
+          {/* Page Routing Views with Global Interactive Square Grid Background Filter */}
+          <main className="relative font-sans bg-white min-h-screen">
+            
+            {/* Global ShapeGrid Square Grid Filter across all pages */}
+            <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden opacity-18">
+              <ShapeGrid
+                speed={0.5}
+                squareSize={65}
+                direction="diagonal"
+                borderColor="#cbd5e1"
+                hoverFillColor="#12ACE0"
+                shape="square"
+                hoverTrailAmount={4}
+              />
+            </div>
 
-                    <div className="absolute inset-0 pointer-events-auto z-[1] overflow-hidden opacity-85">
-                      <CursorGrid
-                        cellSize={68}
-                        color="#12ACE0"
-                        radius={145}
-                        falloff="smooth"
-                        holdTime={400}
-                        fadeDuration={800}
-                        lineWidth={1.25}
-                        maxOpacity={1}
-                        fillOpacity={0.05}
-                        gridOpacity={0.08}
-                        cellRadius={0}
-                        clickPulse
-                        pulseSpeed={600}
-                      />
-                    </div>
+            {/* Global CursorGrid Interactive Filter across all pages */}
+            <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden opacity-75">
+              <CursorGrid
+                cellSize={68}
+                color="#12ACE0"
+                radius={145}
+                falloff="smooth"
+                holdTime={400}
+                fadeDuration={800}
+                lineWidth={1.25}
+                maxOpacity={1}
+                fillOpacity={0.05}
+                gridOpacity={0.08}
+                cellRadius={0}
+                clickPulse
+                pulseSpeed={600}
+              />
+            </div>
 
-                    <div className="absolute inset-0 pointer-events-none z-[2] overflow-hidden opacity-14">
-                      <ShapeGrid
-                        speed={0.5}
-                        squareSize={65}
-                        direction="diagonal"
-                        borderColor="#cbd5e1"
-                        hoverFillColor="#12ACE0"
-                        shape="square"
-                        hoverTrailAmount={4}
-                      />
-                    </div>
+            <div className="relative z-10 font-sans">
+              {currentPage === 'home' && (
+                <PageWrapper pageKey="home" onMountScroll={scrollToTopInstant}>
+                  <div>
+                    <Hero onOpenQuote={() => handleOpenQuoteModal()} />
+                    
+                    {/* Post-Hero Home Page Container */}
+                    <div className="relative z-0 bg-transparent">
+                      <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden opacity-38 will-change-transform">
+                        <LiquidEther
+                          colors={['#5227FF', '#FF9FFC', '#B497CF']}
+                          mouseForce={15}
+                          cursorSize={80}
+                          isViscous
+                          viscous={20}
+                          iterationsViscous={12}
+                          iterationsPoisson={12}
+                          resolution={0.25}
+                          isBounce={false}
+                          autoDemo
+                          autoSpeed={0.4}
+                          autoIntensity={1.8}
+                          takeoverDuration={0.2}
+                          autoResumeDelay={3000}
+                          autoRampDuration={0.5}
+                        />
+                      </div>
 
-                    <div className="relative z-10">
-                      <ServicesSection onSelectService={handleSelectServiceQuote} />
-                      <WhyUs />
-                      <LocationsSection onOpenQuote={() => handleOpenQuoteModal()} />
-                      <Clients />
+                      <div className="relative z-10">
+                        <ServicesSection onSelectService={handleSelectServiceQuote} />
+                        <WhyUs />
+                        <LocationsSection onOpenQuote={() => handleOpenQuoteModal()} />
+                        <Clients />
+                      </div>
                     </div>
                   </div>
-                </div>
-              </PageWrapper>
-            )}
+                </PageWrapper>
+              )}
 
-            {currentPage === 'services' && (
-              <PageWrapper pageKey="services" onMountScroll={scrollToTopInstant}>
-                <ServicesPage 
-                  onOpenQuote={handleOpenQuoteModal} 
-                  onSelectService={handleSelectServiceQuote}
-                />
-              </PageWrapper>
-            )}
+              {currentPage === 'services' && (
+                <PageWrapper pageKey="services" onMountScroll={scrollToTopInstant}>
+                  <ServicesPage 
+                    onOpenQuote={handleOpenQuoteModal} 
+                    onSelectService={handleSelectServiceQuote}
+                  />
+                </PageWrapper>
+              )}
 
-            {currentPage === 'about' && (
-              <PageWrapper pageKey="about" onMountScroll={scrollToTopInstant}>
-                <AboutPage onOpenQuote={handleOpenQuoteModal} />
-              </PageWrapper>
-            )}
+              {currentPage === 'about' && (
+                <PageWrapper pageKey="about" onMountScroll={scrollToTopInstant}>
+                  <AboutPage onOpenQuote={handleOpenQuoteModal} />
+                </PageWrapper>
+              )}
 
-            {currentPage === 'clients' && (
-              <PageWrapper pageKey="clients" onMountScroll={scrollToTopInstant}>
-                <ClientsPage onOpenQuote={handleOpenQuoteModal} />
-              </PageWrapper>
-            )}
+              {currentPage === 'clients' && (
+                <PageWrapper pageKey="clients" onMountScroll={scrollToTopInstant}>
+                  <ClientsPage onOpenQuote={handleOpenQuoteModal} />
+                </PageWrapper>
+              )}
 
-            {currentPage === 'partners' && (
-              <PageWrapper pageKey="partners" onMountScroll={scrollToTopInstant}>
-                <PartnersPage onOpenQuote={handleOpenQuoteModal} />
-              </PageWrapper>
-            )}
+              {currentPage === 'partners' && (
+                <PageWrapper pageKey="partners" onMountScroll={scrollToTopInstant}>
+                  <PartnersPage onOpenQuote={handleOpenQuoteModal} />
+                </PageWrapper>
+              )}
 
-            {currentPage === 'gallery' && (
-              <PageWrapper pageKey="gallery" onMountScroll={scrollToTopInstant}>
-                <GalleryPage onOpenQuote={handleOpenQuoteModal} />
-              </PageWrapper>
-            )}
+              {currentPage === 'gallery' && (
+                <PageWrapper pageKey="gallery" onMountScroll={scrollToTopInstant}>
+                  <GalleryPage onOpenQuote={handleOpenQuoteModal} />
+                </PageWrapper>
+              )}
 
-            {currentPage === 'careers' && (
-              <PageWrapper pageKey="careers" onMountScroll={scrollToTopInstant}>
-                <CareersPage onOpenQuote={handleOpenQuoteModal} />
-              </PageWrapper>
-            )}
+              {currentPage === 'careers' && (
+                <PageWrapper pageKey="careers" onMountScroll={scrollToTopInstant}>
+                  <CareersPage onOpenQuote={handleOpenQuoteModal} />
+                </PageWrapper>
+              )}
 
-            {currentPage === 'contact' && (
-              <PageWrapper pageKey="contact" onMountScroll={scrollToTopInstant}>
-                <ContactPage onOpenQuote={handleOpenQuoteModal} />
-              </PageWrapper>
-            )}
+              {currentPage === 'contact' && (
+                <PageWrapper pageKey="contact" onMountScroll={scrollToTopInstant}>
+                  <ContactPage onOpenQuote={handleOpenQuoteModal} />
+                </PageWrapper>
+              )}
+            </div>
           </main>
 
           {/* Footer Component */}
