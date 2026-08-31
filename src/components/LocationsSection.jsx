@@ -193,7 +193,7 @@ export default function LocationsSection({ onOpenQuote }) {
               ))}
             </div>
 
-            {/* Active Hub Info Card with Original User-Uploaded Image */}
+            {/* Active Hub Info Card with Ultra-Sharpened Architectural Skyline Image */}
             <TiltedCard
               rotateAmplitude={6}
               scaleOnHover={1.01}
@@ -203,12 +203,13 @@ export default function LocationsSection({ onOpenQuote }) {
               overlayContent={
                 <div className="p-5 sm:p-6 rounded-2xl bg-white border border-slate-200/90 shadow-md relative overflow-hidden h-full font-sans flex flex-col justify-between">
                   
-                  {/* Original User-Uploaded Architectural Skyline Image Layer */}
+                  {/* High-Contrast Razor-Sharpened Skyline Layer */}
                   <div className="absolute right-2 bottom-3 pointer-events-none opacity-90 w-1/2 sm:w-7/12 max-h-24 sm:max-h-28 z-0 flex items-end justify-end">
                     <img
                       src="/bangalore-skyline.png"
-                      alt="Bangalore Architectural Skyline"
-                      className="w-full h-auto max-h-24 sm:max-h-28 object-contain object-right-bottom"
+                      alt="Bangalore Architectural Skyline Sharp HD"
+                      className="w-full h-auto max-h-24 sm:max-h-28 object-contain object-right-bottom contrast-115"
+                      style={{ imageRendering: 'crisp-edges' }}
                     />
                   </div>
 
