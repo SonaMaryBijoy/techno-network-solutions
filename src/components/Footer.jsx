@@ -8,7 +8,6 @@ export default function Footer({ onNavigate, onOpenQuote }) {
 
   const handleNav = (id) => {
     if (onNavigate) onNavigate(id);
-    scrollToTop();
   };
 
   return (

@@ -41,8 +41,8 @@ export default function WhyUs() {
     },
     {
       num: '06',
-      title: '1-Year Defect Liability Period (DLP)',
-      desc: 'Every project includes a comprehensive 1-year DLP service warranty. Response to service requests within 6–12 hours across India.',
+      title: 'Support after installation',
+      desc: 'Every project includes comprehensive post-installation technical support and maintenance services with 6–12 hour response times across India.',
       icon: ShieldCheck,
     },
   ];

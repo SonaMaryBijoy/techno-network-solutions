@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useLayoutEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Lenis from 'lenis';
 import { gsap } from 'gsap';
@@ -26,11 +26,28 @@ import ContactPage from './components/ContactPage';
 
 gsap.registerPlugin(ScrollTrigger);
 
+// Helper component that forces scroll-to-top BEFORE DOM paint on every page change
+function PageWrapper({ pageKey, children, onMountScroll }) {
+  useLayoutEffect(() => {
+    onMountScroll();
+  }, [pageKey, onMountScroll]);
+
+  return <>{children}</>;
+}
+
 export default function App() {
   const [loading, setLoading] = useState(true);
   const [currentPage, setCurrentPage] = useState('home');
   const [quoteOpen, setQuoteOpen] = useState(false);
   const [selectedService, setSelectedService] = useState('');
+  const lenisRef = useRef(null);
+
+  // Disable automatic browser scroll restoration on page navigation
+  useEffect(() => {
+    if ('scrollRestoration' in window.history) {
+      window.history.scrollRestoration = 'manual';
+    }
+  }, []);
 
   // Initialize Lenis Ultra-Smooth Inertial Scrolling across entire application
   useEffect(() => {
@@ -41,6 +58,8 @@ export default function App() {
       smoothTouch: true,
       touchMultiplier: 1.5,
     });
+
+    lenisRef.current = lenis;
 
     lenis.on('scroll', ScrollTrigger.update);
 
@@ -54,13 +73,52 @@ export default function App() {
     return () => {
       gsap.ticker.remove(updateRaf);
       lenis.destroy();
+      lenisRef.current = null;
     };
   }, []);
 
+  const scrollToTop = () => {
+    window.scrollTo(0, 0);
+    document.documentElement.scrollTop = 0;
+    document.body.scrollTop = 0;
+
+    if (lenisRef.current) {
+      try {
+        if (typeof lenisRef.current.resize === 'function') {
+          lenisRef.current.resize();
+        }
+        lenisRef.current.scrollTo(0, { immediate: true, force: true });
+        lenisRef.current.scroll = 0;
+        lenisRef.current.targetScroll = 0;
+      } catch (e) {
+        // Fallback for safety
+      }
+    }
+  };
+
   const navigateTo = (pageId) => {
     setCurrentPage(pageId);
-    window.scrollTo({ top: 0, behavior: 'instant' });
+    scrollToTop();
   };
+
+  // Multi-burst scroll reset to handle async font/image/canvas loading after page changes
+  useEffect(() => {
+    scrollToTop();
+
+    const delays = [0, 50, 100, 150, 250, 350, 450, 600, 800, 1000];
+    const timerIds = delays.map((delay) =>
+      setTimeout(() => {
+        scrollToTop();
+        if (typeof ScrollTrigger !== 'undefined') {
+          ScrollTrigger.refresh();
+        }
+      }, delay)
+    );
+
+    return () => {
+      timerIds.forEach((id) => clearTimeout(id));
+    };
+  }, [currentPage]);
 
   const handleSelectServiceQuote = (serviceTitle) => {
     setSelectedService(serviceTitle);
@@ -92,7 +150,7 @@ export default function App() {
           />
 
           <main className="flex-grow relative overflow-hidden">
-            <AnimatePresence mode="wait">
+            <AnimatePresence mode="wait" onExitComplete={scrollToTop}>
               {currentPage === 'home' ? (
                 <motion.div
                   key="home-page"
@@ -101,6 +159,7 @@ export default function App() {
                   exit={{ opacity: 0, y: -10 }}
                   transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
                 >
+                  <PageWrapper pageKey="home" onMountScroll={scrollToTop}>
                   {/* Hero Section */}
                   <Hero onOpenQuote={() => setQuoteOpen(true)} />
 
@@ -163,6 +222,7 @@ export default function App() {
                       <Clients />
                     </div>
                   </div>
+                  </PageWrapper>
                 </motion.div>
               ) : (
                 <motion.div
@@ -173,6 +233,7 @@ export default function App() {
                   transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
                   className="relative z-0 pt-20 sm:pt-24 min-h-screen bg-white"
                 >
+                  <PageWrapper pageKey={currentPage} onMountScroll={scrollToTop}>
                   {!pagesWithoutLiquidEther.includes(currentPage) && (
                     <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden opacity-38 will-change-transform">
                       <LiquidEther
@@ -254,6 +315,7 @@ export default function App() {
                       <ContactPage />
                     )}
                   </div>
+                  </PageWrapper>
                 </motion.div>
               )}
             </AnimatePresence>

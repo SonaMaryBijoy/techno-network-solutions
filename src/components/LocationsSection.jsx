@@ -6,9 +6,9 @@ import { MapPin, Activity } from 'lucide-react';
 export default function LocationsSection({ onOpenQuote }) {
   const hubs = [
     {
-      id: 'bengaluru',
-      city: 'Bengaluru HQ',
-      region: 'KARNATAKA & SOUTHERN COMMAND',
+      id: 'bangalore',
+      city: 'Bangalore',
+      region: 'KARNATAKA & HEADQUARTERS',
       desc: 'Central Engineering Command, Cable Assembly Testing Facility & Master Warehouse.',
       specs: 'Central Support Command · 24/7 Deployment Unit',
       coords: { x: '42.5%', y: '73.5%' },
@@ -23,32 +23,24 @@ export default function LocationsSection({ onOpenQuote }) {
       coords: { x: '49%', y: '61%' }
     },
     {
-      id: 'pune',
-      city: 'Pune / Mumbai',
-      region: 'MAHARASHTRA & WESTERN HUB',
-      desc: 'Industrial Fiber & High-Density Rack Execution Team.',
-      specs: 'Industrial Fiber & Server Rack Specialists',
-      coords: { x: '35%', y: '58%' }
+      id: 'chennai',
+      city: 'Chennai',
+      region: 'TAMIL NADU HUB',
+      desc: 'Enterprise Structured Cabling & Optical Fiber Execution Team.',
+      specs: 'Enterprise Cabling & Fiber Optics Support',
+      coords: { x: '52%', y: '76%' }
     },
     {
-      id: 'ncr',
-      city: 'Delhi NCR',
-      region: 'NORTHERN HUB',
-      desc: 'Enterprise Access Control & AV Command Center.',
-      specs: 'Northern Corporate Office & Government Site Unit',
-      coords: { x: '44%', y: '30%' }
-    },
-    {
-      id: 'panasia',
-      city: 'Pan-Asia Support',
-      region: 'INTERNATIONAL LOGISTICS',
-      desc: 'Cross-border structured cabling material dispatch & OEM deployment partner network.',
-      specs: 'Cross-Border Supply Chain & Partner SLA',
-      coords: { x: '58%', y: '76%' }
+      id: 'kerala',
+      city: 'Kerala',
+      region: 'KERALA REGIONAL HUB',
+      desc: 'Regional Infrastructure Engineering & Security Systems Command.',
+      specs: 'Regional Engineering & Security Support Unit',
+      coords: { x: '40%', y: '82%' }
     }
   ];
 
-  const [activeHub, setActiveHub] = useState('bengaluru');
+  const [activeHub, setActiveHub] = useState('bangalore');
   const currentHubData = hubs.find(h => h.id === activeHub) || hubs[0];
 
   return (
@@ -104,13 +96,12 @@ export default function LocationsSection({ onOpenQuote }) {
                         {/* State Border Grid Accent Lines */}
                         <path d="M 330 180 L 440 220 M 310 260 L 480 260 M 300 320 L 590 280 M 270 450 L 550 450 M 310 540 L 520 510 M 370 660 L 460 630" stroke="#0284c7" strokeWidth="1" strokeDasharray="4 4" opacity="0.35" />
 
-                        {/* Precise Network Vector Connectors from Bengaluru HQ */}
-                        <line x1="410" y1="680" x2="330" y2="520" stroke="#12ACE0" strokeWidth="2" strokeDasharray="4 2" className="animate-pulse" />
-                        <line x1="410" y1="680" x2="430" y2="280" stroke="#12ACE0" strokeWidth="2" strokeDasharray="4 2" className="animate-pulse" />
+                        {/* Precise Network Vector Connectors from Bangalore HQ */}
                         <line x1="410" y1="680" x2="475" y2="550" stroke="#12ACE0" strokeWidth="2" strokeDasharray="4 2" className="animate-pulse" />
-                        <line x1="410" y1="680" x2="560" y2="690" stroke="#12ACE0" strokeWidth="2" strokeDasharray="4 2" className="animate-pulse" />
+                        <line x1="410" y1="680" x2="505" y2="710" stroke="#12ACE0" strokeWidth="2" strokeDasharray="4 2" className="animate-pulse" />
+                        <line x1="410" y1="680" x2="390" y2="770" stroke="#12ACE0" strokeWidth="2" strokeDasharray="4 2" className="animate-pulse" />
 
-                        {/* Precise Bengaluru HQ Core Pin */}
+                        {/* Precise Bangalore HQ Core Pin */}
                         <circle cx="410" cy="680" r="18" className="stroke-[#12ACE0] fill-none stroke-[2.5] animate-ping" />
                         <circle cx="410" cy="680" r="9" className="fill-[#12ACE0]" />
                         <circle cx="410" cy="680" r="4" className="fill-white" />
@@ -171,7 +162,7 @@ export default function LocationsSection({ onOpenQuote }) {
                 </h2>
                 
                 <p className="text-slate-600 text-base sm:text-lg leading-relaxed font-medium mb-6 max-w-xl font-sans">
-                  With our central logistics & engineering command headquarters based in Bengaluru, Techno Network Solutions delivers end-to-end structured cabling, IP CCTV surveillance, and data center infrastructure to clients across India and Pan-Asia. Our extensive network ensures timely supply, reliable service, and nationwide 24/7 customer support.
+                  With our central logistics & engineering command headquarters based in Bangalore, Techno Network Solutions delivers end-to-end structured cabling, IP CCTV surveillance, and data center infrastructure across Bangalore, Hyderabad, Chennai, and Kerala. Our extensive network ensures timely supply, reliable service, and 24/7 customer support.
                 </p>
               </div>
             </AnimatedContent>

@@ -100,13 +100,13 @@ export default function Hero({ onOpenQuote }) {
             Structured cabling, networking, CCTV, security and AV infrastructure — designed, terminated, tested and supported by a <strong className="text-[#12ACE0] font-bold">40+ person in-house team</strong> with <strong className="text-white font-extrabold">12+ years</strong> on live enterprise sites across India.
           </p>
 
-          {/* GET A QUOTE Button — Logo Sky Blue #12ACE0 */}
+          {/* Share your Query Button — Logo Sky Blue #12ACE0 */}
           <div className="font-sans">
             <button
               onClick={onOpenQuote}
               className="w-full sm:w-auto px-7 sm:px-8 py-3.5 sm:py-4.5 rounded-xl font-sans text-xs sm:text-sm font-bold bg-[#12ACE0] hover:bg-[#0f96c4] text-white shadow-[0_0_25px_rgba(18,172,224,0.5)] hover:shadow-cyan-500/70 hover:scale-105 transition-all flex items-center justify-center gap-2.5 cursor-pointer active:scale-95"
             >
-              <span>GET A QUOTE</span>
+              <span>Share your Query</span>
               <ArrowRight className="w-4 h-4" />
             </button>
           </div>
