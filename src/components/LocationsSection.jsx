@@ -193,7 +193,7 @@ export default function LocationsSection({ onOpenQuote }) {
               ))}
             </div>
 
-            {/* Active Hub Info Card with Cyan Vector Architectural Skyline Line Art (Matching Reference Image) */}
+            {/* Active Hub Info Card */}
             <TiltedCard
               rotateAmplitude={6}
               scaleOnHover={1.01}
@@ -201,61 +201,22 @@ export default function LocationsSection({ onOpenQuote }) {
               showTooltip={false}
               displayOverlayContent
               overlayContent={
-                <div className="p-5 sm:p-6 rounded-2xl bg-white border border-slate-200/90 shadow-md relative overflow-hidden h-full font-sans flex flex-col justify-between">
-                  
-                  {/* Cyan Architectural Skyline Vector Art Layer Positioned on Right */}
-                  <div className="absolute right-0 bottom-8 pointer-events-none opacity-80 w-1/2 sm:w-7/12 max-h-24 sm:max-h-28 z-0">
-                    <svg viewBox="0 0 500 150" className="w-full h-full stroke-[#12ACE0] fill-none stroke-[1.6]">
-                      {/* Base ground line */}
-                      <line x1="0" y1="140" x2="500" y2="140" strokeWidth="2" />
-
-                      {/* Left Vidhana Soudha style dome & pillars */}
-                      <path d="M 20 140 L 20 85 A 25 25 0 0 1 70 85 L 70 140" />
-                      <line x1="45" y1="60" x2="45" y2="40" strokeWidth="2" />
-                      <path d="M 30 85 L 60 85 M 35 110 L 35 140 M 45 110 L 45 140 M 55 110 L 55 140" />
-
-                      {/* Central Grand Dome & Spire (Vidhana Soudha / High Court style) */}
-                      <path d="M 90 140 L 90 70 L 110 70 C 110 35 170 35 170 70 L 190 70 L 190 140" />
-                      <path d="M 140 35 L 140 10 M 133 20 L 147 20" strokeWidth="2" />
-                      <path d="M 100 70 L 180 70 M 105 105 L 175 105" />
-                      <path d="M 115 140 A 12 12 0 0 1 139 140 M 141 140 A 12 12 0 0 1 165 140" />
-
-                      {/* Clock Tower / Tech Spire */}
-                      <path d="M 210 140 L 210 50 L 225 20 L 240 50 L 240 140" />
-                      <circle cx="225" cy="70" r="8" strokeWidth="1.5" />
-                      <line x1="225" y1="70" x2="225" y2="65" />
-                      <line x1="225" y1="70" x2="228" y2="70" />
-
-                      {/* High-Rise Towers & Spire Pillars */}
-                      <path d="M 260 140 L 260 65 A 18 18 0 0 1 296 65 L 296 140" />
-                      <path d="M 315 140 L 315 40 L 330 15 L 345 40 L 345 140" strokeWidth="1.8" />
-                      <line x1="330" y1="15" x2="330" y2="5" strokeWidth="1.5" />
-
-                      {/* Right Arch & Arched Windows */}
-                      <path d="M 365 140 L 365 75 A 15 15 0 0 1 395 75 L 395 140" />
-                      <path d="M 415 140 L 415 80 C 415 55 475 55 475 80 L 475 140" />
-                      <path d="M 425 80 L 465 80 M 430 110 L 430 140 M 445 110 L 445 140 M 460 110 L 460 140" />
-                    </svg>
+                <div className="p-5 rounded-2xl bg-white border border-slate-200/90 shadow-md relative overflow-hidden h-full font-sans">
+                  <div className="flex items-center justify-between mb-1.5 font-sans">
+                    <span className="text-[11px] font-mono font-extrabold text-[#12ACE0] uppercase tracking-wider">
+                      COMMAND REGION // {currentHubData.region}
+                    </span>
                   </div>
 
-                  <div className="relative z-10 font-sans">
-                    <div className="flex items-center justify-between mb-1.5 font-sans">
-                      <span className="text-[11px] font-mono font-extrabold text-[#12ACE0] uppercase tracking-wider">
-                        COMMAND REGION // {currentHubData.region}
-                      </span>
-                    </div>
+                  <h3 className="text-lg font-heading font-black text-slate-950 mb-1.5 font-sans">
+                    {currentHubData.city}
+                  </h3>
 
-                    <h3 className="text-2xl sm:text-3xl font-heading font-black text-slate-950 mb-1 font-sans">
-                      {currentHubData.city}
-                    </h3>
-                    <div className="w-12 h-1 bg-[#12ACE0] rounded-full mb-3" />
+                  <p className="text-slate-600 text-xs sm:text-sm leading-relaxed mb-3 font-medium font-sans">
+                    {currentHubData.desc}
+                  </p>
 
-                    <p className="text-slate-600 text-xs sm:text-sm leading-relaxed mb-4 font-medium font-sans max-w-sm">
-                      {currentHubData.desc}
-                    </p>
-                  </div>
-
-                  <div className="relative z-10 pt-3 border-t border-slate-100 flex items-center justify-between text-xs font-mono text-slate-500 font-bold font-sans">
+                  <div className="pt-3 border-t border-slate-100 flex items-center justify-between text-xs font-mono text-slate-500 font-bold font-sans">
                     <span className="flex items-center gap-1.5 text-slate-800 font-sans">
                       <Activity className="w-3.5 h-3.5 text-[#12ACE0]" />
                       {currentHubData.specs}
