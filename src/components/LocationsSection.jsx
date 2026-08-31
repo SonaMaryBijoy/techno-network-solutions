@@ -193,7 +193,7 @@ export default function LocationsSection({ onOpenQuote }) {
               ))}
             </div>
 
-            {/* Active Hub Info Card matching Reference Picture 100% */}
+            {/* Active Hub Info Card with Exact User-Uploaded Architectural Skyline Image */}
             <TiltedCard
               rotateAmplitude={6}
               scaleOnHover={1.01}
@@ -203,46 +203,13 @@ export default function LocationsSection({ onOpenQuote }) {
               overlayContent={
                 <div className="p-5 sm:p-6 rounded-2xl bg-white border border-slate-200/90 shadow-md relative overflow-hidden h-full font-sans flex flex-col justify-between">
                   
-                  {/* Cyan Architectural Skyline Vector Art Layer Positioned Exactly like Reference Image */}
-                  <div className="absolute right-1 bottom-8 pointer-events-none opacity-85 w-7/12 sm:w-1/2 h-20 sm:h-24 z-0">
-                    <svg viewBox="0 0 550 140" className="w-full h-full stroke-[#12ACE0] fill-none stroke-[1.6]">
-                      {/* Ground line */}
-                      <line x1="0" y1="135" x2="550" y2="135" strokeWidth="2" />
-
-                      {/* Left dome (Vidhana Soudha left wing) */}
-                      <path d="M 30 135 L 30 80 C 30 50 80 50 80 80 L 80 135" />
-                      <line x1="55" y1="50" x2="55" y2="25" strokeWidth="2" />
-                      <path d="M 40 100 A 7 7 0 0 1 54 100 M 56 100 A 7 7 0 0 1 70 100" />
-
-                      {/* Grand Central Dome & Spire (Vidhana Soudha Main Structure) */}
-                      <path d="M 100 135 L 100 65 L 125 65 C 125 25 185 25 185 65 L 210 65 L 210 135" />
-                      <path d="M 155 25 L 155 5 M 147 13 L 163 13" strokeWidth="2" />
-                      <path d="M 115 65 L 195 65 M 120 95 L 190 95" />
-                      <path d="M 130 135 A 12 12 0 0 1 154 135 M 156 135 A 12 12 0 0 1 180 135" />
-                      <line x1="125" y1="95" x2="125" y2="135" />
-                      <line x1="140" y1="95" x2="140" y2="135" />
-                      <line x1="170" y1="95" x2="170" y2="135" />
-                      <line x1="185" y1="95" x2="185" y2="135" />
-
-                      {/* Clock Tower / Tech Spire */}
-                      <path d="M 230 135 L 230 45 L 245 15 L 260 45 L 260 135" />
-                      <circle cx="245" cy="60" r="8" strokeWidth="1.5" />
-                      <line x1="245" y1="60" x2="245" y2="55" />
-                      <line x1="245" y1="60" x2="249" y2="60" />
-
-                      {/* High-Rise Towers & Spire Pillars */}
-                      <path d="M 280 135 L 280 60 A 18 18 0 0 1 316 60 L 316 135" />
-                      <path d="M 335 135 L 335 35 L 350 10 L 365 35 L 365 135" strokeWidth="1.8" />
-                      <line x1="350" y1="10" x2="350" y2="2" strokeWidth="1.5" />
-                      <line x1="335" y1="55" x2="365" y2="55" />
-                      <line x1="335" y1="75" x2="365" y2="75" />
-                      <line x1="335" y1="95" x2="365" y2="95" />
-
-                      {/* Right Heritage Building & Domes */}
-                      <path d="M 385 135 L 385 70 A 15 15 0 0 1 415 70 L 415 135" />
-                      <path d="M 435 135 L 435 75 C 435 50 495 50 495 75 L 495 135" />
-                      <path d="M 445 75 L 485 75 M 450 100 A 8 8 0 0 1 466 100 M 470 100 A 8 8 0 0 1 486 100" />
-                    </svg>
+                  {/* Exact User-Uploaded Architectural Skyline Image Layer Positioned on Right */}
+                  <div className="absolute right-2 bottom-3 pointer-events-none opacity-90 w-1/2 sm:w-7/12 max-h-24 sm:max-h-28 z-0 flex items-end justify-end">
+                    <img
+                      src="/bangalore-skyline.png"
+                      alt="Bangalore Architectural Skyline"
+                      className="w-full h-auto max-h-24 sm:max-h-28 object-contain object-right-bottom"
+                    />
                   </div>
 
                   <div className="relative z-10 font-sans">
