@@ -104,7 +104,7 @@ export default function App() {
   };
 
   return (
-    <div className="bg-slate-950 text-slate-100 min-h-screen selection:bg-[#12ACE0] selection:text-white font-sans antialiased overflow-x-hidden relative">
+    <div className="bg-white text-slate-900 min-h-screen selection:bg-[#12ACE0] selection:text-white font-sans antialiased overflow-x-hidden relative">
       {/* Global Preloader Screen */}
       <AnimatePresence mode="wait">
         {loading && <Loader onComplete={() => setLoading(false)} />}
@@ -115,7 +115,7 @@ export default function App() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8 }}
-          className="relative min-h-screen font-sans"
+          className="relative min-h-screen font-sans bg-white"
         >
           {/* Main Top Navigation Header */}
           <Navbar 
@@ -126,13 +126,13 @@ export default function App() {
           />
 
           {/* Page Routing Views */}
-          <main className="relative font-sans">
+          <main className="relative font-sans bg-white">
             {currentPage === 'home' && (
               <PageWrapper pageKey="home" onMountScroll={scrollToTopInstant}>
                 <div>
                   <Hero onOpenQuote={() => handleOpenQuoteModal()} />
                   
-                  {/* Post-Hero Home Page Container with Full Interactive Background Filters */}
+                  {/* Post-Hero Home Page Container with Clean White Background & Interactive Filters */}
                   <div className="relative z-0 bg-white">
                     <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden opacity-38 will-change-transform">
                       <LiquidEther
