@@ -10,7 +10,7 @@ export default function ServicesPage() {
     {
       id: 'cabling',
       title: 'Structured Cabling & Networking Infrastructure',
-      image: '/service-cabling.png',
+      image: '/service-network.png',
       overview: 'Active and passive network infrastructure engineering — pathways, server racks, Cat6/6A copper and singlemode/multimode fiber optic termination, testing, and cable dressing.',
       features: [
         'High-density copper Cat6 / Cat6A UTP/STP cable installations',
@@ -66,7 +66,7 @@ export default function ServicesPage() {
     {
       id: 'datacenter',
       title: 'Data Center & Server Room Infrastructure',
-      image: '/service-datacenter.png',
+      image: '/gallery-server-aisle.png',
       overview: 'Turnkey data center engineering incorporating hot/cold aisle containment, intelligent PDU power routing, high-density optical cassettes, and cable tray pathways.',
       features: [
         'Hot/Cold Aisle containment enclosures for maximum thermal efficiency',
