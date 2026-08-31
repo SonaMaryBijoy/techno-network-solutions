@@ -49,7 +49,7 @@ export default function PartnersPage() {
             </div>
           </div>
 
-          <p className="text-slate-600 text-sm sm:text-lg lg:text-xl font-medium leading-relaxed font-sans max-w-4xl pt-1">
+          <p className="text-slate-600 text-[11px] sm:text-sm md:text-base lg:text-lg font-medium leading-relaxed font-sans whitespace-nowrap overflow-x-auto scrollbar-none pt-1">
             Our engineers undergo continuous OEM certification to deliver up to 25-year manufacturer system performance warranties on every installation.
           </p>
         </div>
