@@ -132,24 +132,24 @@ export default function App() {
                 <div>
                   <Hero onOpenQuote={() => handleOpenQuoteModal()} />
                   
-                  {/* Post-Hero Home Page Container with Soft Ambient Reduced-Intensity Liquid Ether */}
+                  {/* Post-Hero Home Page Container */}
                   <div className="relative z-0 bg-white">
-                    <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden opacity-12 will-change-transform">
+                    <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden opacity-38 will-change-transform">
                       <LiquidEther
-                        colors={['#12ACE0', '#38bdf8', '#e0f2fe']}
-                        mouseForce={6}
-                        cursorSize={60}
+                        colors={['#5227FF', '#FF9FFC', '#B497CF']}
+                        mouseForce={15}
+                        cursorSize={80}
                         isViscous
                         viscous={20}
-                        iterationsViscous={8}
-                        iterationsPoisson={8}
-                        resolution={0.2}
+                        iterationsViscous={12}
+                        iterationsPoisson={12}
+                        resolution={0.25}
                         isBounce={false}
                         autoDemo
-                        autoSpeed={0.2}
-                        autoIntensity={0.6}
+                        autoSpeed={0.4}
+                        autoIntensity={1.8}
                         takeoverDuration={0.2}
-                        autoResumeDelay={4000}
+                        autoResumeDelay={3000}
                         autoRampDuration={0.5}
                       />
                     </div>
