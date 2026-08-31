@@ -49,52 +49,42 @@ export default function LocationsSection({ onOpenQuote }) {
         
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center font-sans">
           
-          {/* Left Column: Replaced Map with Exact User-Uploaded India Map Image Graphic */}
-          <div className="lg:col-span-6 font-sans">
-            <div className="w-full h-[460px] sm:h-[540px]">
-              <TiltedCard
-                captionText=""
-                containerHeight="100%"
-                containerWidth="100%"
-                imageHeight="100%"
-                imageWidth="100%"
-                scaleOnHover={1.02}
-                rotateAmplitude={6}
-                showTooltip={false}
-                imageSrc="/india-map-graphic.png"
-                altText="Techno Network Solutions India & Pan-Asia Map"
-                displayOverlayContent={true}
-                overlayContent={
-                  <div className="w-full h-full relative font-sans bg-transparent pointer-events-none">
-                    
-                    {/* Interactive Clickable Hotspots overlaying Map Locations */}
-                    <div className="absolute inset-0 pointer-events-auto font-sans">
-                      {hubs.map((h) => {
-                        const isSelected = h.id === activeHub;
-                        return (
-                          <button
-                            key={h.id}
-                            type="button"
-                            onClick={() => setActiveHub(h.id)}
-                            style={{ left: h.coords.x, top: h.coords.y }}
-                            className="absolute -translate-x-1/2 -translate-y-1/2 group/pin cursor-pointer focus:outline-none z-20"
-                            title={`Click to view ${h.city} details`}
-                          >
-                            {/* Animated Pulse Halo around active marker */}
-                            {isSelected && (
-                              <span className="absolute -inset-3 rounded-full bg-cyan-500/40 animate-ping" />
-                            )}
-                            <span className={`block w-6 h-6 rounded-full border-2 transition-all ${
-                              isSelected ? 'border-white bg-[#12ACE0] scale-125 shadow-lg shadow-cyan-500/50' : 'border-transparent bg-transparent hover:scale-110'
-                            }`} />
-                          </button>
-                        );
-                      })}
-                    </div>
-
-                  </div>
-                }
+          {/* Left Column: Clean Standalone India Map Graphic (No Glassmorphic Box Behind Map) */}
+          <div className="lg:col-span-6 font-sans flex items-center justify-center">
+            <div className="relative w-full max-w-lg h-[440px] sm:h-[500px] flex items-center justify-center bg-transparent">
+              
+              {/* Clean Map Image without glassmorphic container background */}
+              <img
+                src="/india-map-graphic.png"
+                alt="Techno Network Solutions India & Pan-Asia Map"
+                className="w-full h-full object-contain drop-shadow-sm select-none"
               />
+
+              {/* Interactive Clickable Hotspots overlaying Map Locations */}
+              <div className="absolute inset-0 font-sans pointer-events-auto">
+                {hubs.map((h) => {
+                  const isSelected = h.id === activeHub;
+                  return (
+                    <button
+                      key={h.id}
+                      type="button"
+                      onClick={() => setActiveHub(h.id)}
+                      style={{ left: h.coords.x, top: h.coords.y }}
+                      className="absolute -translate-x-1/2 -translate-y-1/2 group/pin cursor-pointer focus:outline-none z-20"
+                      title={`Click to view ${h.city} details`}
+                    >
+                      {/* Animated Pulse Halo around active marker */}
+                      {isSelected && (
+                        <span className="absolute -inset-3 rounded-full bg-cyan-500/40 animate-ping" />
+                      )}
+                      <span className={`block w-6 h-6 rounded-full border-2 transition-all ${
+                        isSelected ? 'border-white bg-[#12ACE0] scale-125 shadow-lg shadow-cyan-500/50' : 'border-transparent bg-transparent hover:scale-110'
+                      }`} />
+                    </button>
+                  );
+                })}
+              </div>
+
             </div>
           </div>
 
