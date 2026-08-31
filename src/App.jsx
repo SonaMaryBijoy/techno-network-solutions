@@ -120,6 +120,7 @@ export default function App() {
           {/* Main Top Navigation Header */}
           <Navbar 
             currentPage={currentPage}
+            onNavigate={handleNavigate}
             setCurrentPage={handleNavigate}
             onOpenQuote={() => handleOpenQuoteModal()} 
           />
@@ -241,7 +242,7 @@ export default function App() {
           </main>
 
           {/* Footer Component */}
-          <Footer setCurrentPage={handleNavigate} onOpenQuote={() => handleOpenQuoteModal()} />
+          <Footer onNavigate={handleNavigate} setCurrentPage={handleNavigate} onOpenQuote={() => handleOpenQuoteModal()} />
 
           {/* Interactive Lead Generation Contact Modal */}
           <ContactModal 
