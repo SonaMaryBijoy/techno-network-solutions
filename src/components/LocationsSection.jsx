@@ -184,7 +184,7 @@ export default function LocationsSection({ onOpenQuote }) {
                   onClick={() => setActiveHub(h.id)}
                   className={`px-3.5 py-1.5 rounded-xl text-xs font-mono font-bold transition-all border cursor-pointer ${
                     activeHub === h.id
-                      ? 'bg-[#12ACE0] text-white border-[#12ACE0] shadow-md'
+                      ? 'bg-[#12ACE0] text-[#FFFFFF] border-[#12ACE0] shadow-md'
                       : 'bg-white text-slate-700 border-slate-200 hover:bg-slate-50'
                   }`}
                 >
@@ -193,7 +193,7 @@ export default function LocationsSection({ onOpenQuote }) {
               ))}
             </div>
 
-            {/* Active Hub Info Card with Exact User-Uploaded Architectural Skyline Image */}
+            {/* Active Hub Info Card with Ultra High-Definition Enhanced Cyan Architectural Skyline */}
             <TiltedCard
               rotateAmplitude={6}
               scaleOnHover={1.01}
@@ -203,12 +203,12 @@ export default function LocationsSection({ onOpenQuote }) {
               overlayContent={
                 <div className="p-5 sm:p-6 rounded-2xl bg-white border border-slate-200/90 shadow-md relative overflow-hidden h-full font-sans flex flex-col justify-between">
                   
-                  {/* Exact User-Uploaded Architectural Skyline Image Layer Positioned on Right */}
-                  <div className="absolute right-2 bottom-3 pointer-events-none opacity-90 w-1/2 sm:w-7/12 max-h-24 sm:max-h-28 z-0 flex items-end justify-end">
+                  {/* Enhanced HD Transparent Architectural Skyline Image Layer */}
+                  <div className="absolute right-2 bottom-3 pointer-events-none opacity-95 w-1/2 sm:w-7/12 max-h-24 sm:max-h-28 z-0 flex items-end justify-end">
                     <img
                       src="/bangalore-skyline.png"
-                      alt="Bangalore Architectural Skyline"
-                      className="w-full h-auto max-h-24 sm:max-h-28 object-contain object-right-bottom"
+                      alt="Bangalore Architectural Skyline HD"
+                      className="w-full h-auto max-h-24 sm:max-h-28 object-contain object-right-bottom drop-shadow-[0_2px_8px_rgba(18,172,224,0.2)]"
                     />
                   </div>
 
