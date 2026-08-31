@@ -11,7 +11,7 @@ export default function LocationsSection({ onOpenQuote }) {
       region: 'KARNATAKA & HEADQUARTERS',
       desc: 'Central Engineering Command, Cable Assembly Testing Facility & Master Warehouse.',
       specs: 'Central Support Command · 24/7 Deployment Unit',
-      coords: { x: '41%', y: '68%' },
+      coords: { x: '38.5%', y: '66%' },
       isHQ: true
     },
     {
@@ -20,7 +20,7 @@ export default function LocationsSection({ onOpenQuote }) {
       region: 'TELANGANA & AP HUB',
       desc: 'Data Center & Tech Park Cabling Execution Unit.',
       specs: 'Dedicated Tech Park Cabling & CCTV Support Crew',
-      coords: { x: '46.5%', y: '56.5%' }
+      coords: { x: '47%', y: '54.5%' }
     },
     {
       id: 'chennai',
@@ -28,7 +28,7 @@ export default function LocationsSection({ onOpenQuote }) {
       region: 'TAMIL NADU HUB',
       desc: 'Enterprise Structured Cabling & Optical Fiber Execution Team.',
       specs: 'Enterprise Cabling & Fiber Optics Support',
-      coords: { x: '50.5%', y: '68.5%' }
+      coords: { x: '48.5%', y: '71.5%' }
     },
     {
       id: 'kerala',
@@ -36,7 +36,7 @@ export default function LocationsSection({ onOpenQuote }) {
       region: 'KERALA REGIONAL HUB',
       desc: 'Regional Infrastructure Engineering & Security Systems Command.',
       specs: 'Regional Engineering & Security Support Unit',
-      coords: { x: '37.5%', y: '74.5%' }
+      coords: { x: '37.5%', y: '83.5%' }
     }
   ];
 
@@ -49,7 +49,7 @@ export default function LocationsSection({ onOpenQuote }) {
         
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center font-sans">
           
-          {/* Left Column: Geographically Precise Interactive India SVG Map */}
+          {/* Left Column: Replaced Map with Exact User-Uploaded India Map Image Graphic */}
           <div className="lg:col-span-6 font-sans">
             <div className="w-full h-[460px] sm:h-[540px]">
               <TiltedCard
@@ -59,64 +59,15 @@ export default function LocationsSection({ onOpenQuote }) {
                 imageHeight="100%"
                 imageWidth="100%"
                 scaleOnHover={1.02}
-                rotateAmplitude={8}
+                rotateAmplitude={6}
                 showTooltip={false}
+                imageSrc="/india-map-graphic.png"
+                altText="Techno Network Solutions India & Pan-Asia Map"
                 displayOverlayContent={true}
                 overlayContent={
-                  <div className="w-full h-full relative p-4 flex flex-col justify-between font-sans bg-transparent">
+                  <div className="w-full h-full relative font-sans bg-transparent pointer-events-none">
                     
-                    {/* Vector SVG Geographically Precise Contour Map of India */}
-                    <div className="absolute inset-0 flex items-center justify-center p-2">
-                      <svg viewBox="0 0 1000 1000" className="w-full h-full max-h-[480px] object-contain opacity-95">
-                        <defs>
-                          <linearGradient id="india-map-grad-clean" x1="0%" y1="0%" x2="100%" y2="100%">
-                            <stop offset="0%" stopColor="#12ACE0" stopOpacity="0.2" />
-                            <stop offset="50%" stopColor="#38bdf8" stopOpacity="0.1" />
-                            <stop offset="100%" stopColor="#0284c7" stopOpacity="0.05" />
-                          </linearGradient>
-                        </defs>
-
-                        {/* Detailed Contour Map Path of India */}
-                        <path
-                          d="
-                            M 360 80 
-                            L 390 90 L 410 70 L 440 90 L 460 120 L 440 150 L 480 170 L 520 160 L 560 180 L 590 170 
-                            L 630 190 L 680 180 L 720 210 L 760 200 L 770 230 L 730 250 L 750 280 L 710 300 L 670 270 
-                            L 640 290 L 590 280 L 560 300 L 580 340 L 620 370 L 590 420 L 550 450 L 520 510 L 490 560 
-                            L 460 630 L 440 700 L 420 740 L 410 770 L 390 730 L 370 660 L 340 600 L 310 540 L 280 500 
-                            L 270 450 L 290 420 L 260 390 L 280 340 L 300 320 L 270 290 L 310 260 L 300 220 L 330 180 
-                            L 310 140 Z
-                          "
-                          fill="url(#india-map-grad-clean)"
-                          opacity="0.95"
-                          stroke="#12ACE0"
-                          strokeWidth="2.5"
-                        />
-
-                        {/* State Border Grid Accent Lines */}
-                        <path d="M 330 180 L 440 220 M 310 260 L 480 260 M 300 320 L 590 280 M 270 450 L 550 450 M 310 540 L 520 510 M 370 660 L 460 630" stroke="#0284c7" strokeWidth="1" strokeDasharray="4 4" opacity="0.35" />
-
-                        {/* Geographically Precise Network Connectors from Bangalore HQ (410, 680) */}
-                        {/* Line to Hyderabad (465, 565) */}
-                        <line x1="410" y1="680" x2="465" y2="565" stroke="#12ACE0" strokeWidth="2" strokeDasharray="4 2" className="animate-pulse" />
-                        {/* Line to Chennai (505, 685) */}
-                        <line x1="410" y1="680" x2="505" y2="685" stroke="#12ACE0" strokeWidth="2" strokeDasharray="4 2" className="animate-pulse" />
-                        {/* Line to Kerala (375, 745) */}
-                        <line x1="410" y1="680" x2="375" y2="745" stroke="#12ACE0" strokeWidth="2" strokeDasharray="4 2" className="animate-pulse" />
-
-                        {/* SVG Core Hub Pulse Markers */}
-                        <circle cx="465" cy="565" r="4" className="fill-[#12ACE0]" />
-                        <circle cx="505" cy="685" r="4" className="fill-[#12ACE0]" />
-                        <circle cx="375" cy="745" r="4" className="fill-[#12ACE0]" />
-
-                        {/* Precise Bangalore HQ Core Pin */}
-                        <circle cx="410" cy="680" r="18" className="stroke-[#12ACE0] fill-none stroke-[2.5] animate-ping" />
-                        <circle cx="410" cy="680" r="9" className="fill-[#12ACE0]" />
-                        <circle cx="410" cy="680" r="4" className="fill-white" />
-                      </svg>
-                    </div>
-
-                    {/* Interactive Location Pins on India Map */}
+                    {/* Interactive Clickable Hotspots overlaying Map Locations */}
                     <div className="absolute inset-0 pointer-events-auto font-sans">
                       {hubs.map((h) => {
                         const isSelected = h.id === activeHub;
@@ -126,28 +77,16 @@ export default function LocationsSection({ onOpenQuote }) {
                             type="button"
                             onClick={() => setActiveHub(h.id)}
                             style={{ left: h.coords.x, top: h.coords.y }}
-                            className="absolute -translate-x-1/2 -translate-y-1/2 group/pin cursor-pointer transition-transform hover:scale-125 focus:outline-none z-10"
+                            className="absolute -translate-x-1/2 -translate-y-1/2 group/pin cursor-pointer focus:outline-none z-20"
+                            title={`Click to view ${h.city} details`}
                           >
-                            {/* Outer Ring Animation */}
-                            <span className={`absolute -inset-2 rounded-full ${isSelected ? 'bg-cyan-500/40 animate-ping' : 'bg-[#12ACE0]/20 group-hover/pin:animate-ping'}`} />
-                            
-                            {/* Marker Icon Pin */}
-                            <span className={`relative flex items-center justify-center w-6 h-6 sm:w-8 sm:h-8 rounded-full border-2 shadow-md transition-all ${
-                              isSelected
-                                ? 'bg-[#12ACE0] border-white text-white scale-110 shadow-cyan-500/50'
-                                : 'bg-white border-cyan-400 text-[#12ACE0] hover:bg-cyan-50'
-                            }`}>
-                              <MapPin className="w-3 h-3 sm:w-4 sm:h-4" />
-                            </span>
-
-                            {/* City Name Badge */}
-                            <span className={`absolute top-full left-1/2 -translate-x-1/2 mt-1.5 whitespace-nowrap px-2.5 py-1 rounded-lg text-[10px] sm:text-xs font-mono font-extrabold shadow-md transition-all ${
-                              isSelected
-                                ? 'bg-slate-900 text-white border border-slate-800'
-                                : 'bg-white text-slate-800 border border-slate-200 opacity-95 group-hover/pin:opacity-100'
-                            }`}>
-                              {h.city}
-                            </span>
+                            {/* Animated Pulse Halo around active marker */}
+                            {isSelected && (
+                              <span className="absolute -inset-3 rounded-full bg-cyan-500/40 animate-ping" />
+                            )}
+                            <span className={`block w-6 h-6 rounded-full border-2 transition-all ${
+                              isSelected ? 'border-white bg-[#12ACE0] scale-125 shadow-lg shadow-cyan-500/50' : 'border-transparent bg-transparent hover:scale-110'
+                            }`} />
                           </button>
                         );
                       })}
@@ -193,7 +132,7 @@ export default function LocationsSection({ onOpenQuote }) {
               ))}
             </div>
 
-            {/* Active Hub Info Card with Exact User-Provided Architectural Skyline Image As-Is */}
+            {/* Active Hub Info Card with Faded Skyline Graphic */}
             <TiltedCard
               rotateAmplitude={6}
               scaleOnHover={1.01}
@@ -203,12 +142,12 @@ export default function LocationsSection({ onOpenQuote }) {
               overlayContent={
                 <div className="p-5 sm:p-6 rounded-2xl bg-white border border-slate-200/90 shadow-md relative overflow-hidden h-full font-sans flex flex-col justify-between">
                   
-                  {/* Exact User-Provided Architectural Skyline Image Layer As-Is */}
-                  <div className="absolute right-2 bottom-3 pointer-events-none opacity-90 w-1/2 sm:w-7/12 max-h-24 sm:max-h-28 z-0 flex items-end justify-end">
+                  {/* Faded Architectural Skyline Image Layer */}
+                  <div className="absolute right-2 bottom-3 pointer-events-none opacity-40 sm:opacity-45 w-1/2 sm:w-7/12 max-h-24 sm:max-h-28 z-0 flex items-end justify-end">
                     <img
                       src="/bangalore-skyline.png"
-                      alt="Bangalore Architectural Skyline"
-                      className="w-full h-auto max-h-24 sm:max-h-28 object-contain object-right-bottom"
+                      alt="Bangalore Architectural Skyline Faded"
+                      className="w-full h-auto max-h-24 sm:max-h-28 object-contain object-right-bottom mix-blend-multiply"
                     />
                   </div>
 
