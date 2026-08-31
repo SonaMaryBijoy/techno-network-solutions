@@ -38,7 +38,7 @@ export default function GalleryPage() {
   ];
 
   return (
-    <div className="pt-20 pb-20 bg-transparent min-h-screen">
+    <div className="pt-36 sm:pt-40 lg:pt-44 pb-20 bg-transparent min-h-screen">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12 py-6">
         
         {/* Accordion Row 1: Optimized for Ultra-Smooth Mobile Scroll */}

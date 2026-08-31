@@ -44,7 +44,7 @@ export default function ClientsPage() {
   ];
 
   return (
-    <div className="pt-20 pb-20 bg-transparent min-h-screen text-slate-900 font-sans overflow-x-hidden">
+    <div className="pt-36 sm:pt-40 lg:pt-44 pb-20 bg-transparent min-h-screen text-slate-900 font-sans overflow-x-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 font-sans">
         
         {/* Clean Header with Mobile-Responsive FoldText Animated Title */}

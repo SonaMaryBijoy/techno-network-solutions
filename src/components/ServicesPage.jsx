@@ -94,7 +94,7 @@ export default function ServicesPage() {
   ];
 
   return (
-    <div ref={containerRef} className="pt-16 pb-20 bg-transparent min-h-screen text-slate-900 font-sans overflow-x-hidden">
+    <div ref={containerRef} className="pt-32 sm:pt-36 lg:pt-40 pb-20 bg-transparent min-h-screen text-slate-900 font-sans overflow-x-hidden">
       
       {/* Restored ScrollExpand Header Background Section */}
       <div className="mb-14 font-sans">

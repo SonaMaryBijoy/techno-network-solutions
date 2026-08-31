@@ -58,7 +58,7 @@ export default function ContactPage() {
   };
 
   return (
-    <div ref={containerRef} className="pt-24 pb-20 bg-transparent min-h-screen text-slate-900 relative overflow-hidden font-sans">
+    <div ref={containerRef} className="pt-36 sm:pt-40 lg:pt-44 pb-20 bg-transparent min-h-screen text-slate-900 relative overflow-hidden font-sans">
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 font-sans">
         

@@ -21,7 +21,7 @@ export default function AboutPage() {
   ];
 
   return (
-    <div className="pt-24 pb-20 bg-transparent min-h-screen text-slate-900 font-sans">
+    <div className="pt-36 sm:pt-40 lg:pt-44 pb-20 bg-transparent min-h-screen text-slate-900 font-sans">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 font-sans">
         
         {/* High-Impact Main Header Section */}
