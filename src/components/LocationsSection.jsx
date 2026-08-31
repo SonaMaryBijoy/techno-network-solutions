@@ -51,7 +51,7 @@ export default function LocationsSection({ onOpenQuote }) {
           
           {/* Left Column: Standalone India Map Graphic */}
           <div className="lg:col-span-6 font-sans flex items-center justify-center">
-            <div className="relative w-full max-w-xl lg:max-w-2xl h-[520px] sm:h-[620px] lg:h-[660px] flex items-center justify-center bg-transparent">
+            <div className="relative w-full max-w-2xl lg:max-w-3xl h-[580px] sm:h-[680px] lg:h-[740px] flex items-center justify-center bg-transparent scale-105 sm:scale-110">
               
               {/* Standalone Map Image */}
               <img
