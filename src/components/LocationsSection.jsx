@@ -49,11 +49,11 @@ export default function LocationsSection({ onOpenQuote }) {
         
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center font-sans">
           
-          {/* Left Column: Clean Standalone India Map Graphic (No Glassmorphic Box Behind Map) */}
+          {/* Left Column: Enlarged Clean Standalone India Map Graphic */}
           <div className="lg:col-span-6 font-sans flex items-center justify-center">
-            <div className="relative w-full max-w-lg h-[440px] sm:h-[500px] flex items-center justify-center bg-transparent">
+            <div className="relative w-full max-w-xl lg:max-w-2xl h-[520px] sm:h-[600px] lg:h-[640px] flex items-center justify-center bg-transparent">
               
-              {/* Clean Map Image without glassmorphic container background */}
+              {/* Enlarged Map Image */}
               <img
                 src="/india-map-graphic.png"
                 alt="Techno Network Solutions India & Pan-Asia Map"
@@ -77,7 +77,7 @@ export default function LocationsSection({ onOpenQuote }) {
                       {isSelected && (
                         <span className="absolute -inset-3 rounded-full bg-cyan-500/40 animate-ping" />
                       )}
-                      <span className={`block w-6 h-6 rounded-full border-2 transition-all ${
+                      <span className={`block w-7 h-7 rounded-full border-2 transition-all ${
                         isSelected ? 'border-white bg-[#12ACE0] scale-125 shadow-lg shadow-cyan-500/50' : 'border-transparent bg-transparent hover:scale-110'
                       }`} />
                     </button>

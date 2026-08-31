@@ -61,126 +61,94 @@ export default function App() {
 
     lenisRef.current = lenis;
 
+    function raf(time) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+    requestAnimationFrame(raf);
+
     lenis.on('scroll', ScrollTrigger.update);
-
-    const updateRaf = (time) => {
+    gsap.ticker.add((time) => {
       lenis.raf(time * 1000);
-    };
-
-    gsap.ticker.add(updateRaf);
+    });
     gsap.ticker.lagSmoothing(0);
 
     return () => {
-      gsap.ticker.remove(updateRaf);
       lenis.destroy();
-      lenisRef.current = null;
     };
   }, []);
 
-  const scrollToTop = () => {
-    window.scrollTo(0, 0);
+  // Scroll to top helper function
+  const scrollToTopInstant = () => {
+    if (lenisRef.current) {
+      lenisRef.current.scrollTo(0, { immediate: true });
+    }
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
     document.documentElement.scrollTop = 0;
     document.body.scrollTop = 0;
-
-    if (lenisRef.current) {
-      try {
-        if (typeof lenisRef.current.resize === 'function') {
-          lenisRef.current.resize();
-        }
-        lenisRef.current.scrollTo(0, { immediate: true, force: true });
-        lenisRef.current.scroll = 0;
-        lenisRef.current.targetScroll = 0;
-      } catch (e) {
-        // Fallback for safety
-      }
-    }
   };
 
-  const navigateTo = (pageId) => {
+  const handleNavigate = (pageId) => {
     setCurrentPage(pageId);
-    scrollToTop();
+    scrollToTopInstant();
   };
 
-  // Multi-burst scroll reset to handle async font/image/canvas loading after page changes
-  useEffect(() => {
-    scrollToTop();
-
-    const delays = [0, 50, 100, 150, 250, 350, 450, 600, 800, 1000];
-    const timerIds = delays.map((delay) =>
-      setTimeout(() => {
-        scrollToTop();
-        if (typeof ScrollTrigger !== 'undefined') {
-          ScrollTrigger.refresh();
-        }
-      }, delay)
-    );
-
-    return () => {
-      timerIds.forEach((id) => clearTimeout(id));
-    };
-  }, [currentPage]);
+  const handleOpenQuoteModal = (serviceTitle = '') => {
+    setSelectedService(serviceTitle);
+    setQuoteOpen(true);
+  };
 
   const handleSelectServiceQuote = (serviceTitle) => {
     setSelectedService(serviceTitle);
     setQuoteOpen(true);
   };
 
-  const pagesWithoutLiquidEther = ['services', 'gallery', 'clients', 'partners'];
-
   return (
-    <div className="min-h-screen bg-white text-slate-900 font-sans selection:bg-[#12ACE0]/20 selection:text-[#12ACE0] overflow-x-hidden">
+    <div className="bg-slate-950 text-slate-100 min-h-screen selection:bg-[#12ACE0] selection:text-white font-sans antialiased overflow-x-hidden relative">
+      {/* Global Preloader Screen */}
       <AnimatePresence mode="wait">
-        {loading && (
-          <Loader onFinish={() => setLoading(false)} onComplete={() => setLoading(false)} />
-        )}
+        {loading && <Loader onComplete={() => setLoading(false)} />}
       </AnimatePresence>
 
       {!loading && (
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 0.45, ease: 'easeOut' }}
-          className="min-h-screen flex flex-col justify-between"
+          transition={{ duration: 0.8 }}
+          className="relative min-h-screen font-sans"
         >
-          {/* Main Executive Header Navigation */}
-          <Navbar
+          {/* Main Top Navigation Header */}
+          <Navbar 
             currentPage={currentPage}
-            onNavigate={navigateTo}
-            onOpenQuote={() => setQuoteOpen(true)}
+            setCurrentPage={handleNavigate}
+            onOpenQuote={() => handleOpenQuoteModal()} 
           />
 
-          <main className="flex-grow relative overflow-hidden">
-            <AnimatePresence mode="wait" onExitComplete={scrollToTop}>
-              {currentPage === 'home' ? (
-                <motion.div
-                  key="home-page"
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -10 }}
-                  transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
-                >
-                  <PageWrapper pageKey="home" onMountScroll={scrollToTop}>
-                  {/* Hero Section */}
-                  <Hero onOpenQuote={() => setQuoteOpen(true)} />
-
-                  {/* Post-Hero Home Page Container */}
+          {/* Page Routing Views */}
+          <main className="relative font-sans">
+            {currentPage === 'home' && (
+              <PageWrapper pageKey="home" onMountScroll={scrollToTopInstant}>
+                <div>
+                  <Hero onOpenQuote={() => handleOpenQuoteModal()} />
+                  
+                  {/* Post-Hero Home Page Container with Soft Ambient Reduced-Intensity Liquid Ether */}
                   <div className="relative z-0 bg-white">
-                    <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden opacity-38 will-change-transform">
+                    <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden opacity-12 will-change-transform">
                       <LiquidEther
-                        colors={['#5227FF', '#FF9FFC', '#B497CF']}
-                        mouseForce={15}
-                        cursorSize={80}
+                        colors={['#12ACE0', '#38bdf8', '#e0f2fe']}
+                        mouseForce={6}
+                        cursorSize={60}
                         isViscous
                         viscous={20}
-                        iterationsViscous={12}
-                        iterationsPoisson={12}
-                        resolution={0.25}
+                        iterationsViscous={8}
+                        iterationsPoisson={8}
+                        resolution={0.2}
                         isBounce={false}
                         autoDemo
-                        autoSpeed={0.4}
-                        autoIntensity={1.8}
+                        autoSpeed={0.2}
+                        autoIntensity={0.6}
                         takeoverDuration={0.2}
-                        autoResumeDelay={3000}
+                        autoResumeDelay={4000}
                         autoRampDuration={0.5}
                       />
                     </div>
@@ -218,120 +186,68 @@ export default function App() {
                     <div className="relative z-10">
                       <ServicesSection onSelectService={handleSelectServiceQuote} />
                       <WhyUs />
-                      <LocationsSection onOpenQuote={() => setQuoteOpen(true)} />
+                      <LocationsSection onOpenQuote={() => handleOpenQuoteModal()} />
                       <Clients />
                     </div>
                   </div>
-                  </PageWrapper>
-                </motion.div>
-              ) : (
-                <motion.div
-                  key={`page-${currentPage}`}
-                  initial={{ opacity: 0, y: 12 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -12 }}
-                  transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
-                  className="relative z-0 pt-20 sm:pt-24 min-h-screen bg-white"
-                >
-                  <PageWrapper pageKey={currentPage} onMountScroll={scrollToTop}>
-                  {!pagesWithoutLiquidEther.includes(currentPage) && (
-                    <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden opacity-38 will-change-transform">
-                      <LiquidEther
-                        colors={['#5227FF', '#FF9FFC', '#B497CF']}
-                        mouseForce={15}
-                        cursorSize={80}
-                        isViscous
-                        viscous={20}
-                        iterationsViscous={12}
-                        iterationsPoisson={12}
-                        resolution={0.25}
-                        isBounce={false}
-                        autoDemo
-                        autoSpeed={0.4}
-                        autoIntensity={1.8}
-                        takeoverDuration={0.2}
-                        autoResumeDelay={3000}
-                        autoRampDuration={0.5}
-                      />
-                    </div>
-                  )}
+                </div>
+              </PageWrapper>
+            )}
 
-                  <div className="absolute inset-0 pointer-events-auto z-[1] overflow-hidden opacity-85">
-                    <CursorGrid
-                      cellSize={68}
-                      color="#12ACE0"
-                      radius={145}
-                      falloff="smooth"
-                      holdTime={400}
-                      fadeDuration={800}
-                      lineWidth={1.25}
-                      maxOpacity={1}
-                      fillOpacity={0.05}
-                      gridOpacity={0.08}
-                      cellRadius={0}
-                      clickPulse
-                      pulseSpeed={600}
-                    />
-                  </div>
+            {currentPage === 'services' && (
+              <PageWrapper pageKey="services" onMountScroll={scrollToTopInstant}>
+                <ServicesPage 
+                  onOpenQuote={handleOpenQuoteModal} 
+                  onSelectService={handleSelectServiceQuote}
+                />
+              </PageWrapper>
+            )}
 
-                  <div className="absolute inset-0 pointer-events-none z-[2] overflow-hidden opacity-14">
-                    <ShapeGrid
-                      speed={0.5}
-                      squareSize={65}
-                      direction="diagonal"
-                      borderColor="#cbd5e1"
-                      hoverFillColor="#12ACE0"
-                      shape="square"
-                      hoverTrailAmount={4}
-                    />
-                  </div>
+            {currentPage === 'about' && (
+              <PageWrapper pageKey="about" onMountScroll={scrollToTopInstant}>
+                <AboutPage onOpenQuote={handleOpenQuoteModal} />
+              </PageWrapper>
+            )}
 
-                  <div className="relative z-10">
-                    {currentPage === 'services' && (
-                      <ServicesPage onOpenQuote={() => setQuoteOpen(true)} />
-                    )}
+            {currentPage === 'clients' && (
+              <PageWrapper pageKey="clients" onMountScroll={scrollToTopInstant}>
+                <ClientsPage onOpenQuote={handleOpenQuoteModal} />
+              </PageWrapper>
+            )}
 
-                    {currentPage === 'about' && (
-                      <AboutPage onOpenQuote={() => setQuoteOpen(true)} />
-                    )}
+            {currentPage === 'partners' && (
+              <PageWrapper pageKey="partners" onMountScroll={scrollToTopInstant}>
+                <PartnersPage onOpenQuote={handleOpenQuoteModal} />
+              </PageWrapper>
+            )}
 
-                    {currentPage === 'clients' && (
-                      <ClientsPage onOpenQuote={() => setQuoteOpen(true)} />
-                    )}
+            {currentPage === 'gallery' && (
+              <PageWrapper pageKey="gallery" onMountScroll={scrollToTopInstant}>
+                <GalleryPage onOpenQuote={handleOpenQuoteModal} />
+              </PageWrapper>
+            )}
 
-                    {currentPage === 'partners' && (
-                      <PartnersPage onOpenQuote={() => setQuoteOpen(true)} />
-                    )}
+            {currentPage === 'careers' && (
+              <PageWrapper pageKey="careers" onMountScroll={scrollToTopInstant}>
+                <CareersPage onOpenQuote={handleOpenQuoteModal} />
+              </PageWrapper>
+            )}
 
-                    {currentPage === 'gallery' && (
-                      <GalleryPage onOpenQuote={() => setQuoteOpen(true)} />
-                    )}
-
-                    {currentPage === 'careers' && (
-                      <CareersPage />
-                    )}
-
-                    {currentPage === 'contact' && (
-                      <ContactPage />
-                    )}
-                  </div>
-                  </PageWrapper>
-                </motion.div>
-              )}
-            </AnimatePresence>
+            {currentPage === 'contact' && (
+              <PageWrapper pageKey="contact" onMountScroll={scrollToTopInstant}>
+                <ContactPage onOpenQuote={handleOpenQuoteModal} />
+              </PageWrapper>
+            )}
           </main>
 
-          {/* Site Footer */}
-          <Footer
-            onNavigate={navigateTo}
-            onOpenQuote={() => setQuoteOpen(true)}
-          />
+          {/* Footer Component */}
+          <Footer setCurrentPage={handleNavigate} onOpenQuote={() => handleOpenQuoteModal()} />
 
-          {/* Interactive Quote Request Modal */}
-          <ContactModal
-            isOpen={quoteOpen}
+          {/* Interactive Lead Generation Contact Modal */}
+          <ContactModal 
+            isOpen={quoteOpen} 
             onClose={() => setQuoteOpen(false)}
-            preselectedService={selectedService}
+            initialService={selectedService}
           />
         </motion.div>
       )}
