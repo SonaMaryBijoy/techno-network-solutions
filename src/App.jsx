@@ -104,7 +104,7 @@ export default function App() {
   };
 
   return (
-    <div className="bg-slate-950 text-slate-100 min-h-screen selection:bg-[#12ACE0] selection:text-white font-sans antialiased overflow-x-hidden relative">
+    <div className="bg-white text-slate-900 min-h-screen selection:bg-[#12ACE0] selection:text-white font-sans antialiased overflow-x-hidden relative">
       {/* Global Preloader Screen */}
       <AnimatePresence mode="wait">
         {loading && <Loader onComplete={() => setLoading(false)} />}
