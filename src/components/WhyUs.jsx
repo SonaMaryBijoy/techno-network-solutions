@@ -41,7 +41,7 @@ export default function WhyUs() {
     },
     {
       num: '06',
-      title: 'Support after installation',
+      title: 'Support After Installation',
       desc: 'Every project includes comprehensive post-installation technical support and maintenance services with 6–12 hour response times across India.',
       icon: ShieldCheck,
     },

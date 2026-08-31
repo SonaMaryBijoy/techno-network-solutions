@@ -1,292 +1,256 @@
-import React, { useState } from 'react';
+import React, { useRef } from 'react';
+import StrokeText from './StrokeText';
 import TiltedCard from './TiltedCard';
-import DecryptedText from './DecryptedText';
-import Lightfall from './Lightfall';
-import { Network, Camera, ShieldCheck, Tv, Server, CheckCircle2, ArrowRight } from 'lucide-react';
+import ScrollExpand from './ScrollExpand';
 
-export default function ServicesPage({ onOpenQuote }) {
-  const [activeTab, setActiveTab] = useState('cabling');
+export default function ServicesPage() {
+  const containerRef = useRef(null);
 
-  const detailedServices = [
+  const fullServices = [
     {
       id: 'cabling',
-      title: 'Structured Cabling & High-Density Networking',
-      icon: Network,
+      title: 'Structured Cabling & Networking Infrastructure',
       image: '/service-cabling.png',
-      overview: 'End-to-end active and passive network cabling engineering for enterprise tech parks, data centers, and corporate headquarters. Engineered to TIA/EIA-568 standards with Fluke DSX-8000 OTDR verification.',
+      overview: 'Active and passive network infrastructure engineering — pathways, server racks, Cat6/6A copper and singlemode/multimode fiber optic termination, testing, and cable dressing.',
       features: [
-        'Cat6, Cat6A, & Cat7 UTP/STP copper cable infrastructure deployment',
-        'Singlemode (OS2) & Multimode (OM3/OM4/OM5) optical fiber backbone trunking',
-        'Server rack cable management, patch panel termination, & comb dressing',
-        'Cable tray, ladder rack, raceway, & conduit pathway design',
-        'Fluke Versiv DSX-8000 link certification with PDF report documentation'
+        'High-density copper Cat6 / Cat6A UTP/STP cable installations',
+        'Multimode (OM3/OM4/OM5) & Singlemode (OS2) fiber optic backbones',
+        'Fluke Versiv DSX-8000 OTDR Tier 1 & Tier 2 link certification',
+        'Server rack assembly, patch panel mapping, & cable comb dressing',
+        'Overhead ladder rack, wire mesh, & underfloor conduit pathways'
       ],
-      specs: [
-        { label: 'Max Bandwidth', value: '100 Gbps Optical / 10 Gbps Copper' },
-        { label: 'Testing Standard', value: 'TIA-568.2-D & ISO/IEC 11801' },
-        { label: 'Warranty SLA', value: '25-Year System Performance Warranty' }
-      ]
+      oems: ['CommScope Systimax', 'Panduit NetKey', 'Molex Premise', 'Belden', 'R&M Swiss']
     },
     {
       id: 'cctv',
-      title: 'CCTV & AI IP Video Surveillance Systems',
-      icon: Camera,
+      title: 'IP CCTV & AI Video Surveillance Systems',
       image: '/service-cctv.png',
-      overview: 'High-definition 4K IP camera networks, thermal imaging, AI video analytics, and central VMS control room integrations designed for 24/7 security coverage.',
+      overview: 'Enterprise-grade 4K IP camera deployment, AI video analytics, central NVR storage arrays, and VMS control room integrations for 24/7 facility security.',
       features: [
-        '4K Ultra-HD IP dome, bullet, & PTZ surveillance camera installation',
-        'Central NVR/DVR storage arrays with redundant RAID 5/6 disk pools',
-        'AI video management software (facial recognition, perimeter alert, ANPR)',
-        'PoE+ switch networking with dedicated fiber video uplinks',
-        'Mobile & desktop encrypted remote live video monitoring feeds'
+        '4K Ultra-HD Dome, Bullet, & PTZ IP camera installations',
+        'AI video analytics (Facial recognition, License plate ANPR, Perimeter intrusion)',
+        'Central NVR storage infrastructure with RAID 5/6 redundancy',
+        'Encrypted remote live monitoring via mobile & web VMS platforms',
+        'Integration with central security command centers & video walls'
       ],
-      specs: [
-        { label: 'Resolution Support', value: 'Up to 4K UHD (8MP / 12MP)' },
-        { label: 'Storage Retention', value: '30 to 180 Days Continuous NVR RAID' },
-        { label: 'Analytics', value: 'AI Perimeter Protection & Motion Tracking' }
-      ]
+      oems: ['Hikvision Enterprise', 'Dahua Technology', 'Bosch Security', 'Axis Communications', 'CP Plus']
     },
     {
       id: 'security',
       title: 'Biometric Access Control & Physical Security',
-      icon: ShieldCheck,
       image: '/service-security.png',
-      overview: 'Integrated biometric, RFID, and barrier security control protecting sensitive enterprise assets, server rooms, and executive office facilities.',
+      overview: 'Integrated biometric, RFID, and physical barrier solutions engineered to regulate, monitor, and audit entry across server rooms, lobbies, and high-security zones.',
       features: [
-        'Face recognition, fingerprint, & RFID card reader door access controls',
-        'Optical flap barrier turnstiles & motorized boom barriers for lobby entries',
-        'Server rack biometric lock handles & multi-factor room access control',
-        'Intrusion alarm sensors, glass-break detectors, & panic buttons',
-        'Centralized access control software with audit logging & HR payroll sync'
+        'Biometric fingerprint, facial recognition, & RFID access readers',
+        'Optical flap barrier turnstiles & motorized lobby boom barriers',
+        'Intrusion detection alarms, glass-break sensors, & panic triggers',
+        'Server rack biometric locks & multi-factor door access control',
+        'Centralized access management software with HR payroll integration'
       ],
-      specs: [
-        { label: 'Verification Speed', value: '< 0.2 Seconds per User' },
-        { label: 'Capacity', value: 'Up to 100,000 Users & 500,000 Event Logs' },
-        { label: 'Integration', value: 'Fire Alarm Auto-Release & HR Management' }
-      ]
+      oems: ['Matrix Comsec', 'Suprema', 'Honeywell', 'ZKTeco', 'HID Global']
     },
     {
       id: 'av',
-      title: 'Smart Boardroom AV & Unified Telepresence',
-      icon: Tv,
+      title: 'Smart Boardroom AV & Unified Communication',
       image: '/service-av.png',
-      overview: 'Transform conference rooms and auditoriums into smart hybrid collaborative environments with crystal-clear audio, seamless video conferencing, and automated environmental controls.',
+      overview: 'Next-generation audiovisual architecture for boardrooms, conference spaces, and auditoriums — seamless telepresence, acoustic optimization, and touch control.',
       features: [
-        'Commercial 4K interactive display panels, laser projectors, & video walls',
-        'Ceiling beamforming microphone arrays & DSP echo cancellation speakers',
-        'Zoom Rooms, Microsoft Teams, & Cisco Webex hardware integration',
-        'Smart touch panel room automation (lighting, shades, input switching)',
-        'Acoustic treatment, cable management pop-up boxes, & HDMI over IP'
+        'Commercial 4K interactive touch panels & fine-pitch LED video walls',
+        'Ceiling beamforming microphone arrays & DSP acoustic echo cancellation',
+        'Zoom Rooms, Microsoft Teams, & Cisco Webex hardware deployment',
+        'Automated touch panel environmental controls (Lighting, Shades, Input)',
+        'Acoustic wall paneling & hidden cable pop-up floor/table boxes'
       ],
-      specs: [
-        { label: 'Platform Support', value: 'MS Teams, Zoom, Webex, & BYOD' },
-        { label: 'Audio Tech', value: 'Dante Audio over IP & Acoustic Echo Cancellation' },
-        { label: 'Control Systems', value: 'Custom Touch Panel Automation' }
-      ]
+      oems: ['Crestron', 'Logitech', 'Poly (Plantronics)', 'Samsung Display', 'Bose Professional']
     },
     {
       id: 'datacenter',
       title: 'Data Center & Server Room Infrastructure',
-      icon: Server,
       image: '/service-datacenter.png',
-      overview: 'High-density server room engineering incorporating hot/cold aisle containment, intelligent PDU power routing, and organized fiber patch bay management.',
+      overview: 'Turnkey data center engineering incorporating hot/cold aisle containment, intelligent PDU power routing, high-density optical cassettes, and cable tray pathways.',
       features: [
-        'Hot & Cold Aisle containment enclosure engineering for thermal efficiency',
+        'Hot/Cold Aisle containment enclosures for maximum thermal efficiency',
         'Intelligent network-monitored PDU power distribution units',
-        'Raised floor wire mesh cable tray routing & server rack deployment',
-        'Pre-terminated MPO/MTP high-density optical cassette panels',
-        'Environmental monitoring (temperature, humidity, water leak detection)'
+        'Pre-terminated MPO/MTP high-density fiber cassette patch panels',
+        'Environmental sensors (Temperature, Humidity, Water Leak Detection)',
+        'Precision Raised Floor & Overhead Wire Mesh Cable Trays'
       ],
-      specs: [
-        { label: 'Rack Density', value: 'Up to 48U Server & Network Cabinets' },
-        { label: 'Fiber Density', value: 'Ultra High-Density MPO/MTP Cassettes' },
-        { label: 'Efficiency SLA', value: 'Hot/Cold Aisle Thermal Optimization' }
-      ]
+      oems: ['APC Schneider', 'Vertiv', 'Eaton', 'Rittal', 'Netrack']
     },
     {
       id: 'maintenance',
       title: 'Annual Maintenance Contracts (AMC) & 24/7 SLA Support',
-      icon: CheckCircle2,
-      image: '/service-[#12ACE0].png',
+      image: '/service-maintenance.png',
       overview: 'Comprehensive Support After Installation and customized Annual Maintenance Contracts with 6–12 hour emergency on-site engineer response across India.',
       features: [
-        'Dedicated Support After Installation covering all labor and termination work',
+        'Support After Installation covering all labor and termination work',
         'Dedicated SLA with 6–12 hour emergency on-site engineer deployment',
         'Annual Maintenance Contracts (AMC) with preventative health audits',
         'Network health monitoring, cable re-dressing, & optical power testing',
         'On-site client IT staff training & comprehensive handover documentation'
       ],
-      specs: [
-        { label: 'Response Time', value: '6–12 Hours On-Site Emergency SLA' },
-        { label: 'Audit Frequency', value: 'Quarterly Preventative Maintenance' },
-        { label: 'Coverage', value: 'Nationwide Support Operations Across India' }
-      ]
+      oems: ['Techno Dedicated SLAs', 'In-House 40+ Engineers', 'Pan-India Service']
     }
   ];
 
-  const currentService = detailedServices.find(s => s.id === activeTab) || detailedServices[0];
-
   return (
-    <div className="pt-20 pb-20 bg-transparent min-h-screen text-slate-900 font-sans overflow-x-hidden">
+    <div ref={containerRef} className="pt-16 pb-20 bg-transparent min-h-screen text-slate-900 font-sans overflow-x-hidden">
       
-      {/* Services Page Header with Lightfall Backdrop */}
-      <section className="relative py-16 sm:py-24 bg-[#060b1c] text-white overflow-hidden font-sans mb-12 sm:mb-16">
-        <div className="absolute inset-0 z-0 pointer-events-none">
-          <Lightfall
-            dpr={1}
-            colors={['#12ACE0', '#3E91D5', '#985AC0']}
-            backgroundColor="#060b1c"
-            speed={0.5}
-            streakCount={2}
-            streakWidth={1}
-            streakLength={1}
-            glow={1}
-            density={0.6}
-            twinkle={1}
-            zoom={3}
-            backgroundGlow={0.5}
-            opacity={0.85}
-            mouseInteraction
-          />
-        </div>
-
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 font-sans text-center max-w-4xl">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-cyan-500/10 border border-cyan-400/30 text-[#12ACE0] text-xs font-mono font-bold uppercase tracking-wider mb-4">
-            TURNKEY ENGINEERING SERVICES
-          </div>
-
-          {/* Service Page Main Header */}
-          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-sans font-black tracking-tight text-white mb-6 leading-tight">
-            <DecryptedText
-              text="INFRASTRUCTURE DISCIPLINES"
-              speed={20}
-              sequential
-              animateOn="view"
-              className="text-white font-sans font-black tracking-tight uppercase"
-              encryptedClassName="text-cyan-400 font-sans"
-            />
-          </h1>
-
-          <p className="text-slate-300 text-sm sm:text-lg leading-relaxed font-medium font-sans max-w-3xl mx-auto">
-            Explore our specialized infrastructure verticals — engineered for zero downtime, TIA/EIA compliance, and 25-year manufacturer warranties.
-          </p>
-        </div>
-      </section>
-
-      {/* Main Content Area */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 font-sans">
-        
-        {/* Horizontal Service Category Selector Tabs */}
-        <div className="flex items-center gap-2 sm:gap-3 overflow-x-auto pb-4 mb-10 scrollbar-none font-sans">
-          {detailedServices.map((s) => {
-            const Icon = s.icon;
-            const isSelected = activeTab === s.id;
-            return (
-              <button
-                key={s.id}
-                onClick={() => setActiveTab(s.id)}
-                className={`px-4 sm:px-5 py-3 rounded-2xl font-mono text-xs sm:text-sm font-bold transition-all flex items-center gap-2.5 whitespace-nowrap cursor-pointer flex-shrink-0 border ${
-                  isSelected
-                    ? 'bg-[#12ACE0] text-white border-[#12ACE0] shadow-md shadow-cyan-500/20'
-                    : 'bg-white text-slate-700 border-slate-200 hover:bg-slate-50'
-                }`}
-              >
-                <Icon className={`w-4 h-4 ${isSelected ? 'text-white' : 'text-[#12ACE0]'}`} />
-                <span>{s.title.split('&')[0]}</span>
-              </button>
-            );
-          })}
-        </div>
-
-        {/* Selected Service Detailed View */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-12 items-start font-sans">
-          
-          {/* Left Column: Interactive Image Showcase */}
-          <div className="lg:col-span-6 font-sans">
-            <div className="relative w-full h-[380px] sm:h-[480px] rounded-3xl overflow-hidden font-sans">
-              <TiltedCard
-                imageSrc={currentService.image}
-                altText={currentService.title}
-                containerHeight="100%"
-                containerWidth="100%"
-                imageHeight="100%"
-                imageWidth="100%"
-                rotateAmplitude={8}
-                scaleOnHover={1.03}
-                showMobileWarning={false}
-                showTooltip={false}
-                displayOverlayContent
-                overlayContent={
-                  <div className="absolute inset-0 p-6 flex flex-col justify-between bg-gradient-to-t from-slate-950/80 via-transparent to-transparent font-sans">
-                    <div className="flex items-center justify-between">
-                      <span className="px-3 py-1 rounded-lg bg-white/90 backdrop-blur-md text-slate-950 text-xs font-mono font-bold">
-                        FEATURED SOLUTION
-                      </span>
-                    </div>
-
-                    <div className="text-white font-sans">
-                      <h3 className="text-xl sm:text-2xl font-heading font-black mb-1">
-                        {currentService.title}
-                      </h3>
-                    </div>
-                  </div>
-                }
+      {/* Restored ScrollExpand Header Background Section */}
+      <div className="mb-14 font-sans">
+        <ScrollExpand
+          src="/service-header-bg.png"
+          alt="High-Density Fiber Optic Data Center Infrastructure"
+          title=""
+          scrollHint="Scroll down to expand view"
+          startWidth={65}
+          startHeight={70}
+          startRadius={24}
+          endRadius={0}
+          mediaZoom={1.25}
+          scrollDistance={1.0}
+          holdDistance={0.35}
+          smoothing={0.08}
+          overlayScrim={0.35}
+          useWindowScroll
+        >
+          {/* Main Display Heading */}
+          <div className="w-full flex flex-col items-center justify-center text-center my-2 drop-shadow-[0_15px_35px_rgba(0,0,0,0.85)] max-w-[98vw] sm:max-w-6xl mx-auto px-2 overflow-visible">
+            
+            {/* Line 1: ENGINEERING & */}
+            <div className="w-full flex justify-center">
+              <StrokeText
+                text="ENGINEERING &"
+                strokeColor="#ffffff"
+                fillColor="#ffffff"
+                strokeWidth={3.8}
+                drawDuration={1.8}
+                fillDelay={0.3}
+                trigger="mount"
+                fillMode="wipe"
+                fontSize={96}
+                fontWeight={900}
+                letterSpacing={-2}
+                fontFamily="Unbounded, SuperGType, GType, Syne, sans-serif"
+                className="text-center drop-shadow-[0_6px_30px_rgba(0,0,0,0.95)] max-w-full font-black uppercase"
               />
             </div>
-          </div>
 
-          {/* Right Column: Specs & Feature Breakdown */}
-          <div className="lg:col-span-6 space-y-6 font-sans">
-            <div>
-              <h2 className="text-2xl sm:text-3xl font-heading font-black text-slate-950 mb-3 leading-tight font-sans">
-                {currentService.title}
-              </h2>
-
-              <p className="text-slate-600 text-sm sm:text-base leading-relaxed font-medium mb-6 font-sans">
-                {currentService.overview}
-              </p>
+            {/* Line 2: INSTALLATION */}
+            <div className="w-full flex justify-center mt-1 sm:mt-2">
+              <StrokeText
+                text="INSTALLATION"
+                strokeColor="#12ACE0"
+                fillColor="#12ACE0"
+                strokeWidth={3.8}
+                drawDuration={1.8}
+                fillDelay={0.3}
+                trigger="mount"
+                fillMode="wipe"
+                fontSize={96}
+                fontWeight={900}
+                letterSpacing={-2}
+                fontFamily="Unbounded, SuperGType, GType, Syne, sans-serif"
+                className="text-center drop-shadow-[0_6px_30px_rgba(18,172,224,0.95)] max-w-full font-black uppercase"
+              />
             </div>
 
-            {/* Core Features List */}
-            <div className="space-y-3 font-sans">
-              <h4 className="text-xs font-mono font-extrabold text-[#12ACE0] uppercase tracking-wider mb-2">
-                CORE EXECUTION CAPABILITIES
-              </h4>
-              {currentService.features.map((feat, idx) => (
-                <div key={idx} className="flex items-start gap-3 bg-white p-3.5 rounded-xl border border-slate-200/90 shadow-2xs font-sans">
-                  <CheckCircle2 className="w-5 h-5 text-[#12ACE0] flex-shrink-0 mt-0.5" />
-                  <span className="text-xs sm:text-sm font-medium text-slate-800 font-sans">{feat}</span>
-                </div>
-              ))}
-            </div>
-
-            {/* Specifications Cards Grid */}
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2 font-sans">
-              {currentService.specs.map((sp, idx) => (
-                <div key={idx} className="p-3.5 rounded-xl bg-cyan-50/50 border border-cyan-100 font-sans">
-                  <span className="block text-[10px] font-mono font-bold text-slate-500 uppercase tracking-wider mb-1">
-                    {sp.label}
-                  </span>
-                  <span className="block text-xs sm:text-sm font-bold text-slate-900 font-sans">
-                    {sp.value}
-                  </span>
-                </div>
-              ))}
-            </div>
-
-            {/* Action CTA Button */}
-            <div className="pt-4 font-sans">
-              <button
-                onClick={onOpenQuote}
-                className="w-full sm:w-auto px-7 py-3.5 rounded-xl font-mono text-xs sm:text-sm font-bold bg-[#12ACE0] hover:bg-[#0f96c4] text-white shadow-md shadow-cyan-500/30 hover:scale-105 transition-all flex items-center justify-center gap-2 cursor-pointer"
-              >
-                <span>REQUEST SITE SURVEY & BOQ</span>
-                <ArrowRight className="w-4 h-4" />
-              </button>
+            {/* Line 3: SERVICES */}
+            <div className="w-full flex justify-center mt-1 sm:mt-2">
+              <StrokeText
+                text="SERVICES"
+                strokeColor="#ffffff"
+                fillColor="#ffffff"
+                strokeWidth={3.8}
+                drawDuration={1.8}
+                fillDelay={0.3}
+                trigger="mount"
+                fillMode="wipe"
+                fontSize={96}
+                fontWeight={900}
+                letterSpacing={-2}
+                fontFamily="Unbounded, SuperGType, GType, Syne, sans-serif"
+                className="text-center drop-shadow-[0_6px_30px_rgba(0,0,0,0.95)] max-w-full font-black uppercase"
+              />
             </div>
 
           </div>
 
+          <p className="text-white text-xs sm:text-base lg:text-lg font-bold text-center leading-relaxed max-w-3xl mx-auto mt-4 px-4 drop-shadow-[0_2px_18px_rgba(0,0,0,0.95)]">
+            Delivering high-performance cabling, CCTV, access control, and boardroom AV infrastructure backed by Fluke certification and 25-year manufacturer warranties.
+          </p>
+        </ScrollExpand>
+      </div>
+
+      {/* Main Service List Container */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 font-sans pt-24 sm:pt-28 lg:pt-32">
+
+        {/* Detailed Service Content List */}
+        <div className="space-y-16 sm:space-y-20 mb-20 font-sans">
+          {fullServices.map((svc, idx) => {
+            const isEven = idx % 2 === 0;
+
+            return (
+              <div key={svc.id} className="py-8 sm:py-10 border-b border-slate-200/90 font-sans">
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+                  
+                  {/* Content Column */}
+                  <div className={`lg:col-span-7 space-y-6 ${isEven ? 'lg:order-1' : 'lg:order-2'}`}>
+                    <h2 className="text-2xl sm:text-3xl lg:text-4xl font-heading font-black text-slate-950 tracking-tight leading-tight">
+                      {svc.title}
+                    </h2>
+
+                    <p className="text-slate-600 text-base sm:text-lg lg:text-xl font-medium leading-relaxed">
+                      {svc.overview}
+                    </p>
+
+                    <div className="space-y-2.5 font-sans pt-1">
+                      <h4 className="text-xs font-mono text-slate-400 font-bold uppercase tracking-wider mb-2">KEY DELIVERABLES</h4>
+                      {svc.features.map((feat, i) => (
+                        <div key={i} className="text-slate-600 text-base sm:text-lg font-medium leading-relaxed flex items-start gap-2">
+                          <span className="text-[#12ACE0] font-bold">•</span>
+                          <span>{feat}</span>
+                        </div>
+                      ))}
+                    </div>
+
+                    {/* Short Heading for Certified OEM Brands */}
+                    <div className="pt-3">
+                      <h4 className="text-xs font-mono text-[#12ACE0] font-bold uppercase tracking-wider mb-2.5">
+                        CERTIFIED OEM BRANDS
+                      </h4>
+                      <div className="flex flex-wrap gap-2 font-sans">
+                        {svc.oems.map((oem) => (
+                          <span key={oem} className="px-3.5 py-1.5 rounded-xl bg-slate-50 border border-slate-200 text-xs sm:text-sm font-mono text-[#12ACE0] font-bold shadow-xs">
+                            {oem}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* 3D TiltedCard Image Card */}
+                  <div className={`lg:col-span-5 flex justify-center ${isEven ? 'lg:order-2' : 'lg:order-1'}`}>
+                    <div className="w-full max-w-md h-[340px] sm:h-[400px] relative z-10">
+                      <TiltedCard
+                        imageSrc={svc.image}
+                        altText={svc.title}
+                        captionText=""
+                        containerHeight="100%"
+                        containerWidth="100%"
+                        imageHeight="100%"
+                        imageWidth="100%"
+                        scaleOnHover={1.12}
+                        rotateAmplitude={26}
+                        showTooltip={false}
+                      />
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            );
+          })}
         </div>
 
       </div>
