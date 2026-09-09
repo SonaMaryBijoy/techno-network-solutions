@@ -15,6 +15,14 @@ dist-ssr
 .env*.local
 !.env.example
 
+# Raw documents and font assets
+*.pdf
+index (*).html
+*.ttf
+g_type/
+sega/
+united_colony/
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
