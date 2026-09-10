@@ -1,93 +1,182 @@
-# TechnoNetworkSolutions-WebSite
+# Techno Network Solutions — Corporate Website
 
+[![React](https://img.shields.io/badge/React-19.2-61DAFB?style=for-the-badge&logo=react&logoColor=black)](https://react.dev/)
+[![Vite](https://img.shields.io/badge/Vite-8.2-646CFF?style=for-the-badge&logo=vite&logoColor=white)](https://vitejs.dev/)
+[![TailwindCSS](https://img.shields.io/badge/Tailwind_CSS-v4.3-38BDF8?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
+[![GitLab](https://img.shields.io/badge/GitLab-DPLANCK--TECHNOLOGIES-FC6D26?style=for-the-badge&logo=gitlab&logoColor=white)](https://gitlab.com/dplanck-technologies-group1/techno-network-solutions-website)
 
+Official corporate website for **Techno Network Solutions** — Industry leaders in Enterprise Networking, Structured Fiber Optic Cabling, CCTV Surveillance, Smart Boardroom Systems, Access Control & Server Room Infrastructure.
 
-## Getting started
+---
 
-To make it easy for you to get started with GitLab, here's a list of recommended next steps.
+## 🌟 Features & Highlights
 
-Already a pro? Just edit this README.md and make it your own. Want to make it easy? [Use the template at the bottom](#editing-this-readme)!
+- **Modern Glassmorphic Dark UI**: Designed with futuristic aesthetics, ambient glow effects, responsive navigation, and custom typography.
+- **Interactive India Network Hubs**: Custom vector map illustration highlighting core tech hubs (Bangalore, Hyderabad, Chennai, Kerala) with active hub switching and architectural skyline illustrations.
+- **Fluid Shader & Canvas Backgrounds**: WebGL shader filters (`LiquidEther`, `CursorGrid`, `ShapeGrid`) providing smooth reactive visual depth across pages.
+- **Dynamic Project Showcase & Gallery**: Interactive project filters (Fiber Optics, CCTV, Access Control, Boardrooms) with modal zoom previews.
+- **Web3Forms Contact Integration**: Live functional contact form with instant email notification backend integration to `projects@tnsnw.com`.
+- **Responsive Layout**: Optimized across Desktop, Laptop, Tablet, and Mobile screens.
 
-## Add your files
+---
 
-* [Create](https://docs.gitlab.com/user/project/repository/web_editor/#create-a-file) or [upload](https://docs.gitlab.com/user/project/repository/web_editor/#upload-a-file) files
-* [Add files using the command line](https://docs.gitlab.com/topics/git/add_files/#add-files-to-a-git-repository) or push an existing Git repository with the following command:
+## 📁 Project Architecture
 
 ```
-cd existing_repo
-git remote add origin https://gitlab.com/dplanck-dev-group/technonetworksolutions-website.git
-git branch -M main
-git push -uf origin main
+Debut Website/
+├── public/                     # Static assets & images
+│   ├── india-map-graphic.png   # Enlarged India Network vector graphic
+│   ├── bangalore-skyline.png   # Architectural hub line-art illustration
+│   ├── techno-logo.png         # Company logo
+│   └── favicon.ico             # App icon
+├── src/
+│   ├── assets/                 # Brand graphics & icons
+│   ├── components/             # Reusable UI components
+│   │   ├── Navbar.jsx          # Top fixed glass header & mobile drawer
+│   │   ├── Footer.jsx          # Company footer with quick links & contact
+│   │   ├── ContactModal.jsx    # Pop-up contact & quotation modal
+│   │   ├── IndiaMapGraphic.jsx # Interactive India map hub visualizer
+│   │   ├── LiquidEther.jsx     # WebGL liquid background canvas
+│   │   ├── CursorGrid.jsx      # Interactive cursor grid overlay
+│   │   └── ...
+│   ├── pages/                  # Main Application Views
+│   │   ├── Home.jsx            # Hero section, Stats, Hubs & Highlights
+│   │   ├── AboutUs.jsx         # Executive overview & OEM warranty commitments
+│   │   ├── Services.jsx        # Fiber, CCTV, Access Control & Server Rooms
+│   │   ├── Clients.jsx         # Trusted enterprise client roster
+│   │   ├── Partners.jsx        # OEM partners & certification warranties
+│   │   ├── Gallery.jsx         # Field installation gallery
+│   │   ├── Careers.jsx         # Job openings & resume submit
+│   │   └── ContactUs.jsx       # Contact details & inquiry form
+│   ├── App.jsx                 # Main layout wrapper & page router
+│   ├── main.jsx                # Entry point
+│   └── index.css               # Global styles & Tailwind directives
+├── .env.example                # Sample environment configuration template
+├── .gitignore                  # Excluded files for version control
+├── package.json                # Project dependencies & build scripts
+├── vite.config.js              # Vite build configuration
+└── README.md                   # Repository documentation
 ```
 
-## Integrate with your tools
+---
 
-* [Set up project integrations](https://gitlab.com/dplanck-dev-group/technonetworksolutions-website/-/settings/integrations)
+## 🛠️ Tech Stack & Dependencies
 
-## Collaborate with your team
+- **Frontend Core**: React 19, Vite 8
+- **Styling**: Tailwind CSS v4, Vanilla CSS variables
+- **Animations & Smooth Scroll**: Framer Motion, GSAP (ScrollTrigger), Lenis
+- **Icons**: Lucide React, React Icons
+- **3D / Canvas**: Three.js, React Three Fiber, OGL
+- **Forms & Email API**: Web3Forms
 
-* [Invite team members and collaborators](https://docs.gitlab.com/user/project/members/)
-* [Create a new merge request](https://docs.gitlab.com/user/project/merge_requests/creating_merge_requests/)
-* [Automatically close issues from merge requests](https://docs.gitlab.com/user/project/issues/managing_issues/#closing-issues-automatically)
-* [Enable merge request approvals](https://docs.gitlab.com/user/project/merge_requests/approvals/)
-* [Set auto-merge](https://docs.gitlab.com/user/project/merge_requests/auto_merge/)
+---
 
-## Test and Deploy
+## 🚀 Quick Start Guide
 
-Use the built-in continuous integration in GitLab.
+### Prerequisites
 
-* [Get started with GitLab CI/CD](https://docs.gitlab.com/ci/quick_start/)
-* [Analyze your code for known vulnerabilities with Static Application Security Testing (SAST)](https://docs.gitlab.com/user/application_security/sast/)
-* [Deploy to Kubernetes, Amazon EC2, or Amazon ECS using Auto Deploy](https://docs.gitlab.com/topics/autodevops/requirements/)
-* [Use pull-based deployments for improved Kubernetes management](https://docs.gitlab.com/user/clusters/agent/)
-* [Set up protected environments](https://docs.gitlab.com/ci/environments/protected_environments/)
+Ensure you have the following installed on your machine:
+- **Node.js** (v18.0.0 or higher recommended)
+- **npm** (v9.0.0 or higher) or **yarn** / **pnpm**
+- **Git**
 
-***
+### Installation
 
-# Editing this README
+1. **Clone the Repository**
+   ```bash
+   git clone https://gitlab.com/dplanck-technologies-group1/techno-network-solutions-website.git
+   cd techno-network-solutions-website
+   ```
 
-When you're ready to make this README your own, just edit this file and use the handy template below (or feel free to structure it however you want - this is just a starting point!). Thanks to [makeareadme.com](https://www.makeareadme.com/) for this template.
+2. **Install Dependencies**
+   ```bash
+   npm install
+   ```
 
-## Suggestions for a good README
+3. **Configure Environment Variables**
+   - Copy `.env.example` to create a `.env` file in the root directory:
+     ```bash
+     cp .env.example .env
+     ```
+   - Update `VITE_WEB3FORMS_ACCESS_KEY` in `.env` with your Web3Forms API key:
+     ```env
+     VITE_WEB3FORMS_ACCESS_KEY=d289d14f-b350-4a88-bf30-3b9d2b31fcdd
+     ```
 
-Every project is different, so consider which of these sections apply to yours. The sections used in the template are suggestions for most open source projects. Also keep in mind that while a README can be too long and detailed, too long is better than too short. If you think your README is too long, consider utilizing another form of documentation rather than cutting out information.
+4. **Run Local Development Server**
+   ```bash
+   npm run dev
+   ```
+   Open your browser and navigate to `http://localhost:5173`.
 
-## Name
-Choose a self-explaining name for your project.
+---
 
-## Description
-Let people know what your project can do specifically. Provide context and add a link to any reference visitors might be unfamiliar with. A list of Features or a Background subsection can also be added here. If there are alternatives to your project, this is a good place to list differentiating factors.
+## 📦 Building for Production
 
-## Badges
-On some READMEs, you may see small images that convey metadata, such as whether or not all the tests are passing for the project. You can use Shields to add some to your README. Many services also have instructions for adding a badge.
+To create an optimized production build:
 
-## Visuals
-Depending on what you are making, it can be a good idea to include screenshots or even a video (you'll frequently see GIFs rather than actual videos). Tools like ttygif can help, but check out Asciinema for a more sophisticated method.
+```bash
+npm run build
+```
 
-## Installation
-Within a particular ecosystem, there may be a common way of installing things, such as using Yarn, NuGet, or Homebrew. However, consider the possibility that whoever is reading your README is a novice and would like more guidance. Listing specific steps helps remove ambiguity and gets people to using your project as quickly as possible. If it only runs in a specific context like a particular programming language version or operating system or has dependencies that have to be installed manually, also add a Requirements subsection.
+The output files will be generated in the `dist/` directory, ready to be deployed to Vercel, Netlify, Hostinger, or any web hosting server.
 
-## Usage
-Use examples liberally, and show the expected output if you can. It's helpful to have inline the smallest example of usage that you can demonstrate, while providing links to more sophisticated examples if they are too long to reasonably include in the README.
+To preview the production build locally:
+```bash
+npm run preview
+```
 
-## Support
-Tell people where they can go to for help. It can be any combination of an issue tracker, a chat room, an email address, etc.
+---
 
-## Roadmap
-If you have ideas for releases in the future, it is a good idea to list them in the README.
+## 🔐 Environment Variables
 
-## Contributing
-State if you are open to contributions and what your requirements are for accepting them.
+| Variable | Description | Default / Required |
+| --- | --- | --- |
+| `VITE_WEB3FORMS_ACCESS_KEY` | Access key for Web3Forms API to dispatch contact form submissions to company email. | **Required** |
 
-For people who want to make changes to your project, it's helpful to have some documentation on how to get started. Perhaps there is a script that they should run or some environment variables that they need to set. Make these steps explicit. These instructions could also be useful to your future self.
+> ⚠️ **Security Note**: Never commit the `.env` file containing secrets to Git. Only `.env.example` should be tracked in version control.
 
-You can also document commands to lint the code or run tests. These steps help to ensure high code quality and reduce the likelihood that the changes inadvertently break something. Having instructions for running tests is especially helpful if it requires external setup, such as starting a Selenium server for testing in a browser.
+---
 
-## Authors and acknowledgment
-Show your appreciation to those who have contributed to the project.
+## 📤 Pushing Code to GitLab Repository
 
-## License
-For open source projects, say how it is licensed.
+If you are setting up or uploading this code to the official GitLab repository for the first time, follow these exact steps:
 
-## Project status
-If you have run out of energy or time for your project, put a note at the top of the README saying that development has slowed down or stopped completely. Someone may choose to fork your project or volunteer to step in as a maintainer or owner, allowing your project to keep going. You can also make an explicit request for maintainers.
+### 1. Add the GitLab Remote
+
+In your terminal (inside the project root directory):
+
+```bash
+git remote add gitlab https://gitlab.com/dplanck-technologies-group1/techno-network-solutions-website.git
+```
+
+*(If `gitlab` remote already exists, update its URL with `git remote set-url gitlab <URL>`)*
+
+### 2. Stage & Commit All Changes
+
+```bash
+git add .
+git commit -m "feat: complete Techno Network Solutions corporate website code with README and configuration"
+```
+
+### 3. Push to GitLab
+
+```bash
+git push -u gitlab main
+```
+
+#### 🔑 Authentication Note for GitLab Push:
+- If prompted for a password, use a **GitLab Personal Access Token (PAT)** with `write_repository` permission instead of your account password.
+- Alternatively, if using SSH:
+  ```bash
+  git remote set-url gitlab git@gitlab.com:dplanck-technologies-group1/techno-network-solutions-website.git
+  git push -u gitlab main
+  ```
+
+---
+
+## 📄 License & Contact
+
+© **Techno Network Solutions** — All Rights Reserved.  
+Part of **DPLANCK TECHNOLOGIES Group**.  
+For technical support or inquiries, contact `projects@tnsnw.com`.

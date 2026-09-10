@@ -1,0 +1,190 @@
+@import url('https://fonts.googleapis.com/css2?family=Unbounded:wght@700;800;900&family=Syne:wght@700;800&family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800;12..96,900&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800;900&family=Roboto+Flex:opsz,wght@8..144,100..1000&display=swap');
+@import "tailwindcss";
+
+@font-face {
+  font-family: 'GType';
+  src: url('/gomarice_g_type.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'SuperGType';
+  src: url('/gomarice_super_g_type_2.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Tesla';
+  src: url('/TESLA.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'UnitedColony';
+  src: url('/unitedcolony.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'UnitedColonyExpand';
+  src: url('/unitedcolonyexpand.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --bg-light: #ffffff;
+  --bg-panel: #f8fafc;
+  --bg-card: #ffffff;
+  --color-teal: #12ACE0;
+  --color-blue: #3E91D5;
+  --color-purple: #985AC0;
+  --color-magenta: #C43FB5;
+  --text-primary: #0f172a;
+  --text-muted: #475569;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg-light);
+  color: var(--text-primary);
+  font-family: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Lenis Smooth Scroll CSS Rules */
+html.lenis, html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-smooth iframe {
+  pointer-events: none;
+}
+
+.font-heading {
+  font-family: 'Bricolage Grotesque', 'Unbounded', 'Syne', sans-serif;
+}
+
+.font-gtype {
+  font-family: 'GType', 'SuperGType', 'Unbounded', sans-serif;
+}
+
+.font-tesla {
+  font-family: 'Tesla', 'Unbounded', sans-serif;
+}
+
+.font-united-colony {
+  font-family: 'UnitedColony', 'UnitedColonyExpand', 'Unbounded', sans-serif;
+}
+
+.font-united-expand {
+  font-family: 'UnitedColonyExpand', 'UnitedColony', 'Unbounded', sans-serif;
+}
+
+/* Metallic Text Gradient */
+.text-metallic {
+  background: linear-gradient(135deg, #12ACE0 0%, #3E91D5 30%, #985AC0 70%, #C43FB5 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-metallic-dark {
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.bg-glass {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.bg-glass-dark {
+  background: rgba(15, 23, 42, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+/* Custom Scrollbar Hide Utility */
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-none {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Glassmorphism Border Shimmer */
+.border-glass {
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.border-glass-dark {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Custom Marquee Keyframes */
+@keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation-name: marquee;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: transform;
+}
+
+/* Cable Pulse Animation */
+@keyframes fiberPulse {
+  0% { stroke-dashoffset: 100; opacity: 0.3; }
+  50% { opacity: 1; }
+  100% { stroke-dashoffset: 0; opacity: 0.3; }
+}
+
+.animate-fiber {
+  stroke-dasharray: 10 5;
+  animation: fiberPulse 2s linear infinite;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #f8fafc;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #12ACE0;
+}
