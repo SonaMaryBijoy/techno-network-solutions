@@ -1,15 +1,21 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="none">
-  <!-- Clean rounded white container so logo pops on both light & dark browser tabs -->
-  <rect width="512" height="512" rx="120" fill="#ffffff" />
+  <!-- Clean white container with gentle rounded corners matching image preview card -->
+  <rect width="512" height="512" rx="96" fill="#ffffff" />
 
-  <g transform="translate(10, 10)">
-    <!-- Blue Slanted T/Z Emblem -->
-    <path d="M 245 105 H 395 L 345 165 H 290 L 180 335 H 335 L 295 395 H 110 L 235 215 H 180 Z" fill="#009fe3" />
+  <g transform="translate(15, 30)">
+    <!-- Blue Slanted Top Arm -->
+    <path d="M 330 73 H 440 L 340 175 H 230 Z" fill="#009ee3" />
 
-    <!-- Purple Horizontal Parallelogram Crossbar -->
-    <path d="M 125 215 L 85 270 H 420 L 460 215 Z" fill="#672d8e" />
+    <!-- Blue Middle Diagonal Stem -->
+    <path d="M 230 175 H 340 L 245 308 H 135 Z" fill="#009ee3" />
 
-    <!-- Dark Purple Intersection Blend -->
-    <path d="M 235 215 H 300 L 260 270 H 195 Z" fill="#431c63" opacity="0.95" />
+    <!-- Blue Bottom Horizontal Bar -->
+    <path d="M 135 308 H 370 L 295 365 H 60 Z" fill="#009ee3" />
+
+    <!-- Purple Horizontal Parallelogram Bar -->
+    <path d="M 135 175 H 460 L 405 227 H 80 Z" fill="#682968" />
+
+    <!-- Exact Intersection Dark Violet Overlay -->
+    <path d="M 230 175 H 340 L 300 227 H 190 Z" fill="#491d64" />
   </g>
 </svg>
