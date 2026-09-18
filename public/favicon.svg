@@ -1,49 +1,15 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="none">
-  <defs>
-    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#0b1329" />
-      <stop offset="100%" stop-color="#020617" />
-    </linearGradient>
+  <!-- Clean rounded white container so logo pops on both light & dark browser tabs -->
+  <rect width="512" height="512" rx="120" fill="#ffffff" />
 
-    <linearGradient id="tGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#38bdf8" />
-      <stop offset="50%" stop-color="#2563eb" />
-      <stop offset="100%" stop-color="#1d4ed8" />
-    </linearGradient>
+  <g transform="translate(10, 10)">
+    <!-- Blue Slanted T/Z Emblem -->
+    <path d="M 245 105 H 395 L 345 165 H 290 L 180 335 H 335 L 295 395 H 110 L 235 215 H 180 Z" fill="#009fe3" />
 
-    <linearGradient id="borderGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#38bdf8" />
-      <stop offset="100%" stop-color="#1d4ed8" />
-    </linearGradient>
+    <!-- Purple Horizontal Parallelogram Crossbar -->
+    <path d="M 125 215 L 85 270 H 420 L 460 215 Z" fill="#672d8e" />
 
-    <linearGradient id="accentGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#60a5fa" />
-      <stop offset="100%" stop-color="#38bdf8" />
-    </linearGradient>
-  </defs>
-
-  <!-- Background Card -->
-  <rect x="16" y="16" width="480" height="480" rx="108" fill="url(#bgGrad)" stroke="url(#borderGrad)" stroke-width="14" />
-
-  <!-- Subtle Network Node Connection Lines -->
-  <path d="M 80 142 H 432" stroke="#1e293b" stroke-width="12" stroke-linecap="round" stroke-dasharray="16 16" />
-  <path d="M 256 142 V 410" stroke="#1e293b" stroke-width="12" stroke-linecap="round" stroke-dasharray="16 16" />
-
-  <!-- Techno Brand "T" Emblem -->
-  <!-- Top Crossbar of T -->
-  <path d="M 96 100 H 416 Q 436 100 436 120 V 164 Q 436 184 416 184 H 96 Q 76 184 76 164 V 120 Q 76 100 96 100 Z" fill="url(#tGrad)" />
-  
-  <!-- Vertical Stem of T -->
-  <path d="M 210 184 H 302 Q 318 184 318 200 V 392 Q 318 412 298 412 H 214 Q 194 412 194 392 V 200 Q 194 184 210 184 Z" fill="url(#tGrad)" />
-
-  <!-- Cyan Tech Accent Slice on Right Wing of T -->
-  <path d="M 336 100 L 416 100 Q 436 100 436 120 V 164 L 372 184 Z" fill="url(#accentGrad)" opacity="0.9" />
-
-  <!-- Glowing Fiber Optic Node Dots -->
-  <circle cx="256" cy="142" r="22" fill="#ffffff" />
-  <circle cx="256" cy="142" r="11" fill="#0284c7" />
-
-  <circle cx="256" cy="402" r="14" fill="#38bdf8" />
-  <circle cx="96" cy="142" r="12" fill="#38bdf8" opacity="0.8" />
-  <circle cx="416" cy="142" r="12" fill="#38bdf8" opacity="0.8" />
+    <!-- Dark Purple Intersection Blend -->
+    <path d="M 235 215 H 300 L 260 270 H 195 Z" fill="#431c63" opacity="0.95" />
+  </g>
 </svg>
