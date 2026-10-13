@@ -20,12 +20,9 @@ export default function Footer({ onNavigate, onOpenQuote }) {
           {/* Col 1: Brand Info */}
           <div className="sm:col-span-2 space-y-3.5">
             <div className="flex items-center gap-3">
-              <div className="bg-white border border-slate-200 rounded-xl p-1.5 shadow-sm">
-                <img src="/techno-logo.png" alt="Techno Network Solutions Logo" className="h-7 sm:h-8 w-auto object-contain" />
+              <div className="bg-white border border-slate-200 rounded-xl px-3 py-2 shadow-sm inline-flex items-center">
+                <img src="/techno-logo.png" alt="Techno Network Solutions Logo" className="h-7 sm:h-9 w-auto object-contain" />
               </div>
-              <span className="font-heading font-black text-base sm:text-lg text-slate-900 tracking-tight">
-                TECHNO <span className="text-[#12ACE0]">NETWORK</span> SOLUTIONS
-              </span>
             </div>
 
             <p className="text-slate-500 text-xs leading-relaxed max-w-sm">

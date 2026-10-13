@@ -40,13 +40,10 @@ export default function Navbar({ currentPage, onNavigate, onOpenQuote }) {
         
         {/* Top Header Row: Clean Brand Logo & Mobile Toggle */}
         <div className="flex items-center justify-between gap-3">
-          <button onClick={() => handleNavClick('home')} className="flex items-center gap-2 sm:gap-3 group text-left cursor-pointer flex-shrink-0">
-            <div className="bg-white border border-slate-200/90 rounded-xl p-1.5 shadow-xs group-hover:scale-105 transition-transform flex items-center">
-              <img src="/techno-logo.png" alt="Techno Network Solutions Logo" className="h-6 sm:h-8 lg:h-9 w-auto object-contain" />
+          <button onClick={() => handleNavClick('home')} className="flex items-center group text-left cursor-pointer flex-shrink-0" aria-label="Techno Network Solutions Home">
+            <div className="bg-white border border-slate-200/90 rounded-xl px-2.5 py-1.5 shadow-xs group-hover:scale-105 transition-transform flex items-center">
+              <img src="/techno-logo.png" alt="Techno Network Solutions Logo" className="h-7 sm:h-9 lg:h-10 w-auto object-contain" />
             </div>
-            <span className="font-heading font-black text-xs sm:text-base lg:text-lg text-slate-950 tracking-tight whitespace-nowrap uppercase">
-              TECHNO <span className="text-[#12ACE0]">NETWORK</span> SOLUTIONS
-            </span>
           </button>
 
           {/* Mobile Hamburger Menu Button (Visible on screens < 768px) */}
