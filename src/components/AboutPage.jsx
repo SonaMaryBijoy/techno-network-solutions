@@ -174,7 +174,7 @@ export default function AboutPage() {
         <div className="my-24 sm:my-32 font-sans">
           <div className="text-center max-w-6xl mx-auto mb-10 min-h-[56px] overflow-hidden whitespace-nowrap flex items-center justify-center">
             <TextType
-              text="12+ YEARS OF ENTERPRISE DELIVERY"
+              text="16+ YEARS OF ENTERPRISE DELIVERY"
               typingSpeed={35}
               loop={false}
               startOnVisible={true}
@@ -187,7 +187,7 @@ export default function AboutPage() {
 
           <div className="grid grid-cols-2 md:grid-cols-5 gap-4 font-sans">
             <div className="p-4 bg-white/80 rounded-xl border border-slate-200/80 text-center shadow-xs">
-              <span className="text-2xl sm:text-3xl font-display font-black text-[#12ACE0] block">12+</span>
+              <span className="text-2xl sm:text-3xl font-display font-black text-[#12ACE0] block">16+</span>
               <span className="text-[11px] font-mono font-bold text-slate-600 uppercase mt-1 block">Years Delivering</span>
             </div>
             <div className="p-4 bg-white/80 rounded-xl border border-slate-200/80 text-center shadow-xs">

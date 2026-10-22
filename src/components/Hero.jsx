@@ -24,7 +24,7 @@ export default function Hero({ onOpenQuote }) {
   }, [taglines.length]);
 
   const stats = [
-    { from: 0, to: 12, suffix: '+', label: 'YEARS DELIVERING' },
+    { from: 0, to: 16, suffix: '+', label: 'YEARS DELIVERING' },
     { from: 0, to: 40, suffix: '+', label: 'IN-HOUSE ENGINEERS' },
     { from: 0, to: 10, suffix: 'L+', label: 'COPPER NODES' },
     { from: 0, to: 25, suffix: 'K+', label: 'FIBER CONNECTIONS' },
@@ -97,7 +97,7 @@ export default function Hero({ onOpenQuote }) {
 
           {/* Subhead Lead */}
           <p className="text-slate-200 text-sm sm:text-lg lg:text-xl font-medium leading-relaxed mb-6 sm:mb-8 max-w-2xl drop-shadow font-sans">
-            Structured cabling, networking, CCTV, security and AV infrastructure — designed, terminated, tested and supported by a <strong className="text-[#12ACE0] font-bold">40+ person in-house team</strong> with <strong className="text-white font-extrabold">12+ years</strong> on live enterprise sites across India.
+            Structured cabling, networking, CCTV, security and AV infrastructure — designed, terminated, tested and supported by a <strong className="text-[#12ACE0] font-bold">40+ person in-house team</strong> with <strong className="text-white font-extrabold">16+ years</strong> on live enterprise sites across India.
           </p>
 
           {/* Share your Query Button — Logo Sky Blue #12ACE0 */}
