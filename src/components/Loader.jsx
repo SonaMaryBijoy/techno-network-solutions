@@ -113,7 +113,7 @@ export default function Loader({ onFinish, onComplete }) {
         
         {/* Glass Card for Logo */}
         <div className="mb-5 sm:mb-6">
-          <div className="px-5 py-3.5 sm:px-6 sm:py-4 rounded-2xl bg-white/95 border border-purple-500/50 shadow-[0_0_35px_rgba(152,90,192,0.45)] flex items-center justify-center relative backdrop-blur-xl">
+          <div className="px-5 py-3.5 sm:px-6 sm:py-4 rounded-2xl bg-slate-900/80 border border-purple-500/50 shadow-[0_0_35px_rgba(152,90,192,0.45)] flex items-center justify-center relative backdrop-blur-xl">
             <img src="/techno-logo.png" alt="Techno Network Solutions Logo" className="h-10 sm:h-14 w-auto object-contain" />
           </div>
         </div>

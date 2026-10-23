@@ -64,7 +64,7 @@ export default function Hero({ onOpenQuote }) {
           
           {/* Eyebrow Header with Official Logo */}
           <div className="flex flex-wrap items-center gap-2.5 sm:gap-3 mb-5 sm:mb-6 font-sans">
-            <div className="px-3 sm:px-4 py-1.5 sm:py-2 rounded-xl bg-white/95 backdrop-blur-md border border-white/50 shadow-xl inline-flex items-center">
+            <div className="inline-flex items-center">
               <img src="/techno-logo.png" alt="Techno Network Solutions Logo" className="h-7 sm:h-9 w-auto object-contain" />
             </div>
             

@@ -11,7 +11,7 @@ export default function Footer({ onNavigate, onOpenQuote }) {
   };
 
   return (
-    <footer className="bg-slate-50 border-t border-slate-200 text-slate-600 pt-12 sm:pt-16 pb-10 sm:pb-12 font-mono text-xs">
+    <footer className="bg-slate-900 border-t border-white/10 text-slate-400 pt-12 sm:pt-16 pb-10 sm:pb-12 font-mono text-xs">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Top Footer Grid */}
@@ -20,7 +20,7 @@ export default function Footer({ onNavigate, onOpenQuote }) {
           {/* Col 1: Brand Info */}
           <div className="sm:col-span-2 space-y-3.5">
             <div className="flex items-center gap-3">
-              <div className="bg-white border border-slate-200 rounded-xl px-3 py-2 shadow-sm inline-flex items-center">
+              <div className="inline-flex items-center">
                 <img src="/techno-logo.png" alt="Techno Network Solutions Logo" className="h-7 sm:h-9 w-auto object-contain" />
               </div>
             </div>
